@@ -1,0 +1,59 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+menuentry 'Dados sda2' {
+        insmod part_msdos
+        insmod ntfs
+        set root='hd0,msdos2'
+        chainloader +1
+}
+menuentry 'Gentoo KDE 4 sda5' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos5'
+        chainloader +1
+}
+menuentry 'Arch sda6' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos6'  
+        chainloader +1
+}
+menuentry 'Boot sda7' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos7'
+        chainloader +1
+}
+menuentry 'Gentoo Plasma 5 sda8' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos8'
+        chainloader +1
+}
+menuentry 'Fedora sda9' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos9'
+        chainloader +1
+
+}
+menuentry 'Manjaro XFCE sda10' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos10'
+        chainloader +1
+
+}
+ 
+
+menuentry 'Manjaro Plasma 5 sda11' {
+        insmod part_msdos
+        insmod ext2
+        set root='hd0,msdos11'
+        chainloader +1
+
+}
+
