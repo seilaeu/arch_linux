@@ -38,7 +38,6 @@ menuentry 'Fedora sda9' {
         insmod ext2
         set root='hd0,msdos9'
         chainloader +1
-
 }
 menuentry 'Manjaro XFCE sda10' {
         insmod part_msdos
@@ -47,8 +46,6 @@ menuentry 'Manjaro XFCE sda10' {
         chainloader +1
 
 }
- 
-
 menuentry 'Manjaro Plasma 5 sda11' {
         insmod part_msdos
         insmod ext2
