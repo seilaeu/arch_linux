@@ -2,7 +2,7 @@
 pacman -S libreoffice-fresh libreoffice-fresh-pt &&
 
 # Multimedia
-pacman -S audacious vlc zip &&
+pacman -S audacious vlc &&
 
 # Utilitários
 pacman -S unzip unrar p7zip rpmextract &&
