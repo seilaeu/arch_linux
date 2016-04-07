@@ -1,1 +1,1 @@
-pacman -S leafpad gvfs xfce4-whiskermenu-plugin numix-themes thunar-archive-plugin gvfs
+pacman -S leafpad gvfs xfce4-whiskermenu-plugin numix-themes thunar-archive-plugin gvfs gparted
