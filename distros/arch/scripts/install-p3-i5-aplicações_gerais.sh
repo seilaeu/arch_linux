@@ -19,6 +19,9 @@ sudo pacman -S gimp
 # yaourt
 pacman -S yaourt &&
 
+# Sistema
+pacman -S hfsprogs
+
 # Pacotes AUR
 yaourt -S google-chrome &&
 yaourt -S hunspell-pt_pt &&
