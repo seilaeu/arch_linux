@@ -31,6 +31,7 @@ yaourt -S packer &&
 yaourt -S mugshot &&
 yapurt -S antu-icon-theme-git &&
 yaourt -S jre &&
+yaourt -S ttf-ms-fonts &&
 yaourt -S cairo-ubuntu &&
 yaourt -S fontconfig-ubuntu &&
 yaourt -S freetype2-ubuntu &&
