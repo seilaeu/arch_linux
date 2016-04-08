@@ -19,6 +19,7 @@ ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime &&
 hwclock --systohc --utc &&
 
 # Pacman
+echo '' >> /etc/pacman.conf && 
 echo 'Color' >> /etc/pacman.conf && 
 echo 'ILoveCandy' >> /etc/pacman.conf && 
 echo 'CheckSpace' >> /etc/pacman.conf &&
