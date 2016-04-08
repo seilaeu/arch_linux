@@ -28,6 +28,7 @@ yaourt -S hunspell-pt_pt &&
 yaourt -S engrampa-thunar &&
 yaourt -S gimp-plugin-resynthesizer-git &&
 yaourt -S packer &&
+yaourt -S mugshot &&
 yapurt -S antu-icon-theme-git &&
 yaourt -S jre
 
