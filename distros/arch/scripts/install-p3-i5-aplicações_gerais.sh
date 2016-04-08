@@ -30,5 +30,8 @@ yaourt -S gimp-plugin-resynthesizer-git &&
 yaourt -S packer &&
 yaourt -S mugshot &&
 yapurt -S antu-icon-theme-git &&
-yaourt -S jre
+yaourt -S jre &&
+yaourt -S cairo-ubuntu &&
+yaourt -S fontconfig-ubuntu &&
+yaourt -S freetype2-ubuntu &&
 
