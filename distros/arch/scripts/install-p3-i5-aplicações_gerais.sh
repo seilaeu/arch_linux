@@ -34,4 +34,9 @@ yaourt -S jre &&
 yaourt -S cairo-ubuntu &&
 yaourt -S fontconfig-ubuntu &&
 yaourt -S freetype2-ubuntu &&
+yaourt -S fontconfig-ttf-ms-fonts &&
+yaourt -S pamac-aur &&
 
+# Remoções
+pacman -R reiserfsprogs
+pacman -R xfsprogs
