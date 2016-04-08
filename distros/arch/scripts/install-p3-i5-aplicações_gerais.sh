@@ -37,7 +37,8 @@ yaourt -S fontconfig-ubuntu &&
 yaourt -S freetype2-ubuntu &&
 yaourt -S fontconfig-ttf-ms-fonts &&
 yaourt -S pamac-aur &&
+yaourt -S faenza-cupertino-icon-theme &&
 
 # Remoções
 pacman -R reiserfsprogs &&
-pacman -R xfsprogs
+pacman -R xfsprogs 
