@@ -8,7 +8,7 @@ pacman -S audacious vlc alsa-utils &&
 pacman -S unzip unrar p7zip rpmextract &&
 
 # Tipos de letras
-pacman -S terminus-font ttf-bitstream-vera ttf-freefont ttf-liberation ttf-droid &&
+pacman -S terminus-font ttf-bitstream-vera ttf-freefont ttf-liberation ttf-droid ttf-ubuntu-font-family &&
 
 # Internet
 sudo pacman -S firefox firefox-i18n-pt-pt flashplugin qbittorrent wget xchat amule 
