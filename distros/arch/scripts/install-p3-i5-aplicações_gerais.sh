@@ -20,7 +20,7 @@ sudo pacman -S gimp
 pacman -S yaourt &&
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs
+pacman -S hfsprogs ncdu hfsprogs cronie
 
 # Pacotes AUR
 yaourt -S google-chrome &&
