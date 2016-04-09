@@ -29,7 +29,7 @@ yaourt -S engrampa-thunar &&
 yaourt -S gimp-plugin-resynthesizer-git &&
 yaourt -S packer &&
 yaourt -S mugshot &&
-yapurt -S antu-icon-theme-git &&
+yaourt -S antu-icon-theme-git &&
 yaourt -S jre &&
 yaourt -S ttf-ms-fonts &&
 yaourt -S cairo-ubuntu &&
