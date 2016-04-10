@@ -20,7 +20,7 @@ sudo pacman -S gimp
 pacman -S yaourt &&
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie
+pacman -S hfsprogs ncdu hfsprogs cronie subversion
 
 # Remoções
 pacman -R reiserfsprogs &&
