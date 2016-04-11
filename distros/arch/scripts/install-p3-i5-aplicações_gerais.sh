@@ -20,7 +20,7 @@ sudo pacman -S firefox firefox-i18n-pt-pt flashplugin qbittorrent wget xchat amu
 sudo pacman -S gimp &&
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion &&
+pacman -S hfsprogs ncdu hfsprogs cronie subversion linux-headers &&
 
 # yaourt
 pacman -S yaourt 
