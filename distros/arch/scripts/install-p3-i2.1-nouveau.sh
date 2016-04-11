@@ -1,6 +1,6 @@
 # Nouveau
 
-pacman -S xf86-video-nouveau lib32-mesa-libgl
+pacman -S xf86-video-nouveau lib32-mesa-libgl lib32-mesa-demos
 echo 'Adicionar "nouveau" na linha "Modules" em /etc/mkinitcpio.conf' &&
 sleep 7 &&
 nano /etc/mkinitcpio.conf &&
