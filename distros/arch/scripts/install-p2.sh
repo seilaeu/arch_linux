@@ -73,9 +73,9 @@ sleep 3 &&
 
 # Sair da raiz /mnt, desmontá-la e reiniciar o computador
 
-exit && 
-exit && 
-exit &&
+exit 
+exit 
+exit 
 sleep 3 &&
 umount -Rl /mnt &&
 sleep 3 &&
