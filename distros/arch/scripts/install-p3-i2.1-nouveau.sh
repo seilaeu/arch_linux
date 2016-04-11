@@ -2,7 +2,7 @@
 
 pacman -S xf86-video-nouveau lib32-mesa-libgl
 echo 'Adicionar "nouveau" na linha "Modules" em /etc/mkinitcpio.conf' &&
-sleep 10 &&
+sleep 7 &&
 nano /etc/mkinitcpio.conf &&
 sudo mkinitcpio -p linux &&
 echo 'Section "Device"' > /etc/X11/xorg.conf.d/20-nouveau.conf &&
