@@ -19,8 +19,8 @@ sudo pacman -S firefox firefox-i18n-pt-pt flashplugin qbittorrent wget xchat amu
 # Gráficos
 sudo pacman -S gimp &&
 
-# yaourt
-pacman -S yaourt &&
-
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion 
+pacman -S hfsprogs ncdu hfsprogs cronie subversion &&
+
+# yaourt
+pacman -S yaourt 
