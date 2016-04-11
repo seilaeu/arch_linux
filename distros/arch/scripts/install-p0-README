@@ -3,6 +3,8 @@ Subsituir sdaX por sda3, sda5 ou sda7... :
 # Geral
 sed -i ‘s/palavra_original/palavra_desejada/g’ ficheiro.txt
 
-# Particular
-sed -i ‘s/sdaX/sda?/g’ install-p1.sh
-sed -i ‘s/sdaX/sda?/g’ install-p2.sh
+# Base Install
+sed -i 's/sdaX/sda?/g' install-p1.sh
+
+# Bootloader
+sed -i 's/sdaX/sda?/g' install-p2.sh
