@@ -10,18 +10,17 @@ pacman -S unzip unrar p7zip rpmextract &&
 # Tipos de letras
 pacman -S terminus-font ttf-bitstream-vera ttf-freefont ttf-liberation ttf-droid ttf-ubuntu-font-family opendesktop-fonts &&
 
+# Temas
+pacman -S numix-themes &&
+
 # Internet
-sudo pacman -S firefox firefox-i18n-pt-pt flashplugin qbittorrent wget xchat amule 
+sudo pacman -S firefox firefox-i18n-pt-pt flashplugin qbittorrent wget xchat amule &&
 
 # Gráficos
-sudo pacman -S gimp
+sudo pacman -S gimp &&
 
 # yaourt
 pacman -S yaourt &&
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion
-
-# Remoções
-pacman -R reiserfsprogs &&
-pacman -R xfsprogs 
+pacman -S hfsprogs ncdu hfsprogs cronie subversion 
