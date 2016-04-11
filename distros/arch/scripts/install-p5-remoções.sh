@@ -1,3 +1,2 @@
 # Remoções
-pacman -R reiserfsprogs &&
-pacman -R xfsprogs 
+pacman -R reiserfsprogs xfsprogs 
