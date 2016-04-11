@@ -76,7 +76,6 @@ sleep 3 &&
 exit 
 exit 
 exit 
-sleep 3 &&
 umount -Rl /mnt &&
 sleep 3 &&
 reboot
