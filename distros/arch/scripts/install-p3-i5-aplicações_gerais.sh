@@ -24,7 +24,7 @@ pacman -S linux-headers &&
 pacman -S virtualbox
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion  &&
+pacman -S hfsprogs ncdu hfsprogs cronie subversion gksu &&
 
 # yaourt
 pacman -S yaourt 
