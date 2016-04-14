@@ -28,7 +28,7 @@ mkfs.ext4 /dev/sdaX &&
 e2label /dev/sdaX arch &&
 
 blkid &&
-sleep 10 &&
+sleep 7 &&
 
 # Montar raiz em /mnt
 
@@ -41,7 +41,7 @@ elif [[ ! -d /mnt ]]; then
 fi
 mount /dev/sdaX /mnt
 df -h &&
-sleep 10 &&
+sleep 7 &&
 
 # Sites espelho
 #echo "descomentar servidores portugueses em /etc/pacman.d/mirrorlist" &&
