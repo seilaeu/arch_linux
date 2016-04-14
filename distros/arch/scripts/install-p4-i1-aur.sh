@@ -15,4 +15,5 @@ yaourt -S fontconfig-ttf-ms-fonts &&
 yaourt -S pamac-aur &&
 yaourt -S faenza-cupertino-icon-theme &&
 gpg --keyserver http://pgp.mit.edu:11371 --recv-keys CDBD406AA1AA7A1D &&
-yaourt -S numix-frost-themes 
+yaourt -S numix-frost-themes &&
+yaourt -S xame
