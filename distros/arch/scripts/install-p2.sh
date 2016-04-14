@@ -65,14 +65,4 @@ nano /etc/sudoers &&
 
 # Activar a rede
 
-systemctl enable dhcpcd.service &&
-sleep 3 &&
-
-# Sair da raiz /mnt, desmontá-la e reiniciar o computador
-
-exit 
-exit 
-exit 
-umount -Rl /mnt &&
-sleep 3 &&
-reboot
+systemctl enable dhcpcd.service 
