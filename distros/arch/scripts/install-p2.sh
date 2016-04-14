@@ -26,9 +26,6 @@ echo '' >> /etc/pacman.conf &&
 echo '[archlinuxfr]' >> /etc/pacman.conf && 
 echo 'SigLevel = Never' >> /etc/pacman.conf && 
 echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf && 
-echo '' >> /etc/pacman.conf && 
-echo 'Color' >> /etc/pacman.conf && 
-echo 'ILoveCandy' >> /etc/pacman.conf && 
 
 # Hostname
 
