@@ -1,7 +1,7 @@
 Subsituir sdaX por sda3, sda5 ou sda7 nos dois scripts abaixo:
 
 # Base Install
-sed -i 's/sdaX/sda?/g' install-p1.sh
+install-p1.sh
 
 # Bootloader
 sed -i 's/sdaX/sda?/g' install-p2.sh
