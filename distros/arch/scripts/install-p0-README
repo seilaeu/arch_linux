@@ -1,7 +1,4 @@
-Subsituir sdaX por sda3, sda5 ou sda7... :
-
-# Geral
-sed -i ‘s/palavra_original/palavra_desejada/g’ ficheiro.txt
+Subsituir sdaX por sda3, sda5 ou sda7 nos dois scripts abaixo:
 
 # Base Install
 sed -i 's/sdaX/sda?/g' install-p1.sh
