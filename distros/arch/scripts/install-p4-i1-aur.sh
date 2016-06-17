@@ -5,12 +5,8 @@ yaourt -S engrampa-thunar &&
 yaourt -S gimp-plugin-resynthesizer-git &&
 yaourt -S packer &&
 yaourt -S mugshot &&
-yaourt -S antu-icon-theme-git &&
 yaourt -S jre &&
 yaourt -S ttf-ms-fonts &&
-yaourt -S cairo-ubuntu &&
-yaourt -S fontconfig-ubuntu &&
-yaourt -S freetype2-ubuntu &&
 yaourt -S fontconfig-ttf-ms-fonts &&
 yaourt -S pamac-aur &&
 yaourt -S faenza-cupertino-icon-theme &&
