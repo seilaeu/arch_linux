@@ -5,7 +5,7 @@ pacman -S libreoffice-fresh libreoffice-fresh-pt &&
 pacman -S audacious vlc alsa-utils pulseaudio pulseaudio-alsa pavucontrol &&
 
 # Utilitários
-pacman -S unzip unrar p7zip rpmextract &&
+pacman -S zip unzip unrar p7zip rpmextract &&
 
 # Tipos de letras
 pacman -S terminus-font ttf-bitstream-vera ttf-freefont ttf-liberation ttf-droid ttf-ubuntu-font-family opendesktop-fonts &&
