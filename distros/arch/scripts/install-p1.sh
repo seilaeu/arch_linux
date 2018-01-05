@@ -4,7 +4,9 @@ loadkeys pt-latin9 &&
 
 # Formatar partição raiz
 
-# Importante!!! Mudar sdaX para a partição alvo
+################################################
+# Importante!!! Mudar sdaX para a partição alvo#
+################################################
 
 # BTRFS
 
@@ -20,7 +22,9 @@ loadkeys pt-latin9 &&
 #btrfs sub create /media/arch/activo/raiz &&
 #umount -l /media/arch &&
 
-# Importante!!! Mudar sdaX para a partição alvo
+################################################
+# Importante!!! Mudar sdaX para a partição alvo#
+################################################
 
 # EXT4
 
@@ -32,7 +36,9 @@ sleep 7 &&
 
 # Montar raiz em /mnt
 
-# Importante!!! Mudar sdaX para a partição alvo
+################################################
+# Importante!!! Mudar sdaX para a partição alvo#
+################################################
 
 if [[ ! -e /mnt ]]; then 
     mkdir /mnt
