@@ -2,7 +2,7 @@
 pacman -S libreoffice-fresh libreoffice-fresh-pt &&
 
 # Multimedia
-pacman -S vlc alsa-utils pulseaudio pulseaudio-alsa pavucontrol spotify &&
+pacman -S vlc alsa-utils pulseaudio pulseaudio-alsa pavucontrol spotify mplayer &&
 
 # Utilitários
 pacman -S zip unzip unrar p7zip rpmextract &&
@@ -24,7 +24,7 @@ pacman -S linux-headers &&
 pacman -S virtualbox
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion gksu git &&
+pacman -S hfsprogs ncdu hfsprogs cronie subversion gksu git mlocate &&
 
 # yaourt
 pacman -S yaourt 
