@@ -24,7 +24,7 @@ pacman -S linux-headers &&
 pacman -S virtualbox
 
 # Sistema
-pacman -S hfsprogs ncdu hfsprogs cronie subversion gksu git mlocate &&
+pacman -S hfsprogs ncdu hfsprogs cronie subversion gksu git mlocate aspell-pt hunspell-pt_pt &&
 
 # yaourt
 pacman -S yaourt 
