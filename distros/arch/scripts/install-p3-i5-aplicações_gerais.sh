@@ -2,7 +2,7 @@
 pacman -S libreoffice-fresh libreoffice-fresh-pt &&
 
 # Multimedia
-pacman -S audacious vlc alsa-utils pulseaudio pulseaudio-alsa pavucontrol &&
+pacman -S vlc alsa-utils pulseaudio pulseaudio-alsa pavucontrol &&
 
 # Utilitários
 pacman -S zip unzip unrar p7zip rpmextract &&
