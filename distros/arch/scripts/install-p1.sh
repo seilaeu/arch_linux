@@ -1,3 +1,4 @@
+#/bin/bash
 # Teclado
 
 loadkeys pt-latin9 &&
@@ -5,22 +6,30 @@ loadkeys pt-latin9 &&
 # Formatar partição raiz
 
 ################################################
-# Importante!!! Mudar sdaX para a partição alvo#
+#                Importante!!!                 #              # 
+#  Mudar /dev/pclvm/arch? para a partição alvo #
 ################################################
+#     | |
+#     v v
+
+
 
 # BTRFS
 
-#mkfs.btrfs -f -L "arch" /dev/sdaX &&
+mkfs.btrfs -f -L "arch" /dev/pclvm/arch? &&
 
 # Criar directorias (activo e reserva) e subvolume raiz
 
-#mkdir -p /media/arch &&
+mkdir -p /media/arch &&
+
 ##Mudar sdaX para a partição alvo
-#mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /media/arch &&
-#mkdir -p /media/arch/reserva &&
-#mkdir -p /media/arch/activo &&
-#btrfs sub create /media/arch/activo/raiz &&
-#umount -l /media/arch &&
+
+mount -o rw,suid,dev,exec,auto,nouser,async,noatime,autodefrag,compress=lzo /dev/pclvm/arch? /media/arch &&
+mkdir -p /media/arch/__reserva &&
+mkdir -p /media/arch/__activo &&
+btrfs sub create /media/arch/__activo/raiz &&
+umount -l /media/arch &&
+sleep 7 &&
 
 ################################################
 # Importante!!! Mudar sdaX para a partição alvo#
@@ -28,11 +37,10 @@ loadkeys pt-latin9 &&
 
 # EXT4
 
-mkfs.ext4 /dev/sdaX &&
-e2label /dev/sdaX arch &&
+#mkfs.ext4 /dev/sdaX &&
+#e2label /dev/sdaX arch &&
 
-blkid &&
-sleep 7 &&
+#blkid &&
 
 # Montar raiz em /mnt
 
