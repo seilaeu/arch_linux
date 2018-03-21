@@ -19,9 +19,9 @@ ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime &&
 hwclock --systohc --utc &&
 
 # Pacman
-echo '' >> /etc/pacman.conf &&
-echo '[multilib]' >> /etc/pacman.conf && 
-echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf && 
+#echo '' >> /etc/pacman.conf &&
+#echo '[multilib]' >> /etc/pacman.conf && 
+#echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf && 
 echo '' >> /etc/pacman.conf &&
 echo '[archlinuxfr]' >> /etc/pacman.conf && 
 echo 'SigLevel = Never' >> /etc/pacman.conf && 
