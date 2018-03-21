@@ -1,4 +1,4 @@
-# Localização
+ linux/distros/arch/scripts/install-p2-i1.sh # Localização
 
 echo "pt_PT.UTF-8 UTF-8" > /etc/locale.gen &&
 locale-gen && 
