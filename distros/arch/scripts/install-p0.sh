@@ -1,6 +1,10 @@
+#/bin/bash
+
+# Teclado
 loadkeys pt-latin9 
 
 # BTRFS e LVM
+
 # Verificar o valor das variáveis vg, lv e xy. 
 
 # Volume group name
@@ -13,7 +17,8 @@ lv=arch
 device=/dev/$vg/$lv
 
 # Logical volume size in Megabites or Gygabites
-xy=20G
+xy=20G#/bin/bash
+# Teclado
 
 lvcreate -L$xy -n $lv $vg
 
