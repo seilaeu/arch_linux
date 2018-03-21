@@ -1,3 +1,5 @@
+loadkeys pt-latin9 
+
 # BTRFS e LVM
 # Verificar o valor das variáveis vg, lv e xy. 
 
