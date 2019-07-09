@@ -1,0 +1,97 @@
+Systemd 
+=======
+
+Mostrar unidades instaladas: sudo systemctl list-<unidade>-files
+
+Activar uma unidade: sudo systemctl start <unidade>
+
+Desactivar uma unidade: sudo systemctl stop <unidade>
+
+Reiniciar uma unidade: sudo systemctl restart <unidade>
+
+Recarregar a configuração de uma unidade: sudo systemctl reload <unidade>
+
+Mostrar o estado de uma unidade: sudo systemctl status <unidade>
+
+Verificar se uma unidade está ou não activada: sudo systemctl is-enabled <unidade>
+
+Activar o iní­­cio de uma unidade no arranque: sudo systemctl enable <unidade>
+
+Desactivar o iní­­cio de uma unidade no arranque: sudo systemctl disable <unidade>
+
+Mostra a página de ajuda de uma unidade: sudo systemctl help <unidade>
+
+Recarrega o systemd pesquisando por novas ou alteradas unidades: sudo systemctl daemon-reload
+
+Instalação manual:
+ln -s /usr/lib/systemd/system/foo.service /etc/systemd/system/graphical.target.wants/
+
+Nota: Substituir foo pelo nome do serviço.
+
+Reiniciar o sistema:
+
+$ systemctl reboot
+
+Desligar o sistema:
+
+$ systemctl poweroff
+
+Suspender o sistema:
+
+$ systemctl suspend
+
+Por o sistema em hibernação:
+
+$ systemctl hibernate
+
+Por o sistema em estado hiybrid-sleep:
+
+$ systemctl hybrid-sleep
+
+sudo systemd-analyze blame
+
+
+Ler os registos do systemd:
+journalctl
+
+$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
+[Journal]
+Storage=persistent
+Compress=yes
+MaxFileSec=1 day
+MaxRetentionSec=1 week
+SystemMaxUse=100M
+SystemMaxFileSize=30M
+RuntimeMaxUse=75M
+RuntimeMaxFileSize=30M
+EOF
+
+sudo systemctl disable lvm2-monitor.service
+sudo systemctl disable lvm2-lvmetad.service
+sudo systemctl disable avahi-daemon.service
+sudo systemctl disable dmraid-activation.service
+sudo systemctl disable livesys-late.service
+sudo systemctl disable livesys.service
+sudo systemctl disable sendmail.service
+sudo systemctl disable sm-client.service
+sudo systemctl disable rpcbind.service
+
+
+$ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF' 
+[Manager]
+DefaultTimeoutStopSec=10s
+EOF
+
+
+Core dump
+=========
+
+Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
+
+$ sudo nano /etc/systemd/coredump.conf
+Storage=none
+
+$ sudo systemctl daemon-reload
+
+$ sudo nano /etc/security/limits.conf
+* hard core 0
