@@ -1,7 +1,7 @@
 Systemd 
 =======
 
-Mostrar unidades instaladas: sudo systemctl list-<unidade>-files
+Mostrar unidades instaladas: sudo systemctl list-unit-files
 
 Activar uma unidade: sudo systemctl start <unidade>
 
@@ -9,24 +9,24 @@ Desactivar uma unidade: sudo systemctl stop <unidade>
 
 Reiniciar uma unidade: sudo systemctl restart <unidade>
 
-Recarregar a configuração de uma unidade: sudo systemctl reload <unidade>
+Recarregar a configuraÃ§Ã£o de uma unidade: sudo systemctl reload <unidade>
 
 Mostrar o estado de uma unidade: sudo systemctl status <unidade>
 
-Verificar se uma unidade está ou não activada: sudo systemctl is-enabled <unidade>
+Verificar se uma unidade estÃ¡ ou nÃ£o activada: sudo systemctl is-active <unidade>
 
-Activar o iní­­cio de uma unidade no arranque: sudo systemctl enable <unidade>
+Activar o inÃ­Â­Â­cio de uma unidade no arranque: sudo systemctl enable <unidade>
 
-Desactivar o iní­­cio de uma unidade no arranque: sudo systemctl disable <unidade>
+Desactivar o inÃ­Â­Â­cio de uma unidade no arranque: sudo systemctl disable <unidade>
 
-Mostra a página de ajuda de uma unidade: sudo systemctl help <unidade>
+Mostra a pÃ¡gina de ajuda de uma unidade: sudo systemctl help <unidade>
 
 Recarrega o systemd pesquisando por novas ou alteradas unidades: sudo systemctl daemon-reload
 
-Instalação manual:
+InstalaÃ§Ã£o manual:
 ln -s /usr/lib/systemd/system/foo.service /etc/systemd/system/graphical.target.wants/
 
-Nota: Substituir foo pelo nome do serviço.
+Nota: Substituir foo pelo nome do serviÃ§o.
 
 Reiniciar o sistema:
 
@@ -40,7 +40,7 @@ Suspender o sistema:
 
 $ systemctl suspend
 
-Por o sistema em hibernação:
+Por o sistema em hibernaÃ§Ã£o:
 
 $ systemctl hibernate
 
@@ -86,7 +86,7 @@ EOF
 Core dump
 =========
 
-Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
+Utilizam muito espaÃ§o no disco rigÃ­Â­do por esse motivo desactivamo-los
 
 $ sudo nano /etc/systemd/coredump.conf
 Storage=none
