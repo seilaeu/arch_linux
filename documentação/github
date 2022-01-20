@@ -24,5 +24,5 @@ $ sudo git add --all
 $ sudo git commit -m "add new files"
 $ sudo git push -u origin master
 
-Token:
+
 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
