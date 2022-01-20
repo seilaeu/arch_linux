@@ -23,6 +23,3 @@ $ git status
 $ sudo git add --all
 $ sudo git commit -m "add new files"
 $ sudo git push -u origin master
-
-
-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
