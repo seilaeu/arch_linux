@@ -1,0 +1,11 @@
+### Criar uma listagem de pacotes instalados: 
+
+rpm -qa --queryformat '%{NAME}\n' > pacotes-instalados-fedora
+
+rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n"
+
+rpm -qa --qf '%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH} | %{INSTALLTIME:date} | %{SUMMARY}\n' | sort -f
+
+rpm -qa | sort > lista-de-pacotes-instalados.txt
+
+Mai em breve

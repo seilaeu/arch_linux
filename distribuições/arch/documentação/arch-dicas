@@ -1,0 +1,61 @@
+Comando que cria um atalho para actualizar o sistema:
+
+konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
+
+Reinstalar o Arch Linux 
+=======================
+
+Obter a listagem dos pacotes instalados explicitamente que não são requeridos, como dependentes, a qualquer pacote instalado:
+
+    pacman -Qqet > pacotes-instalados
+
+Reinstalar o sistema:
+
+    Reinstalar utilizando a media favorita de instalação. Define todos os teus ficheiros de configuração (a partir de uma cópia de segurança, obviamenteâ€¦). 
+    ( /etc/fstab, networking, etc...)
+    
+    Reinstalar os pacotes:
+
+    pacman -Syy
+    yay -S `cat pacotes-instalados`
+
+Se instalaste pacotes do AUR, deves utilizar o yay em vez do pacman, porque pacman vai falhar ao tentar instalar esses. 
+
+
+Criar cópia de segurança do sistema 
+===================================
+
+Entrar noutro sistema linux ou num live-cd
+
+mount /dev/sdaX /media/arch
+
+sudo tar cvpjf arch-`date +"%d.%m.%Y"`.tar.bz2 -X /mnt/dados/linux/distribuições/arch/documentação/arch.exclusões  /mnt/arch
+
+
+Restaurar cópia de segurança do sistema 
+=======================================
+
+mount /dev/sdaX /media/arch
+
+sudo tar -xjvpf arch*.tar.bz2 -C /media/arch
+
+Em caso de alteração da partição raÃ­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
+
+Restaurar o grub: 
+
+mount -t proc none /media/arch/proc
+mount --rbind /dev /media/arch/dev
+mount --rbind /sys /media/arch/sys
+SHELL=/bin/bash
+chroot /media/arch
+grub2-install --force /dev/sdaX
+grub2-mkconfig -o /boot/grub2/grug.cfg
+
+
+        
+Listar os pacotes votados do AUR
+================================
+
+$ for i in $(pacman -Qqm); do aurvote -c $i; done
+
+$ pacman -Qqm

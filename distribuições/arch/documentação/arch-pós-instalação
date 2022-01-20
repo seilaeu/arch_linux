@@ -1,0 +1,71 @@
+$ sudo chown -R jribeiro:jribeiro /home/jribeiro
+
+$ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
+
+$ ediroot /etc/profile.d/freetype2.sh
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
+
+Optimizar compilações
+=====================
+
+$ ediroot /etc/makepkg.conf
+
+CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"
+CXXFLAGS="${CFLAGS}"
+MAKEFLAGS="-j5"
+BUILDDIR=/tmp/makepkg
+COMPRESSXZ=(xz -c -T 4 -z -)
+
+Criar uma tecla de atalho para a actualização do sistema
+---------------------------------------------------------
+
+$ ediroot /usr/sbin/actualizar
+
+yaourt -Syyua
+echo
+echo "                                Sistema actualizado!"
+read line
+
+
+Sítios espelho - Repositórios de programas
+==========================================
+
+$ sudo nano /usr/bin/mirrors.sh
+#!/bin/bash                                                                                                            
+                                                                                                                       
+reflector --verbose -p https -a2 --sort rate --save /etc/pacman.d/mirrorlist                                                                                     
+pacman -Syy 
+
+
+Editor padrão do sistema
+========================
+
+$ ediroot /etc/environment 
+
+VISUAL=/usr/bin/kate 
+EDITOR=/usr/bin/kate
+
+
+Silenciar o grub
+==============
+
+# nano /etc/grub.d/10_linux 
+
+Remover linhas semelhantes a estas:
+message="$(gettext_printf "Loading Linux %s ..." ${version})"
+echo	'$(echo "$message" | grub_quote)'
+
+message="$(gettext_printf "Loading initial ramdisk ...")"
+echo	'$(echo "$message" | grub_quote)'
+
+
+Silenciar o arranque
+====================
+
+$ sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 rd.systemd.show_status=auto rd.udev.log-priority=3"
+
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+$ sudo nano /etc/sysctl.d/20-quiet-printk.conf
+kernel.printk = 3 3 3 3

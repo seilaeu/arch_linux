@@ -1,0 +1,83 @@
+########################################
+# Criar ficheiro de pacotes instalados #
+########################################
+
+rpm -qa --queryformat '%{NAME}\n' > pacotes-instalados-fedora-`date +"%Y.%m.%d"`
+
+rpm -qa --qf "%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}\n"
+
+rpm --queryformat="%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}: %{INSTALLTIME:date}\n" -qa
+
+
+yum list installed |awk '{print $1}' 
+
+repoquery --qf '%{name}' --installed -a 
+
+#################################
+# Cópia de segurança do sistema #
+#################################
+
+Cria cópia:
+
+sudo mount /dev/sdaX /media/fedora
+sudo tar cjvf fedora-20-`date +"%Y.%m.%d"`.tar.bz2 -X /media/dados/linux/distribuições/fedora/documentação/fedora.exclusões  /media/fedora
+
+
+Restaurar cópia:
+
+tar -xjvpf Fedora-19*.tar.bz2 -C /directorio/de/destino
+
+Em caso de alteração da partição raíz, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
+
+
+Restaurar o grub: 
+
+grub2-install --force /dev/sdaX
+grub2-mkconfig -o /boot/grub2/grug.cfg
+
+#####################
+# Limpar duplicados #
+#####################
+
+package-cleanup --cleandupes
+
+
+nano /etc/sysconfig/desktop
+
+DESKTOP="KDE"
+DISPLAYMANAGER="KDE"
+
+
+##########################
+# Desabilitar  o SELinux #
+##########################
+
+nano /etc/sysconfig/selinux
+
+SELINUX=disabled
+
+
+
+###################
+# Limpar o fedora #
+###################
+
+rm -rf ~/.cache/*
+rm -r ~/.config/chromium/Default/File\ System/*
+rm -r ~/.local/share/akonadi/* 
+rm -r ~/.local/share/Trash/*
+sudo rm -r /.Trash* 
+sudo rm -rf /usr/tmp/*
+sudo rm -rf /var/cache/* 
+sudo rm -rf /var/log/journal/*
+sudo rm -rf /var/tmp/*
+sudo rm -rf /tmp/*
+
+sudo yum clean all
+sudo yum remove kernel
+ls /usr/src/kernels/
+ls /usr/lib/modules/
+sudo package-cleanup --cleandupes
+
+du -sh /var/*
+

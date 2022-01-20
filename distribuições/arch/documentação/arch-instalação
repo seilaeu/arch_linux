@@ -1,0 +1,44 @@
+loadkeys pt-latin9
+mkfs.btrfs -f -L "arch" /dev/sda5
+mkdir -p /media/arch
+mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /media/arch
+mkdir -p /media/arch/__reserva
+mkdir -p /media/arch/__activo
+btrfs sub create /media/arch/__activo/raiz
+umount -l /media/arch
+mount -o defaults,relatime,discard,nodev,subvol=__activo/raiz /dev/sda5 /mnt
+
+#nano /etc/pacman.d/mirrorlist
+#Descomentar os servidores portugueses
+
+pacstrap -i /mnt/ base base-devel
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+echo "pt_PT.UTF-8 UTF-8" > /etc/locale.gen  
+locale-gen
+
+echo "LANG=pt_PT.UTF-8" > /etc/locale.conf
+export LANG=pt_PT.UTF-8
+
+echo "FONT=default8x16" > /etc/vconsole.conf 
+echo "KEYMAP=pt-latin9" >> /etc/vconsole.conf 
+
+ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime 
+
+hwclock --systohc --utc
+
+echo arkosta > /etc/hostname
+
+#pacman -Syu
+
+#useradd -m -G wheel,storage,power,optical,audio,video -s /bin/bash kaparicano
+#passwd kaparicano
+
+# nano /etc/sudoers
+# (Descomentar linha wheel)
+
+#pacman -S grub btrfs-progs os-prober
+#grub-install --target=i386-pc --force /dev/sdaX
+

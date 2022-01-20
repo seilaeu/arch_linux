@@ -1,0 +1,53 @@
+# Ignorar e apagar entradas em duplicado no histórico da bash:
+export HISTCONTROL=ignoreboth:erasedups
+
+# Número máximo de comandos do histórico da bash que serão guardados:
+export HISTSIZE=1000
+
+# Possibilita a execução de comandos ao terminar a sessão na bash, a partir do ficheiro $HOME/.bash_logout
+trap '. $HOME/.bash_logout; exit' 0
+
+
+# Completar os comandos na bash
+complete -cf sudo
+
+
+# Controlo remoto
+alias mãe-conexão-de-partilha="ssh -vv -L 55900:localhost:5900 -i ~/.ssh/jribeiro-manjaro_rsa -p 31970 jribeiro@109.48.239.52"
+alias mãe-visualizar-desktop="vncviewer -x11cursor 127.0.0.1:55900"
+
+alias mãe-acesso-terminal-manjaro="ssh -vv -i ~/.ssh/jribeiro-manjaro_rsa -p 31970 jribeiro@109.48.239.52"
+alias mãe-acesso-terminal-mint="ssh -vv -i ~/.ssh/jribeiro-mint_rsa -p 31970 jribeiro@109.48.239.52"
+alias mãe-acesso-gráfico-manjaro="ssh -t -L 55900:localhost:5900 -i ~/.ssh/jribeiro-manjaro_rsa -p 31970 jribeiro@109.48.239.52 'sudo x11vnc -display :0 -auth /home/kika/.Xauthority -rfbauth /home/kika/.x11vnc/passwd'"
+alias mãe-acesso-gráfico-mint="ssh -t -L 55900:localhost:5900 -i ~/.ssh/jribeiro-mint_rsa -p 31970 jribeiro@109.48.239.52 'sudo x11vnc -display :0 -auth /home/kika/.Xauthority -rfbauth /home/kika/.x11vnc/passwd'"
+
+alias mãe-visualizar-desktop="vncviewer -x11cursor 127.0.0.1:55900"
+
+
+# Visualizei mas mal o Desktop da mãe
+alias mãe-acesso-gráfico-kika="ssh -t -L 5900:localhost:5900 -i ~/.ssh/jribeiro-manjaro_rsa -p 31970 jribeiro@109.48.239.52 'sudo x11vnc -nap -wait 50 -noxdamage -display :0 -forever -auth /home/kika/.Xauthority -rfbauth /home/kika/.x11vnc/passwd'"
+alias mãe-visualizar-desktop-kika='vncviewer -encodings "copyrect tight hextile" localhost:0'
+
+
+alias casa='du -sh ~'
+alias raiz='df -h / '
+alias sistema='df -h'
+alias dados='df -h /dev/pclvm/dados'
+
+alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+#alias orfãos='sudo apt-get autoremove'
+#alias cache='sudo apt-get clean all'
+alias desinstalar='sudo zypper rm'
+#alias desinstalar-simples='sudo pacman -R'
+#alias desinstalar-forçado='sudo pacman -Rdd'
+alias refrescar='sudo zypper ref'
+alias actualizar='sudo zypper update'
+alias procurar='sudo zypper se'
+alias instalar='sudo zypper in'
+#alias questionar='dpkg --list | grep ii | grep'
+#alias desbloquear='sudo rm /var/lib/pacman/db.lck'
+alias edibash='leafpad ~/.bashrc'
+alias ediroot='sudo leafpad'
+#alias purgar='sh /media/dados/linux/distribuições/arch/scripts/limpar-sistema.sh'
+
+screenfetch

@@ -1,0 +1,4 @@
+Rebuild initrd
+--------------
+
+$ sudo mkinitrd

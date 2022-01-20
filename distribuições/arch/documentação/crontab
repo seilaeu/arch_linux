@@ -1,0 +1,25 @@
+Crontab do root
+===============
+
+00,30  * * * *  ID=mirrors FREQ=1h/15m   /usr/sbin/mirrors.sh
+20,50  * * * *  ID=duplicados FREQ=1h/15m  sort -t ";" -u /root/.bash_history | sort -o  /root/.bash_history
+
+Executa o comando a cada 15 minutos:
+*/15 * * * *  ID=rclone FREQ=1h/15m rclone -v sync /home/jribeiro/nuvem/computador/ Nuvem:computador >> /var/log/cronie/rclone 2>&1
+
+
+
+Scripts
+=======
+
+/usr/sbin/mirrors.sh 
+#!/bin/bash
+
+reflector --verbose -p https -a2 --sort rate --save /etc/pacman.d/mirrorlist
+pacman -Syy
+
+
+Crontab de jribeiro
+===================
+
+10,40  * * * *  ID=duplicados  FREQ=1h/15m  sort -t ";" -u /home/jribeiro/.bash_history | sort -o  /home/jribeiro/.bash_history

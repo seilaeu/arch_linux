@@ -1,0 +1,292 @@
+Vídeo no YouTube: https://youtu.be/DqV1BJtJXEA
+
+lista de verificação:
+
+- pelo menos 10GB de espaço livre
+- apenas 64 bits 
+- apagar a cache
+- configure everything as root (sudo is fine)
+- disable auto update if possible
+
+Nota: remover as directorias "work" e "out" sempre que formos construir uma nova ISO
+
+$ sudo pacman -Scc
+$ sudo pacman -S archiso
+
+$ sudo mousepad /usr/bin/mkarchiso 
+adicionar -i, antes de -c, em ambas to both pacstrap lines
+
+$ cd ~
+$ sudo mkdir livecd
+$ sudo cp -r /usr/share/archiso/configs/releng/* $HOME/livecd/
+$ cd livecd
+
+$ sudo mousepad build.sh 
+alterar o nome do ficheiro iso em "iso_name" e em "iso_label", opcional
+remover as quatro i686 (se for apenas para 64 bits)
+subsituir "dual" por x86_64
+remover "zsh"
+
+$ sudo mousepad pacman.conf
+adicionar o repositório multilib e o extra talvez
+
+$ sudo mousepad packages.both 
+adicionar e remover pacotes
+
+Devido à remoção do pacote prebootloader
+========================================
+
+'No ficheiro build.sh'
+
+Procurar por prebootloader e substituí-lo por efitools na linha seguinte:
+
+"setarch ${arch} mkarchiso ${verbose} -w "${work_dir}/${arch}" -C "${work_dir}/pacman.conf" -D "${install_dir}" -p "prebootloader" install}" 
+
+Comentar as outras 4 aparições:
+ 
+#"cp ${work_dir}/x86_64/airootfs/usr/lib/prebootloader/PreLoader.efi ${work_dir}/iso/EFI/boot/bootx64.efi"
+
+#"cp ${work_dir}/x86_64/airootfs/usr/lib/prebootloader/HashTool.efi ${work_dir}/iso/EFI/boot/"
+
+#"cp ${work_dir}/x86_64/airootfs/usr/lib/prebootloader/PreLoader.efi ${work_dir}/efiboot/EFI/boot/bootx64.efi"
+
+#"cp ${work_dir}/x86_64/airootfs/usr/lib/prebootloader/HashTool.efi ${work_dir}/efiboot/EFI/boot/"
+
+Devido à remoção do comando mkfs.vfat do pacote dosfstools
+==========================================================
+
+'No ficheiro build.sh'
+
+Procurar por "mkfs.vfat" e substituí-lo por "mkfs.fat -F32" na linha seguinte:
+
+mkfs.vfat -n ARCHISO_EFI ${work_dir}/iso/EFI/archiso/efiboot.img
+
+
+remover:
+crda
+darkhttpd
+elinks
+gnu-netcat
+grml-zsh-config
+linux-atm
+mc
+openvpn
+
+adicionar:
+alsa-utils
+atril-xfce
+audacious
+engrampa-thunar
+flashplugin
+fontconfig-ttf-ms-fonts
+galculator
+gparted
+grub
+gtk-xfce-engine
+guvcview
+hunspell-pt_pt
+hwinfo
+k3b
+kde-l10n-pt
+kmymoney
+lib32-mesa-demos
+libreoffice-fresh-pt
+menulibre
+mousepad
+nano
+ncdu
+pavucontrol
+reflector
+ristretto
+terminus-font
+tigervnc
+vibrancy-colors
+vlc
+wget
+xf86-video-nouveau
+xfce4-appfinder
+xfce4-clipman-plugin
+xfce4-mixer
+xfce4-mount-plugin
+xfce4-session
+xfce4-settings
+xfce4-taskmanager
+xfce4-terminal
+xfce4-weather-plugin
+xfce4-whiskermenu-plugin
+xfdesktop
+xfwm4-themes
+xorg-server
+xorg-server-utils
+xorg-xkill
+
+
+$ sudo mousepad airootfs/root/customize_airootfs.sh 
+alterar a linha usermod, substituindo zsh por bash
+
+# add user, permissions, change usermod
+autologin.conf # change to user as per customize_airootfs.sh
+
+- change to: usermod -s /usr/bin/bash root
+- example user:
+
+Adicionar utilizador
+====================
+
+$ sudo mousepad airootfs/root/customize_airootfs.sh 
+
+colocar as seguintes linhas após a linha "cp -aT...":
+useradd -m -p "" -g users -G "adm,audio,floppy,log,network,rfkill,scanner,storage,optical,power,wheel" -s /bin/bash liveuser
+
+chown -R liveuser:users /home/liveuser
+
+#chmod 700 /root
+
+# Palavras-passe
+echo "root:cagao2016" | chpasswd
+echo "liveuser:live1989arc" | chpasswd
+
+
+podemos adicionar NetworkManager na penúltima linha (systemctl enable...)
+
+$ sudo mousepad airootfs/etc/systemd/system/getty\@tty1.service.d/autologin.conf 
+
+Hipótese 1: Comentar todas as linhas para utilizarmos o lightdm
+
+Hipótese 2: subtituir "root" por "liveuser" se não utilizarmos nenhum gestor de ecrã (utilizador definido anteriormente)
+
+$ sudo mousepad mkinitcpio.conf
+remover os elementos que contiverem o termo pxe (são 4)
+
+custom desktop
+
+$ sudo mkdir -p $HOME/livecd/airootfs/home/liveuser
+
+$ sudo cp ~/.bashrc $HOME/livecd/airootfs/home/liveuser
+$ sudo cp ~/.bash_profile $HOME/livecd/airootfs/home/liveuser
+
+$ sudo mkdir /home/$USER/livecd/airootfs/etc/skel
+adicionar os ficheiros: .bashrc .xinitrc .xsession .bash_profile
+
+/home/$USER/livecd/airootfs/etc/skel.bash_profile
+
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+
+mkdir /home/$USER/livecd/airootfs/etc/skel/.xsession
+
+#!/bin/sh
+
+#
+# ~/.xsession
+#
+# Executed by xdm/gdm/kdm at login
+#
+
+/bin/bash --login -i ~/.xinitrc
+
+
+/home/$USER/livecd/airootfs/etc/skel/.xinitrc
+
+#!/bin/sh
+#
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+
+# Nota alterar a linha abaixo conforme o desktop
+exec cinnamon-session
+
+mkdir /home/$USER/livecd/airootfs/etc/skel/.bashrc
+
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# environment variables
+export EDITOR="$(if [[ -n $DISPLAY ]]; then echo 'mousepad'; else echo 'nano'; fi)"	# mousepad, nano
+
+PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
+
+# pacman aliases (if desired, adapt for your favourite AUR helper)
+alias pac="sudo /usr/bin/pacman -S"		# default action	- install one or more packages
+alias pacu="sudo /usr/bin/pacman -Syu"		# '[u]pdate'		- upgrade all packages to their newest version
+alias pacr="sudo /usr/bin/pacman -Rns"		# '[r]emove'		- uninstall one or more packages
+alias pacs="/usr/bin/pacman -Ss"		# '[s]earch'		- search for a package using one or more keywords
+alias paci="/usr/bin/pacman -Si"		# '[i]nfo'		- show information about a package
+alias paclo="/usr/bin/pacman -Qdt"		# '[l]ist [o]rphans'	- list all packages which are orphaned
+alias pacc="sudo /usr/bin/pacman -Scc"		# '[c]lean cache'	- delete all not currently installed package files
+alias paclf="/usr/bin/pacman -Ql"		# '[l]ist [f]iles'	- list all files installed by a given package
+alias pacexpl="sudo /usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed 
+alias pacimpl="sudo /usr/bin/pacman -D --asdep"	# 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
+
+# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
+alias pacro="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
+
+# Custom
+alias led='mousepad ~/.bashrc'
+alias bsu='source ~/.bashrc'
+alias psync='sudo pacman -Syy'
+alias paco='sudo pacman -Sc && sudo pacman-optimize'
+alias pcf='profile-cleaner f'
+alias pcc='profile-cleaner c'
+alias pcg='profile-cleaner gc'
+alias yd='youtube-dl'
+alias lcp='sudo localepurge'
+alias lcc='sudo /usr/bin/localepurge-config'
+alias speed='speedtest-cli'
+alias q='exit'
+alias md='sudo updatedb'
+alias fig='sudo mousepad /etc/pacman.conf'
+alias yrt='yaourt -S'
+
+
+$ sudo mkdir -p $HOME/livecd/airootfs/etc/skel/
+$ sudo cp -r $HOME/.config/ $HOME/livecd/airootfs/etc/skel/
+$ sudo cp -r $HOME/.local $HOME/livecd/airootfs/etc/skel/
+$ sudo cp ~/.dmrc $HOME/livecd/airootfs/home/etc/skel/
+$ sudo cp $HOME/.conkyrc-inferior-direito  $HOME/livecd/airootfs/etc/skel/
+$ sudo cp $HOME/.conkyrc-topo-direito  $HOME/livecd/airootfs/etc/skel/
+
+$ sudo cp -r /etc/lightdm $HOME/livecd/airootfs/etc/
+
+Tema do Ambiente de trabalho
+============================
+
+$ sudo mkdir $HOME/livecd/airootfs/etc/skel/.themes
+$ sudo cp -r $HOME/.themes/oomox-tizix_dark-jribeiro/ $HOME/livecd/airootfs/etc/skel/.themes
+
+
+$ sudo nano $HOME/livecd/airootfs/etc/lightdm/lightdm.conf	
+autologin-user=liveuser
+
+#Auto login no lightdm
+groupadd -r autologin
+gpasswd -a liveuser autologin
+
+$ sudo mkdir -p $HOME/livecd/airootfs/usr/share/backgrounds/
+
+Background for lightdm
+$ sudo cp /usr/share/backgrounds/xfce/518079-background-hd.jpg $HOME/livecd/airootfs/usr/share/backgrounds/xfce
+
+Background for xfce desktop
+$ sudo cp /usr/share/backgrounds/xfce/Amazing-Spiderman-2-beautiful-wallpapers-hd-spider-man-2-backgrounds-1920x1080.jpg $HOME/livecd/airootfs/usr/share/backgrounds/xfce
+
+
+$ sudo ./build.sh -v
