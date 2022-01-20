@@ -1,0 +1,19 @@
+terminar a sessão
+=================
+
+sudo pkill -kill -u $USER
+
+
+permitir o encerramento e o reínicio do computador pelo utilizador comum
+========================================================================
+
+nano -w ~/.bashrc
+alias reboot="sudo /sbin/reboot"
+alias poweroff="sudo /sbin/poweroff"
+alias halt="sudo /sbin/halt"
+
+ou
+
+sudo nano -w /etc/sudoers
+%wheel all=(all) all
+%wheel genkosta =nopasswd: /sbin/reboot,/sbin/poweroff,/sbin/halt

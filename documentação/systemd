@@ -1,32 +1,46 @@
 Systemd 
 =======
 
-Mostrar unidades instaladas: sudo systemctl list-unit-files
+Mostrar unidades instaladas: 
+sudo systemctl list-unit-files
 
-Activar uma unidade: sudo systemctl start <unidade>
+Activar uma unidade:
+sudo systemctl start <unidade>
 
-Desactivar uma unidade: sudo systemctl stop <unidade>
+Verificar se uma unidade está ou não activada:
+sudo systemctl is-active <unidade>
 
-Reiniciar uma unidade: sudo systemctl restart <unidade>
+Desactivar uma unidade:
+sudo systemctl stop <unidade>
 
-Recarregar a configuraÃ§Ã£o de uma unidade: sudo systemctl reload <unidade>
+Reiniciar uma unidade:
+sudo systemctl restart <unidade>
 
-Mostrar o estado de uma unidade: sudo systemctl status <unidade>
+Recarregar a configuração de uma unidade:
+sudo systemctl reload <unidade>
 
-Verificar se uma unidade estÃ¡ ou nÃ£o activada: sudo systemctl is-active <unidade>
+Mostrar o estado de uma unidade:
+sudo systemctl status <unidade>
 
-Activar o inÃ­Â­Â­cio de uma unidade no arranque: sudo systemctl enable <unidade>
+Activar o iní­­cio de uma unidade no arranque:
+sudo systemctl enable <unidade>
 
-Desactivar o inÃ­Â­Â­cio de uma unidade no arranque: sudo systemctl disable <unidade>
+Verificar se uma unidade inicia ou não no arranque:
+sudo systemctl is-enabled <unidade>
 
-Mostra a pÃ¡gina de ajuda de uma unidade: sudo systemctl help <unidade>
+Desactivar o iní­­cio de uma unidade no arranque:
+sudo systemctl disable <unidade>
 
-Recarrega o systemd pesquisando por novas ou alteradas unidades: sudo systemctl daemon-reload
+Mostra a página de ajuda de uma unidade:
+sudo systemctl help <unidade>
 
-InstalaÃ§Ã£o manual:
+Recarrega o systemd pesquisando por novas ou alteradas unidades:
+sudo systemctl daemon-reload
+
+Instalação manual:
 ln -s /usr/lib/systemd/system/foo.service /etc/systemd/system/graphical.target.wants/
 
-Nota: Substituir foo pelo nome do serviÃ§o.
+Nota: Substituir foo pelo nome do serviço.
 
 Reiniciar o sistema:
 
@@ -40,31 +54,25 @@ Suspender o sistema:
 
 $ systemctl suspend
 
-Por o sistema em hibernaÃ§Ã£o:
+Hibernar:
 
-$ systemctl hibernate
+$ systemctl hibernat
 
 Por o sistema em estado hiybrid-sleep:
 
 $ systemctl hybrid-sleep
 
-sudo systemd-analyze blame
+Vericiar os tempos de execução das unidades no arranque:
 
+$ sudo systemd-analyze blame
 
 Ler os registos do systemd:
 journalctl
 
-$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
-[Journal]
-Storage=persistent
-Compress=yes
-MaxFileSec=1 day
-MaxRetentionSec=1 week
-SystemMaxUse=100M
-SystemMaxFileSize=30M
-RuntimeMaxUse=75M
-RuntimeMaxFileSize=30M
-EOF
+Verificar existência de erros:
+sudo systemctl --failed
+
+# Desactivar alguns serviços não essenciais:
 
 sudo systemctl disable lvm2-monitor.service
 sudo systemctl disable lvm2-lvmetad.service
@@ -86,7 +94,7 @@ EOF
 Core dump
 =========
 
-Utilizam muito espaÃ§o no disco rigÃ­Â­do por esse motivo desactivamo-los
+Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
 
 $ sudo nano /etc/systemd/coredump.conf
 Storage=none

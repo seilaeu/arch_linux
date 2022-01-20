@@ -1,0 +1,18 @@
+Configurar o journal 
+====================
+
+$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
+
+[Journal]
+Storage=persistent
+Compress=yes
+MaxFileSec=1 day
+MaxRetentionSec=1 week
+SystemMaxUse=100M
+SystemMaxFileSize=30M
+RuntimeMaxUse=75M
+RuntimeMaxFileSize=30M
+
+
+Verificar existência de erros:
+sudo journalctl -p 3 -xb

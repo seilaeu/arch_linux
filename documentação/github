@@ -1,0 +1,28 @@
+Comandos para iniciar o repositório linux
+=========================================
+
+$ mkdir github
+$ cd github
+$ git clone https://github.com/seilaeu/nome_do_repositório.git
+$ cd nome_do_repositório
+$ git config --global user.name <username>
+$ git config --global user.email <your_email>
+$ git config --global credential.helper cache
+$ git config --global credential.helper 'cache --timeout=3600'
+$ git init
+$ git status
+$ echo "# nome_do_repositório" >> README.md
+$ git add README.md
+$ git commit -m "first commit"
+$ git push -u origin master
+
+Colocar contéudo dentro
+
+$ sudo cp -r /home/$USER/livecd/* /home/$USER/github/livecd
+$ git status
+$ sudo git add --all
+$ sudo git commit -m "add new files"
+$ sudo git push -u origin master
+
+Token:
+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
