@@ -1,7 +1,0 @@
-Subsituir sdaX por sda3, sda5 ou sda7 nos dois scripts abaixo:
-
-# Base Install
-install-p1.sh
-
-# Bootloader
-install-p2-i1.sh
