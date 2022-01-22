@@ -8,4 +8,4 @@ $ sudo pacman -S apparmor
 
 $ sudo systemctl enable --now apparmor.service
 
-$ aa-enable
+$ aa-enabled
