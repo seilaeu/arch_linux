@@ -1,0 +1,8 @@
+
+$ zgrep CONFIG_LSM= /proc/config.gz
+$ sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="... lsm=landlock,lockdown,yama,apparmor,bpf audit=1"
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+$ sudo sudo pacman -S apparmor audit --needed
+$ sudo systemctl enable --now apparmor.service
+$ sudo systemctl enable --now auditd.service
