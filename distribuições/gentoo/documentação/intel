@@ -45,19 +45,6 @@ Then configure to build the firmware file into the kernel as above.
 Kernel
 The following kernel options need to be activated:
 
-KERNEL Prior to Linux 4.4
-Processor type and features  --->
-    [*] MTRR (Memory Type Range Register) support
-Device Drivers  --->
-    Graphics support  --->
-        <*> /dev/agpgart (AGP Support)  --->
-             <*> Intel 440LX/BX/GX, I8xx and E7x05 chipset support
-        <*> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support) --->
-            <*> Intel 8xx/9xx/G3x/G4x/HD Graphics
-            [*]   Enable modesetting on intel by default
-            [*]   Enable legacy fbdev support for the modesetting intel driver
-The legacy fbdev support is required since kernel 3.14.14 at least for i915 (CONFIG_DRM_I915_FBDEV=y).[2][3] For hybrid Intel/AMD system, follow also the steps of radeon (open source) or fglrx (closed binary) drivers.
-
 Since kernel version 4.4 the driver has been moved and the legacy fbdev support is now CONFIG_DRM_FBDEV_EMULATION=y.
 
 KERNEL Linux 5.4
@@ -76,3 +63,32 @@ Device Drivers  --->
                 [*]     Compress GPU error state
                 [*]   Always enable userptr support
                 [ ]   Enable Intel GVT-g graphics virtualization host support
+
+# nano /etc/portage/make.conf a partir de Gen 8:
+
+VIDEO_CARDS="intel i965 iris"
+
+The intel value is for x11-base/xorg-drivers. 
+The i915 and i965 and iris values are for media-libs/mesa.
+
+Importante:
+
+Beginning with x11-base/xorg-drivers-1.19, the x11-base/xorg-drivers package (in addition to the mesa package) includes support for the i965 USE flag. 
+This will omit selection of the deprecating x11-drivers/xf86-video-intel driver in favor of the more maintained, generic modesetting DDX driver built into x11-base/xorg-server.
+
+After making any make.conf modifications, update the system so the changes take effect by passing the --changed-use --deep options to emerge:
+
+# emerge --ask --changed-use --deep @world
+
+Enable early KMS
+
+In order to enable Kernel Mode Setting (KMS) as soon as possible, modesetting either needs to be built into the kernel, or be loaded with initramfs if it is built as a module. 
+Distribution Kernels have the Modesetting DDX built as a module. So, in order to get early KMS, those who use it have to create a .conf file in /etc/dracut.conf.d and do the following:
+
+FILE /etc/dracut.conf.d/......conf
+
+add_drivers+="... i915 ..."
+
+# dracut
+
+
