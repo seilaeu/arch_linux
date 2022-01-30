@@ -91,4 +91,22 @@ add_drivers+="... i915 ..."
 
 # dracut
 
+VAAPI
 
+Newer Intel graphics since Gen 8 (Broadwell) have better support with x11-libs/libva-intel-media-driver.
+
+# emerge -a libva-intel-media-driver
+
+Activar Vulkan no pacote mesa.
+
+Please note, that this will build a working Vulkan driver, but it will not provide a libvulkan.so.1, but a drivers-specific libvulkan_intel.so. 
+The package media-libs/vulkan-loader provides libvulkan.so.1.
+
+file.
+
+Permissions
+If the acl USE flag is enabled globally and elogind is being used (default for desktop profiles) permissions to video cards will be handled automatically. 
+It is possible to check the permissions using getfacl:
+
+user $getfacl /dev/dri/card0 | grep larry
+user:larry:rw-
