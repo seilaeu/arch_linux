@@ -1,0 +1,36 @@
+Detecção de hardware:
+
+# lspci | grep -i VGA
+
+Gen 9.5 CoffeLake
+
+Para suporte a OpenCL:
+
+# emerge - av intel-compute-runtime
+
+Para sistemas que usem Skylake ou mais recente é necessario instalar:
+
+# emerge -av linux-firmware
+
+DMC firmware
+
+Display Microcontroller firmware provides support for advanced graphics low-power idle states.
+
+To configure to build the DMC firmware into the kernel binary, in this case, i915/skl_dmc_ver1_27.bin:
+
+KERNEL (Prior to Linux 4.18) Build firmware blobs into the kernel binary
+Device Drivers  --->
+    Generic Driver Options  --->
+        -*- Userspace firmware loading support
+        [*] Include in-kernel firmware blobs in kernel binary
+            (i915/skl_dmc_ver1_27.bin) External firmware blobs to build into the kernel binary
+            (/lib/firmware) Firmware blobs root directory
+KERNEL (Since Linux 4.18) Build firmware blobs into the kernel binary
+Device Drivers  --->
+    Generic Driver Options  --->
+            Firmware loader  --->
+                -*- Firmware loading facility
+                (i915/skl_dmc_ver1_27.bin) Build named firmware blobs into the kernel binary
+                (/lib/firmware) Firmware blobs root directory
+ Warning
+Including the firmware in-kernel may cause suspend-to-ram to fail, if this is a concern don't include the blob built into the kernel, instead, add the firmware blob into the initramfs.
