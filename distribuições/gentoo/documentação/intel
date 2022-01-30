@@ -6,7 +6,7 @@ Gen 9.5 CoffeLake
 
 Para suporte a OpenCL:
 
-# emerge - av intel-compute-runtime
+# emerge -av intel-compute-runtime
 
 Para sistemas que usem Skylake ou mais recente é necessario instalar:
 
