@@ -1,7 +1,0 @@
-nano /etc/sysconfig/displaymanager 
-
-Entrada automática desactivada:
-DISPLAYMANAGER_AUTOLOGIN=""
-
-Entrada automática activada para o utilizador jribeiro:
-DISPLAY:MANAGER_AUTOLOGIN="jribeiro"
