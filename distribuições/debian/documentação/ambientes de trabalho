@@ -22,9 +22,3 @@ Instalar o ambiente de trabalho KDE
 
 # apt-get install aptitude tasksel
 # aptitude install ~t^desktop$ ~t^kde-desktop$
-
-
-Instalar o ambiente de trabalho MATE
-====================================
-
-# apt-get install mate-desktop-environment
