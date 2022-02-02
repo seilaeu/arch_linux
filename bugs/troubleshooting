@@ -44,3 +44,11 @@ $ sudo rmmod uhci-hcd
 $ sudo modprobe uhci-hcd
 
 A usb drive poderá ter de ser formatada.
+
+Cron: 
+
+You (jribeiro) are not allowed to access to (crontab) because of pam configuration.
+
+Solução:
+
+$ ediroot /etc/security/access.conf
