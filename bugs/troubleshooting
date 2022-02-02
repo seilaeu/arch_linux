@@ -37,3 +37,10 @@ solução: # ldd  /usr/lib/libreoffice/program/../program/libsclo.so |grep "not 
 mensagem de erro em systemsettings:
 Could not get owner of name 'org.kde.kcontrol.kcmkdm': no such name.  
 solução: reinstalar todos os pacotes dbus*
+
+Erro 71 na pendrive:
+
+$ sudo rmmod uhci-hcd
+$ sudo modprobe uhci-hcd
+
+A usb drive poderá ter de ser formatada.
