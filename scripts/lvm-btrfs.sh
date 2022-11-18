@@ -13,16 +13,16 @@ read -p 'Logical volume name: ' logicalvolumenamevar
 export logicalvolumenamevar
 
 # Logical volume size in Megabites or Gygabites
-#read -p 'Logical volume size in GB: ' logicalvolumesizevar
+read -p 'Logical volume size in GB: ' logicalvolumesizevar
 
 
 # Device's path
 device=/dev/$volumegroupname/$logicalvolumenamevar
 export device
 
-#lvcreate -L"$logicalvolumesizevar"G -n $logicalvolumenamevar $volumegroupname
+lvcreate -L"$logicalvolumesizevar"G -n $logicalvolumenamevar $volumegroupname
 
-#mkfs.btrfs -f -L "$logicalvolumenamevar" $device 
+mkfs.btrfs -f -L "$logicalvolumenamevar" $device 
 
 # Criar directorias (activo e reserva) e subvolume raiz
 
