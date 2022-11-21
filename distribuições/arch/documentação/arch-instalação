@@ -1,10 +1,9 @@
 loadkeys pt-latin9
-mkfs.btrfs -f -L "arch" /dev/sda5
-mkdir -p /media/arch
-mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /media/arch
-mkdir -p /media/arch/__reserva
-mkdir -p /media/arch/__activo
-btrfs sub create /media/arch/__activo/raiz
+mkfs.btrfs -f -L "arch" /dev/sdaX 
+mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /mnt
+mkdir -p /mnt/@
+mkdir -p /mnt/@home
+btrfs sub create /media/arch/__activo/@
 umount -l /media/arch
 mount -o defaults,relatime,discard,nodev,subvol=__activo/raiz /dev/sda5 /mnt
 
