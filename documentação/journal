@@ -7,7 +7,7 @@ $ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sud
 Storage=persistent
 Compress=yes
 MaxFileSec=1 day
-MaxRetentionSec=1 week
+MaxRetentionSec=2 week
 SystemMaxUse=100M
 SystemMaxFileSize=30M
 RuntimeMaxUse=75M
