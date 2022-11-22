@@ -61,14 +61,7 @@ To create a readonly snapshot add the -r flag. To create writable version of a r
 Mover um subvolume para outra partição do disco rígido
 ======================================================
 
-For reference: the two mounts in use are /mnt/red and /mnt/samsung, the source subvolume on /mnt/red is fonte. 
-I actually did this on the @home subvolume also, but the commands are identical and don't need repeating. 
-All these commands were done in root mode via sudo -i.
-
-Preparation for this task requires that the source subvolume for the send command must be read only. 
-This is to prevent writes during a send or receive operation causing corruption. 
-Since this is an install subvolume, not a data backup, I must create a read-only copy before sending it. 
-With btrfs this is simple and immediate:
+https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/61623-more-btrfs-fun-moving-a-subvolume-from-one-drive-to-another
 
 Montar a partição fonte:
 
@@ -98,7 +91,6 @@ Criar um snapshot com propriedade de escrita
 # btrfs sub snapshot /media/btrfs-destino/subvolume_alvo-snap-leitura /media/btrfs-destino/subvolume_alvo-snap-escrita
 
 Eliminar a snapshot apenas de leitura
-
 
 # btrfs sub delete /media/btrfs-fonte/reserva/subvolume_alvo-snap-leitura /media/btrfs-destino/subvolume_alvo-snap-leitura
 
