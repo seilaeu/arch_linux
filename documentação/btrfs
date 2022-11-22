@@ -1,24 +1,74 @@
+Criar o sistema de ficheiros
+============================
+
+# mkfs.btrfs -L mylabel /dev/sdaX
+
+
+Compressão
+==========
+
+# btrfs filesystem defragment -r -v -clzo /
+
+Criar um subvolume
+==================
+
+# btrfs subvolume create /path/to/subvolume
+
+
+Listar subvolumes
+=================
+
+
+# btrfs subvolume list -p path
+
+
+Apagar um subvolume
+===================
+
+# btrfs subvolume delete /path/to/subvolume
+
+
+Mudar o subvolume padrão
+========================
+
+The default sub-volume is mounted if no subvol= mount option is provided. To change the default subvolume, do:
+
+
+# btrfs subvolume set-default subvolume-id /
+
+FSTAB
+=====
+
+. 
+
+LABEL=arch64 / btrfs rw,suid,dev,exec,auto,nouser,async,relatime,compress=lzo 0 0
+
+Snapshots
+=========
+
+"A snapshot is simply a subvolume that shares its data (and metadata) with some other subvolume, using btrfs's COW capabilities." See Btrfs Wiki SysadminGuide#Snapshots for details.
+
+To create a snapshot:
+
+# mount -t btrfs -o subvolid=0 /dev/sdaX /mnt/
+
+# btrfs subvolume snapshot source [dest/]name
+
+To create a readonly snapshot add the -r flag. To create writable version of a readonly snapshot, simply create a snapshot of it. 
+
+
+
 Mover um subvolume para outra partição do disco rígido
 ======================================================
 
- 
-
-
-For reference: the two mounts in use are /mnt/red and /mnt/samsung, the source subvolume on /mnt/red is fonte. 
-I actually did this on the @home subvolume also, but the commands are identical and don't need repeating. 
-All these commands were done in root mode via sudo -i.
-
-Preparation for this task requires that the source subvolume for the send command must be read only. 
-This is to prevent writes during a send or receive operation causing corruption. 
-Since this is an install subvolume, not a data backup, I must create a read-only copy before sending it. 
-With btrfs this is simple and immediate:
+https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/61623-more-btrfs-fun-moving-a-subvolume-from-one-drive-to-another
 
 Montar a partição fonte:
 
 # mkdir /media/btrfs-fonte
 # mount -o subvolid=5 /dev/sdaX /media/btrfs-fonte
 
-Montar a partição destino:
+https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/61623-more-btrfs-fun-moving-a-subvolume-from-one-drive-to-another
 
 # mkdir /media/btrfs-destino
 # mount -o subvolid=5 /dev/sdaY /media/btrfs-destino
@@ -42,24 +92,6 @@ Criar um snapshot com propriedade de escrita
 
 Eliminar a snapshot apenas de leitura
 
-
 # btrfs sub delete /media/btrfs-fonte/reserva/subvolume_alvo-snap-leitura /media/btrfs-destino/subvolume_alvo-snap-leitura
 
 Resta actualizar o ficheiro /etc/fstab da partição destino com o UUID do novo subvolume 
-
-# Formatar partição raiz
-# Nota: definir X em sdaX 
-
-# BTRFS
-
-#mkfs.btrfs -f -L "arch" /dev/sdaX &&
-
-# Criar directorias (activo e reserva) e subvolume raiz
-# Nota: definir X em sdaX 
-
-#mkdir -p /media/arch &&
-#mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /media/arch &&
-#mkdir -p /media/arch/reserva &&
-#mkdir -p /media/arch/activo &&
-#btrfs sub create /media/arch/activo/raiz &&
-#umount -l /media/arch &&
