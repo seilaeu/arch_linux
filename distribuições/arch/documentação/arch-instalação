@@ -1,14 +1,11 @@
 loadkeys pt-latin9
 mkfs.btrfs -f -L "arch" /dev/sdaX 
-mount -o defaults,relatime,discard,nodev,nosuid /dev/sdaX /mnt
-mkdir -p /mnt/@
-mkdir -p /mnt/@home
-btrfs sub create /media/arch/__activo/@
-umount -l /media/arch
-mount -o defaults,relatime,discard,nodev,subvol=__activo/raiz /dev/sda5 /mnt
-
-#nano /etc/pacman.d/mirrorlist
-#Descomentar os servidores portugueses
+mount /dev/sdaX /mnt
+btrfs sub create /mnt/@
+btrfs sub create /mnt/@home
+umount /mnt
+mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@ /dev/sdaX /mnt
+mkdir -p /mnt/{boot/efi,home} 
 
 pacstrap -i /mnt/ base base-devel
 genfstab -U -p /mnt >> /mnt/etc/fstab
