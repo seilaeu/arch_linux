@@ -1,6 +1,0 @@
-google-chrome
-hunspell-pt_pt
-mythes-pt_pt
-protonvpn-gui
-spideroak-one
-yay

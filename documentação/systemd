@@ -56,7 +56,7 @@ $ systemctl suspend
 
 Hibernar:
 
-$ systemctl hibernat
+$ systemctl hibernate
 
 Por o sistema em estado hiybrid-sleep:
 

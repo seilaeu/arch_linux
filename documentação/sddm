@@ -12,7 +12,7 @@ $ sudo bash -c "echo 'setxkbmap pt' >> /usr/share/sddm/scripts/Xsetup"
 $ ediroot /etc/sddm.conf
 
 [General]
-EnableHiDPI=false
+
 Numlock=on
 
 [Theme]
@@ -21,6 +21,11 @@ Numlock=on
 EnableAvatars=true
 FacesDir=/usr/share/sddm/faces
 
+# Cu# Current theme namerrent theme name
+Current=
+
+# Cursor theme used in the greeter
+CursorTheme=
 
 
 [X11]
@@ -32,4 +37,4 @@ ServerArguments=-nolisten tcp -dpi 120
 MinimumVT=7
 
 
-
+/usr/lib/sddm/sddm.conf.d/default.conf
