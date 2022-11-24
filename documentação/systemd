@@ -4,32 +4,41 @@ Systemd
 Mostrar unidades instaladas: 
 sudo systemctl list-unit-files
 
-Activar uma unidade:
+Mostrar o estado de uma unidade:
+sudo systemctl status <unidade>
+
+Iniciar uma unidade:
 sudo systemctl start <unidade>
 
 Verificar se uma unidade está ou não activada:
 sudo systemctl is-active <unidade>
 
-Desactivar uma unidade:
+Parar uma unidade:
 sudo systemctl stop <unidade>
 
 Reiniciar uma unidade:
 sudo systemctl restart <unidade>
 
-Recarregar a configuração de uma unidade:
-sudo systemctl reload <unidade>
-
-Mostrar o estado de uma unidade:
-sudo systemctl status <unidade>
-
 Activar o iní­­cio de uma unidade no arranque:
 sudo systemctl enable <unidade>
+
+Desactivar o iní­­cio de uma unidade no arranque:
+sudo systemctl disable <unidade>
 
 Verificar se uma unidade inicia ou não no arranque:
 sudo systemctl is-enabled <unidade>
 
-Desactivar o iní­­cio de uma unidade no arranque:
-sudo systemctl disable <unidade>
+
+Desactivar uma unidade:
+sudo systemctl stop <unidade>
+
+Recarregar a configuração de uma unidade:
+sudo systemctl reload <unidade>
+
+Recarregar a configuração de uma unidade:
+sudo systemctl reload <unidade>
+
+
 
 Mostra a página de ajuda de uma unidade:
 sudo systemctl help <unidade>
@@ -54,11 +63,11 @@ Suspender o sistema:
 
 $ systemctl suspend
 
-Hibernar:
+Pôr o sistema em hibernação:
 
 $ systemctl hibernate
 
-Por o sistema em estado hiybrid-sleep:
+Pôr o sistema em estado hiybrid-sleep:
 
 $ systemctl hybrid-sleep
 
@@ -71,18 +80,6 @@ journalctl
 
 Verificar existência de erros:
 sudo systemctl --failed
-
-# Desactivar alguns serviços não essenciais:
-
-sudo systemctl disable lvm2-monitor.service
-sudo systemctl disable lvm2-lvmetad.service
-sudo systemctl disable avahi-daemon.service
-sudo systemctl disable dmraid-activation.service
-sudo systemctl disable livesys-late.service
-sudo systemctl disable livesys.service
-sudo systemctl disable sendmail.service
-sudo systemctl disable sm-client.service
-sudo systemctl disable rpcbind.service
 
 
 $ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF' 
