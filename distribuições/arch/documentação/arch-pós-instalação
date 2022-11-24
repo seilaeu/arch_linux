@@ -1,4 +1,10 @@
-$ sudo chown -R jribeiro:jribeiro /home/jribeiro
+$ sudo chown -R $USER:$USER /home/$USER
+
+Fstrim
+------
+
+$ sudo systemctl enable --now fstrim.timer
+
 
 $ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
 
@@ -46,17 +52,14 @@ VISUAL=/usr/bin/kate
 EDITOR=/usr/bin/kate
 
 
-Silenciar o grub
-==============
+Silenciar o GRUB
+================
 
-# nano /etc/grub.d/10_linux 
+$ sudo nano /etc/grub.d/10_linux 
 
-Remover linhas semelhantes a estas:
-message="$(gettext_printf "Loading Linux %s ..." ${version})"
-echo	'$(echo "$message" | grub_quote)'
+comentar as linhas 151 e 162: #echo	'$(echo "$message" | grub_quote)'
 
-message="$(gettext_printf "Loading initial ramdisk ...")"
-echo	'$(echo "$message" | grub_quote)'
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 
 Silenciar o arranque

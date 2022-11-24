@@ -1,6 +1,13 @@
 Comando que cria um atalho para actualizar o sistema:
+=====================================================
 
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
+
+Ligações quebradas
+==================
+
+$ find . -xtype l
+$ sudo find / -xtype l 
 
 Reinstalar o Arch Linux 
 =======================
