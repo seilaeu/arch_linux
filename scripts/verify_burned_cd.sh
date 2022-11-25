@@ -1,4 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/bash 
+
+#TESTE
 
 if [ $# -ne 2 ]; then
   echo "Syntax: $0 medium_device iso_file"
