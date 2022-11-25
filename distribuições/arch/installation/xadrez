@@ -1,0 +1,1 @@
+pacman -S stockfish lc0 intel-compute-runtime
