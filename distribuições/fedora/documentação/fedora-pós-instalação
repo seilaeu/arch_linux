@@ -3,36 +3,16 @@ Editar o ficheiro ~/.bashrc
 
 Ver ficheiro /media/linux/distribuições/fedora/documentação/bashrc-fedora
 
+# Inspeccionar repositórios instalados
 
-Sudo 
-====
+$ ls /etc/yum.repos.d/
 
-# gpasswd -a $USER wheel
+Activar o site-espelho mais rápido
 
-$ newgrp wheel
+$ sudo nano /etc/dnf/dnf.conf 
 
-
-Desinstalações 
-==============
-
-$ desinstalar calligra-* ModemManager gssproxy telepathy-* amarok kmail kaddressbook korganizer qupzilla
- 
-Wget
-====
-
-$ instalar wget
-
-$ sudo nano /usr/sbin/actualizar
-
-sudo dnf update
-echo 
-echo "                                Sistema actualizado!"
-read line
-
-$ sudo groupadd admin && sudo chgrp admin /usr/sbin/actualizar && sudo chmod g+x /usr/sbin/actualizar
-
-Actualizar os pacotes instalados 
-================================
+fastestmirror=true
+deltarpm=true
 
 $ actualizar
 
@@ -302,8 +282,10 @@ $ sudo nano  /etc/kde/kdm/kdmrc
 Reset=/etc/kde/kdm/Xreset
 
 $ sudo nano /etc/kde/kdm/Xreset
+
 awk '!a[$0]++'  /root/.bash_history > /root/.bash_history.tmp && mv /root/.bash_history.tmp /root/.bash_history 
 
+awk '!a[$0]++'  .bash_history > .bash_history.tmp && mv .bash_history.tmp .bash_history
 
 Instalar e configurar o plugin snapper no dnf
 =============================================
@@ -311,7 +293,3 @@ Instalar e configurar o plugin snapper no dnf
 $ sudo dnf install dnf-plugins-extras
 $ sudo snapper create-config /
 
-Compiz
-======
-
-$ dnf install fusion-icon emerald-themes compiz-plugins-main compiz-plugins-extra compiz-plugins-experimental

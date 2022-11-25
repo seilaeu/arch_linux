@@ -1,10 +1,4 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
+# .bashrc
 
 # Prompt da bash
 PS1='[\u@\h \w]\$ '
@@ -42,22 +36,14 @@ alias mãe-acesso-gráfico-mint="ssh -t -L 55900:localhost:5900 -i ~/.ssh/jribei
 #alias mãe-acesso-gráfico-kika="ssh -t -L 5900:localhost:5900 -i ~/.ssh/jribeiro-manjaro_rsa -p 31970 jribeiro@109.48.239.52 'sudo x11vnc -nap -wait 50 -noxdamage -display :0 -forever -auth /home/kika/.Xauthority -rfbauth /home/kika/.x11vnc/passwd'"
 #alias mãe-visualizar-desktop-kika='vncviewer -encodings "copyrect tight hextile" localhost:0'
 
-alias casa='du -sh ~'
-alias raiz='df -h / '
-alias sistema='df -h'
-alias linux='df -h /dev/pclvm/linux'
-alias audio='df -h /dev/pclvm/audio'
-alias pessoal='df -h /dev/pclvm/pessoal'
-
-alias volumes='sudo lvdisplay'
 
 alias actualizar='sudo dnf update'
 alias procurar='sudo dnf search'
 alias questionar='sudo dnf list installed|grep'
 alias instalar='sudo dnf install'
-#alias reinstalar='sudo apt-get install --reinstall'
+alias reinstalar='sudo dnf reinstall'
 alias desinstalar='sudo dnf remove'
-#alias cache='sudo apt-get clean all'
+alias cache='sudo dnf clean all'
 
 #alias pacotes-instalados="dpkg -l | grep ^ii | sed 's_  _\t_g' | cut -f 2"
 
@@ -80,13 +66,3 @@ export EDITOR VISUAL
 
 alias ediroot="sudo $EDITOR"
 alias edibash='$EDITOR ~/.bashrc'
-
-
-export PATH=$PATH:/usr/sbin
-
-neofetch
-#screenfetch
-
-
-
-

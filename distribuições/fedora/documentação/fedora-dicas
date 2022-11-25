@@ -32,8 +32,7 @@ Em caso de alteração da partição raíz, editar o ficheiro /etc/fstab e alter
 
 Restaurar o grub: 
 
-grub2-install --force /dev/sdaX
-grub2-mkconfig -o /boot/grub2/grug.cfg
+$ sudo fibootmgr -o "nome_da_entrada"
 
 #####################
 # Limpar duplicados #
@@ -46,16 +45,6 @@ nano /etc/sysconfig/desktop
 
 DESKTOP="KDE"
 DISPLAYMANAGER="KDE"
-
-
-##########################
-# Desabilitar  o SELinux #
-##########################
-
-nano /etc/sysconfig/selinux
-
-SELINUX=disabled
-
 
 
 ###################
@@ -80,4 +69,3 @@ ls /usr/lib/modules/
 sudo package-cleanup --cleandupes
 
 du -sh /var/*
-
