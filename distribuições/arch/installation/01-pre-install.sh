@@ -86,7 +86,27 @@ echo
 echo
 echo
 
-sudo mkfs.ext4 /dev/sdaX
+echo "Formatar a partição raiz"
+echo "(ext4 ou btrfs)"
+
+echo
+echo
+echo
+
+read formatar_raiz
+
+case $formatar_raiz in
+          ext4)
+     sudo mkfs.ext4 -L arch /dev/sdaX;; 
+     echo "A partição raiz foi formatada em ext4";;
+          btrfs) 
+          
+     echo "A partição efi não foi formatada";;
+     echo "A partição raiz foi formatada em btrfs"
+esac
+
+
+
 
 echo
 echo
@@ -105,18 +125,18 @@ echo
 echo
 
 echo "Formatar a partição efi?"
-echo "(Responda Sim ou Não)"
+echo "(sim ou não)"
 
 echo
 echo
 echo
 
-read formatar
+read formatar_efi
 
-case $formatar in
-          Sim)
+case $formatar_efi in
+          sim)
       sudo mkfs.fat -F32 /dev/sdaY;; 
-          Não) echo "A partição efi não foi formatada";;
+          não) echo "A partição efi não foi formatada";;
 esac
 
 echo
