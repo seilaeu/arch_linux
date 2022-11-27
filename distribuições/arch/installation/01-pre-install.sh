@@ -97,24 +97,31 @@ read formatar_raiz
 
 case $formatar_raiz in
           ext4)
-     sudo mkfs.ext4 -L arch /dev/sdaX;; 
+     mkfs.ext4 -L arch /dev/sdaX;; 
      echo "A partição raiz foi formatada em ext4";;
+     mount /dev/sdaX /mnt;;
+     lsblk;;
+     sleep 5
           btrfs) 
-          
-     echo "A partição efi não foi formatada";;
-     echo "A partição raiz foi formatada em btrfs"
+     mkfs.btrfs -f -L arch /dev/sdaX;;
+     echo "A partição raiz foi formatada em btrfs";;
+     mount /dev/sdaX /mnt
+     btrfs sub create /mnt/@
+     btrfs sub create /mnt/@home
+     umount /mnt
+     mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@ /dev/sdaX /mnt
+     mkdir -p /mnt/{boot/efi,home}
+     mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@home /dev/sdaX /mnt
 esac
 
 
-
-
 echo
 echo
 echo
 
-sudo mount /dev/sdaX /mnt 
 
-sleep 5
+
+
 
 sudo mkdir -p /mnt/boot/efi
 
@@ -136,6 +143,9 @@ read formatar_efi
 case $formatar_efi in
           sim)
       sudo mkfs.fat -F32 /dev/sdaY;; 
+      echo "A partição efi foi formatada";;
+
+
           não) echo "A partição efi não foi formatada";;
 esac
 
@@ -156,3 +166,14 @@ lsblk
 echo
 echo
 echo
+
+
+     
+
+     
+
+
+ 
+
+
+
