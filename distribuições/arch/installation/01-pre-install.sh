@@ -97,14 +97,15 @@ read formatar_raiz
 
 case $formatar_raiz in
           ext4)
-     mkfs.ext4 -L arch /dev/sdaX;; 
-     echo "A partição raiz foi formatada em ext4";;
-     mount /dev/sdaX /mnt;;
-     lsblk;;
+     mkfs.ext4 -L arch /dev/sdaX
+     echo "A partição raiz foi formatada em ext4"
+     mount /dev/sdaX /mnt
+     lsblk
      sleep 5
+     ;;
           btrfs) 
-     mkfs.btrfs -f -L arch /dev/sdaX;;
-     echo "A partição raiz foi formatada em btrfs";;
+     mkfs.btrfs -f -L arch /dev/sdaX
+     echo "A partição raiz foi formatada em btrfs"
      mount /dev/sdaX /mnt
      btrfs sub create /mnt/@
      btrfs sub create /mnt/@home
@@ -112,6 +113,7 @@ case $formatar_raiz in
      mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@ /dev/sdaX /mnt
      mkdir -p /mnt/{boot/efi,home}
      mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@home /dev/sdaX /mnt
+     ;;
 esac
 
 
