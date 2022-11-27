@@ -1,5 +1,8 @@
-$ crontab -l ou # crontab -l
-$ crontab -e ou # crontab -e
+$ crontab -l 
+# crontab -l
+
+$ crontab -e 
+# crontab -e
 
 
 - Com redirecionamento apenas de erros
