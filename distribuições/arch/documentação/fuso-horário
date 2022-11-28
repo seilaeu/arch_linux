@@ -36,12 +36,6 @@ $ sudo timedatectl set-time "2016-09-20 17:21:48"
 Fuso horário automático e sincronizado
 ======================================
 
-No Plasma:
-
-=> Clicar na hora com o botão direito do rato 
-=> Acertar a data e hora... 
-=> Configurar a data e hora automaticamente
-
 $ sudo nano /etc/systemd/timesyncd.conf
 
 [Time]
@@ -52,3 +46,9 @@ NTP=2.europe.pool.ntp.org
 NTP=3.europe.pool.ntp.org
 
 $ timedatectl set-ntp true
+
+No Plasma:
+
+=> Clicar na hora com o botão direito do rato
+=> Acertar a data e hora...
+=> Configurar a data e hora automaticamente

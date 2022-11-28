@@ -23,24 +23,6 @@ COMPRESSXZ=(xz -c -z --threads=0 -)
 COMPRESSZST=(zstd -c -z -q --threads=0 -)
 
 
-Sítios espelho - Repositórios de programas
-==========================================
-
-$ sudo nano /usr/bin/mirrors.sh
-#!/bin/bash                                                                                                            
-                                                   ttf-dejavu
-reflector --verbose -p https -a2 --sort rate --save /etc/pacman.d/mirrorlist                                                                                     
-pacman -Syy 
-
-
-Editor padrão do sistema
-========================
-
-$ ediroot /etc/environment 
-
-VISUAL=/usr/bin/kate 
-EDITOR=/usr/bin/kate
-
 
 Silenciar o GRUB
 ================
