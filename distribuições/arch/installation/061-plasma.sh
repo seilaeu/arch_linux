@@ -4,7 +4,7 @@
 # Plasma 5
 
 yay -S plasma-desktop konsole kate dolphin kcalc ark okular gwenview  kipi-plugins qbittorrent clementine \
-kdeconnect breeze-gtk kde-gtk-config kmymoney k3b sddm kinfocenter kompare partitionmanager-git
+kdeconnect breeze-gtk kde-gtk-config kmymoney k3b sddm sddm-kcm kinfocenter kompare partitionmanager-git khotkeys
 
 sudo systemctl enable sddm
 

@@ -55,18 +55,6 @@ sudo pacman -S aspell-pt --needed
 yay -S hunspell-pt_pt mythes-pt_pt
 
 
-# Diversos
-sudo pacman -S ntp --needed
-yay -S srm
-
-
-
 # Pacotes AUR
 
-#yay -S neofetch 
-#yay -S prelink oxygen-gtk3-git
-#yay -S pyrenamer
-#yay -S partitionmanager-git  
-#yay -S preload
-#yay -S ttf-ms-fonts
-#yay -S fontconfig-ttf-ms-fonts
+#yay -S
