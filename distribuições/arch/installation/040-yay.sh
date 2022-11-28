@@ -7,6 +7,7 @@ echo
 echo
 echo
 
+
 # YAY
 
 git clone https://aur.archlinux.org/yay.git
