@@ -1,6 +1,6 @@
 remover as mensagens loading linux... e loading initramfs...
 
-editar o ficheiro /etc/grub.d/10_linux removendo as linhas 131 e 138:
+editar o ficheiro /etc/grub.d/10_linux removendo as linhas 151 e 162:
 
 echo	'$(echo "$message" | grub_quote)'
 
