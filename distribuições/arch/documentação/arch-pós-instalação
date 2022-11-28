@@ -8,29 +8,19 @@ $ sudo systemctl enable --now fstrim.timer
 
 $ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
 
-$ ediroot /etc/profile.d/freetype2.sh
-export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 Optimizar compilações
 =====================
 
 $ ediroot /etc/makepkg.conf
 
-CFLAGS="-march=native -O2 -pipe -fstack-protector-strong"
+CFLAGS="-march=native -O2 -pipe -fno-plt"
 CXXFLAGS="${CFLAGS}"
-MAKEFLAGS="-j5"
-BUILDDIR=/tmp/makepkg
-COMPRESSXZ=(xz -c -T 4 -z -)
-
-Criar uma tecla de atalho para a actualização do sistema
----------------------------------------------------------
-
-$ ediroot /usr/sbin/actualizar
-
-yaourt -Syyua
-echo
-echo "                                Sistema actualizado!"
-read line
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+MAKEFLAGS="-j$(nproc)"
+BUILDDIR=/tmp/makepkg makepkg
+COMPRESSXZ=(xz -c -z --threads=0 -)
+COMPRESSZST=(zstd -c -z -q --threads=0 -)
 
 
 Sítios espelho - Repositórios de programas
