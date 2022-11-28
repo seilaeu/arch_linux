@@ -1,1 +1,3 @@
-awk '!a[$0]++'  .bash_history > .bash_history.tmp && mv .bash_history.tmp .bash_history
+#!/bin/bash
+
+/usr/bin/awk '!a[$0]++'  /home/seilaeu/.bash_history > /home/seilaeu/.bash_history.tmp && mv /home/seilaeu/.bash_history.tmp /home/seilaeu/.bash_history

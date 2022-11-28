@@ -1,6 +1,5 @@
 #! /bin/bash
 
-
 echo
 echo
 echo
@@ -22,7 +21,7 @@ echo
 echo
 echo
 
-sleep 3
+sleep 7
 
 
 # Interface de rede
@@ -39,7 +38,7 @@ echo
 echo
 echo
 
-sleep 10
+sleep 7
 
 
 # Ligação à Internet
@@ -56,7 +55,7 @@ echo
 echo
 echo
 
-sleep 3
+sleep 7
 
 
 # Relógio
@@ -73,20 +72,15 @@ date
 
 echo
 echo
-echo
+echo 
 
-sleep 10
+sleep 7
 
 
 # Partições
 
+
 echo "Formatar e montar a partição raiz"
-
-echo
-echo
-echo
-
-echo "Formatar a partição raiz"
 echo "(ext4 ou btrfs)"
 
 echo
@@ -98,38 +92,56 @@ read formatar_raiz
 case $formatar_raiz in
           ext4)
      mkfs.ext4 -L arch /dev/sdaX
+     echo
+     echo
+     echo
      echo "A partição raiz foi formatada em ext4"
      mount /dev/sdaX /mnt
+     echo
+     echo
+     echo
      lsblk
-     sleep 5
+     echo
+     echo
+     echo
+     sleep 7
      ;;
           btrfs) 
      mkfs.btrfs -f -L arch /dev/sdaX
+     echo
+     echo
+     echo
      echo "A partição raiz foi formatada em btrfs"
      mount /dev/sdaX /mnt
-     btrfs sub create /mnt/@
-     btrfs sub create /mnt/@home
-     umount /mnt
-     mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@ /dev/sdaX /mnt
-     mkdir -p /mnt/{boot/efi,home}
-     mount -o relatime,space_cache=v2,compress=zstd,ssd,discard,nodev,subvol=@home /dev/sdaX /mnt
+     cd /mnt
+     btrfs sub create @
+     btrfs sub create @home
+     cd ..
+     umount -l /mnt
+     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdaX /mnt
+     mkdir -p /mnt/home
+     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard,async,subvol=@home /dev/sdaX /mnt/home
+     echo
+     echo
+     echo
+     lsblk
+     echo
+     echo
+     echo
+     sleep 7
      ;;
+          *) 
+     echo
+     echo
+     echo
+     echo "Não foi feita nenhuma alteração" 
+     echo
+     echo
+     echo
+     ;;     
 esac
 
-
-echo
-echo
-echo
-
-
-
-
-
-sudo mkdir -p /mnt/boot/efi
-
-echo "Formatar e montar a partição efi"
-
-echo
+echo 
 echo
 echo
 
@@ -144,38 +156,82 @@ read formatar_efi
 
 case $formatar_efi in
           sim)
-      sudo mkfs.fat -F32 /dev/sdaY;; 
-      echo "A partição efi foi formatada";;
-
-
-          não) echo "A partição efi não foi formatada";;
+      mkfs.fat -F32 -n efi /dev/sdaY
+      echo
+      echo
+      echo
+      echo "A partição efi foi formatada"
+      echo
+      echo
+      echo
+      ;;
+          não) 
+     echo
+     echo
+     echo
+     echo "A partição efi não foi formatada"
+     echo
+     echo
+     echo
+     ;;
+          *)
+     echo
+     echo
+     echo
+     echo "Não foi feita nenhuma alteração" 
+     echo
+     echo
+     echo
+     ;;  
 esac
 
+echo 
 echo
-echo    
-echo
+echo 
 
-echo "Montando a partição efi"
 
-sudo mount /dev/sdaY /mnt/boot/efi
-
-echo
-echo
-echo
-
-lsblk
+echo "Montar a partição efi?"
+echo "(sim ou não)"
 
 echo
 echo
 echo
 
+read montar_efi
 
-     
-
-     
-
-
- 
-
-
+case $montar_efi in
+          sim)
+      mkdir -p /mnt/boot/efi
+      mount /dev/sdaY /mnt/boot/efi
+      echo
+      echo
+      echo
+      echo "A partição efi foi montada"mkdir -p /mnt/boot/efi
+      echo
+      echo
+      echo
+      lsblk
+      echo
+      echo
+      echo
+      ;;
+          não) 
+     echo
+     echo
+     echo
+     echo "A partição efi não foi montada"
+     echo
+     echo
+     echo
+     ;;
+          *)
+     echo
+     echo
+     echo
+     echo "Não foi feita nenhuma alteração" 
+     echo
+     echo
+     echo
+     ;;  
+esac
 
