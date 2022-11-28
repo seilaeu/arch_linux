@@ -112,6 +112,9 @@ case $formatar_raiz in
      echo
      echo
      echo "A partição raiz foi formatada em btrfs"
+     echo
+     echo
+     echo
      mount /dev/sdaX /mnt
      cd /mnt
      btrfs sub create @
@@ -206,7 +209,7 @@ case $montar_efi in
       echo
       echo
       echo
-      echo "A partição efi foi montada"mkdir -p /mnt/boot/efi
+      echo "A partição efi foi montada"
       echo
       echo
       echo
