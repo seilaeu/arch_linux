@@ -1,0 +1,42 @@
+Instalação
+==========
+
+$ yay -S snapper snapper-gui grub-btrfs snap-pac snapper-support
+
+
+Configuração
+============
+
+$ ediroot /etc/snapper/configs/root
+
+ALLOW_USERS="seilaeu"
+
+
+$ sudo rm -rf /.snapshots/*
+
+$ sudo mount /dev/sdaX /mnt
+
+$ sudo btrfs sub create /mnt/@snapshots
+
+$ sudo mkdir /.snapshots
+
+$ sudo chmod a+rw /.snapshots
+
+$ ediroot /etc/fstab
+
+# Snapshots
+UUID=f32fe064-2d79-4924-9352-6d91afe1e0f0 /.snapshots btrfs rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=291,subvol=/@snapshots 0 0
+
+$ montar /.snapshots
+
+$ sudo systemctl enable --now snapper-timeline.timer
+
+$ sudo systemctl enable --now snapper-cleanup.timer
+
+$ sudo systemctl enable --now grub-btrfs.path
+
+
+Snapshot Inicial
+================
+
+$ snapper -c root create -c timeline --description "Snapshot inicial"

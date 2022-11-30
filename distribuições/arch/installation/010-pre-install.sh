@@ -116,14 +116,9 @@ case $formatar_raiz in
      echo
      echo
      mount /dev/sdaX /mnt
-     cd /mnt
-     btrfs sub create @
-     btrfs sub create @home
-     cd ..
+     btrfs sub create /mnt/@
      umount -l /mnt
      mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdaX /mnt
-     mkdir -p /mnt/home
-     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard,async,subvol=@home /dev/sdaX /mnt/home
      echo
      echo
      echo
