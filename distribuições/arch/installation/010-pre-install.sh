@@ -120,8 +120,8 @@ case $formatar_raiz in
      btrfs sub create /mnt/@snapshots
      umount -l /mnt
      mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdaX /mnt
-     mkdir /.snapshots
-     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@snapshots /dev/sdaX /mnt
+     mkdir /mnt/.snapshots
+     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@snapshots /dev/sdaX /mnt/.snapshots
      echo
      echo
      echo

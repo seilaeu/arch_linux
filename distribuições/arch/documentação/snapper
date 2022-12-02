@@ -7,29 +7,22 @@ $ yay -S snapper snapper-gui-git grub-btrfs snap-pac snapper-support
 Configuração
 ============
 
+$ desmontar /.snapshots
+
+$ sudo rmdir /.snapshots
+
 $ sudo snapper -c root create-config /
 
 $ ediroot /etc/snapper/configs/root
 
 ALLOW_USERS="seilaeu"
-
+ALLOW_GROUPS="seilaeu"
 
 $ sudo btrfs sub delete /.snapshots/
-
-$ montar /dev/sdaX /mnt
-
-$ sudo btrfs sub create /mnt/@snapshots
-
-$ desmontar /mnt
 
 $ sudo mkdir /.snapshots
 
 $ sudo chmod a+rw /.snapshots
-
-$ ediroot /etc/fstab
-
-# Snapshots
-UUID=f32fe064-2d79-4924-9352-6d91afe1e0f0 /.snapshots btrfs rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,subvolid=291,subvol=/@snapshots 0 0
 
 $ montar /.snapshots
 

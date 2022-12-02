@@ -3,6 +3,7 @@
 
 # Escolher os sites mais rápidos
 
+pacman -Syy
 pacman -S reflector --needed 
 
 echo

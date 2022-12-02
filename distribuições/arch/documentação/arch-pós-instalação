@@ -34,7 +34,7 @@ $ sudo systemctl daemon-reload
 $ sudo nano /etc/security/limits.conf
 * hard core 0
 
-
+$ sudo groupadd $USER
 $ sudo chown -R $USER:$USER /home/$USER
 
 
@@ -95,3 +95,7 @@ Tema do sddm
 ============
 
 Instalar o tema Sweet sddm nas definições do sistema
+
+sudo nano /etc/sddm.conf
+
+Current=Sweet

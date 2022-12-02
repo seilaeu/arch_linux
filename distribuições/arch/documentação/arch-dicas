@@ -41,6 +41,7 @@ mount /dev/sdaX /mnt
 
 sudo tar cvpjf arch-`date +"%d.%m.%Y"`.tar.bz2 --exclude={/mnt/dev/*,/mnt/proc/*,/mnt/sys/*,/mnt/tmp/*} /mnt/
 
+bzip2 -tv arch-`date +"%d.%m.%Y"`.tar.bz2
 
 Restaurar cópia de segurança do sistema 
 =======================================
