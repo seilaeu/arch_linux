@@ -5,7 +5,8 @@ sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --needed
 
 
 # Multimedia
-sudo pacman -S spotify vlc pipewire wireplumber pipewire-pulse plasma-pa --needed
+
+sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --needed
 
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
@@ -16,14 +17,14 @@ sudo pacman -S cdrdao cdrtools dvd+rw-tools gst-plugins-good gst-plugins-bad gst
 sudo pacman -S unzip unrar --needed
 
 
-# Tipos de letras
-
-sudo pacman -S terminus-font ttf-dejavu ttf-bitstream-vera --needed
-
-
 # Internet
-sudo pacman -S firefox firefox-i18n-pt-pt wget rsync --needed
-yay -S flashplugin
+sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --needed
+
+#yay -S flashplugin
+
+# Cópias de segurança
+
+$ yay spideroak-one rsync snapper snapper-gui-git grub-btrfs snap-pac snapper-support
 
 # Firewall
 
@@ -42,7 +43,7 @@ sudo systemctl enable ufw.service
 
 
 # Sistema
-sudo pacman -S cronie pkgfile pacman-contrib ncdu subversion sed reflector file pkgstats --needed
+sudo pacman -S cronie pkgfile pacman-contrib ncdu subversion sed reflector file which pkgstats --needed
 
 sudo pkgfile -u
 

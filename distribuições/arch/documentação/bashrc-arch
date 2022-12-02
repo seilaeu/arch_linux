@@ -39,13 +39,12 @@ alias desinstalar='sudo pacman -Rsn'
 alias desinstalar-simples='sudo pacman -R'  
 alias desinstalar-forçado='sudo pacman -Rdd'
 alias actualizar='sudo pacman -Syyu && yay'
-#alias refrescar='sudo reflector --verbose -p https -a1 --sort rate --save /etc/pacman.d/mirrorlist'
 alias procurar='yay -Syy && yay'
 alias instalar='yay -Syy && yay -S --needed'
 alias reinstalar='yay -Syy && yay -S'
 alias questionar='pacman -Qq|grep'
 alias desbloquear='sudo rm /var/lib/pacman/db.lck'
-alias limpeza='sh SpiderOak\ Hive/linux/distribuições/arch/scripts/limpar-sistema.sh'
+alias limpeza='sh /media/dados/linux/distribuições/arch/scripts/limpar-sistema.sh'
 
 alias nano="nano -l"
 alias mv="mv -i"

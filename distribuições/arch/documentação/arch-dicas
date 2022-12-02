@@ -3,11 +3,13 @@ Comando que cria um atalho para actualizar o sistema:
 
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
 
+
 Ligações quebradas
 ==================
 
 $ find . -xtype l
 $ sudo find / -xtype l 
+
 
 Reinstalar o Arch Linux 
 =======================
@@ -15,6 +17,7 @@ Reinstalar o Arch Linux
 Obter a listagem dos pacotes instalados explicitamente que não são requeridos, como dependentes, a qualquer pacote instalado:
 
     pacman -Qqet > pacotes-instalados
+
 
 Reinstalar o sistema:
 
@@ -34,9 +37,9 @@ Criar cópia de segurança do sistema
 
 Entrar noutro sistema linux ou num live-cd
 
-mount /dev/sdaX /media/arch
+mount /dev/sdaX /mnt
 
-sudo tar cvpjf arch-`date +"%d.%m.%Y"`.tar.bz2 -X /mnt/dados/linux/distribuições/arch/documentação/arch.exclusões  /mnt/arch
+sudo tar cvpjf arch-`date +"%d.%m.%Y"`.tar.bz2 --exclude={/mnt/dev/*,/mnt/proc/*,/mnt/sys/*,/mnt/tmp/*} /mnt/
 
 
 Restaurar cópia de segurança do sistema 
@@ -46,7 +49,7 @@ mount /dev/sdaX /media/arch
 
 sudo tar -xjvpf arch*.tar.bz2 -C /media/arch
 
-Em caso de alteração da partição raÃ­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
+Em caso de alteração da partição raí­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
 
 Restaurar o grub: 
 
@@ -59,7 +62,6 @@ grub2-install --force /dev/sdaX
 grub2-mkconfig -o /boot/grub2/grug.cfg
 
 
-        
 Listar os pacotes votados do AUR
 ================================
 

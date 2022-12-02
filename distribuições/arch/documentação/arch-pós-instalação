@@ -1,7 +1,45 @@
+$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
+
+[Journal]
+Storage=persistent
+Compress=yes
+MaxFileSec=1 day
+MaxRetentionSec=2 week
+SystemMaxUse=100M
+SystemMaxFileSize=30M
+RuntimeMaxUse=75M
+RuntimeMaxFileSize=30M
+EOF
+
+sudo systemctl disable lvm2-monitor.service
+sudo systemctl disable avahi-daemon.service
+
+
+$ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF'
+[Manager]
+DefaultTimeoutStopSec=10s
+EOF
+
+
+Core dump
+=========
+
+Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
+
+$ sudo nano /etc/systemd/coredump.conf
+Storage=none
+
+$ sudo systemctl daemon-reload
+
+$ sudo nano /etc/security/limits.conf
+* hard core 0
+
+
 $ sudo chown -R $USER:$USER /home/$USER
 
+
 Fstrim
-------
+======
 
 $ sudo systemctl enable --now fstrim.timer
 
@@ -23,24 +61,37 @@ COMPRESSXZ=(xz -c -z --threads=0 -)
 COMPRESSZST=(zstd -c -z -q --threads=0 -)
 
 
-
 Silenciar o GRUB
 ================
 
-$ sudo nano /etc/grub.d/10_linux 
+$ ediroot /etc/grub.d/10_linux
 
-comentar as linhas 151 e 162: #echo	'$(echo "$message" | grub_quote)'
+comentar as linhas 151 e 162:
 
-$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+#echo	'$(echo "$message" | grub_quote)'
+
+$ grub-update
+
+Tema do Cursor
+==============
+
+Instalar o tema Oxygen 10 Blue nas definições do sistema
+
+Copiar pasta dos ícones para /usr/share/icons
+
+Editar as definições do plasma, Aparência=> Cursores.
+
+sudo nano /etc/sddm.conf
+
+CursorTheme=Oxygen 10 Blue
+
+sudo nano /usr/share/icons/default/index.theme
+
+[Icon Theme]
+Inherits=Oxygen 10 Blue
 
 
-Silenciar o arranque
-====================
+Tema do sddm
+============
 
-$ sudo nano /etc/default/grub
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 rd.systemd.show_status=auto rd.udev.log-priority=3"
-
-$ sudo grub-mkconfig -o /boot/grub/grub.cfg
-
-$ sudo nano /etc/sysctl.d/20-quiet-printk.conf
-kernel.printk = 3 3 3 3
+Instalar o tema Sweet sddm nas definições do sistema
