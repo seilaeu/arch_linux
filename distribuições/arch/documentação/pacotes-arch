@@ -141,7 +141,6 @@ graphene
 graphite
 grep
 grub
-grub-btrfs
 gsettings-desktop-schemas
 gsm
 gssdp
@@ -192,7 +191,6 @@ kaccounts-integration
 kactivities
 kactivities-stats
 kactivitymanagerd
-kamoso
 karchive
 kate
 kauth
@@ -227,7 +225,6 @@ kfilemetadata
 kglobalaccel
 kguiaddons
 kholidays
-khotkeys
 ki18n
 kiconthemes
 kidentitymanagement
@@ -248,7 +245,6 @@ kmymoney
 knewstuff
 knotifications
 knotifyconfig
-kompare
 konsole
 kpackage
 kparts
@@ -368,7 +364,6 @@ libkate
 libkcddb
 libkdcraw
 libkexiv2
-libkomparediff2
 libksba
 libkscreen
 libksysguard
@@ -557,7 +552,6 @@ mobile-broadband-provider-info
 mpfr
 mpg123
 mtdev
-mythes-pt_pt
 nano
 ncdu
 ncurses
@@ -581,7 +575,6 @@ opensp
 openssl
 opus
 orc
-os-prober
 oxygen-sounds
 p11-kit
 pacman

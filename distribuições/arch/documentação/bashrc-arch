@@ -63,7 +63,7 @@ alias formatusb='bash /mnt/linux/scripts/formatusb'
 alias burnusb='bash /mnt/linux/scripts/burnusb'
 
 # KDE
-EDITOR=/usr/bin/kate
+EDITOR=/usr/bin/kwrite
 VISUAL=$EDITOR
 export EDITOR VISUAL
 

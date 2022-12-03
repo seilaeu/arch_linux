@@ -1,3 +1,13 @@
+BASHRC
+======
+
+Ver ficheiro /media/dados/linux/distribuições/arch/documentação/bashrc-arch
+
+$ ediroot  /etc/profile.d/freetype2.sh
+
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
+
+
 $ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
 
 [Journal]
@@ -10,9 +20,6 @@ SystemMaxFileSize=30M
 RuntimeMaxUse=75M
 RuntimeMaxFileSize=30M
 EOF
-
-sudo systemctl disable lvm2-monitor.service
-sudo systemctl disable avahi-daemon.service
 
 
 $ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF'
@@ -35,7 +42,10 @@ $ sudo nano /etc/security/limits.conf
 * hard core 0
 
 $ sudo groupadd $USER
+
 $ sudo chown -R $USER:$USER /home/$USER
+
+$ sudo chown -R $USER:$USER /media/dados
 
 
 Fstrim
@@ -72,20 +82,21 @@ comentar as linhas 151 e 162:
 
 $ grub-update
 
+
 Tema do Cursor
 ==============
 
 Instalar o tema Oxygen 10 Blue nas definições do sistema
 
-Copiar pasta dos ícones para /usr/share/icons
+$ sudo mv ~/.icons/Oxygen* /usr/share/icons
 
 Editar as definições do plasma, Aparência=> Cursores.
 
-sudo nano /etc/sddm.conf
+$ ediroot /etc/sddm.conf
 
 CursorTheme=Oxygen 10 Blue
 
-sudo nano /usr/share/icons/default/index.theme
+$ ediroot /usr/share/icons/default/index.theme
 
 [Icon Theme]
 Inherits=Oxygen 10 Blue

@@ -3,9 +3,9 @@
 
 # Plasma 5
 
-yay -S plasma-desktop konsole kate dolphin kcalc ark okular gwenview  kipi-plugins ktorrent clementine \
-kdeconnect breeze-gtk kde-gtk-config kmymoney k3b sddm sddm-kcm kinfocenter kompare partitionmanager-git \
-khotkeys kamoso
+sudo pacman -S plasma-desktop konsole kate dolphin kcalc ark okular gwenview ktorrent \
+clementine kdeconnect breeze-gtk kde-gtk-config kmymoney k3b sddm sddm-kcm kinfocenter \
+kompare khotkeys kamoso
 
 sudo systemctl enable sddm
 
