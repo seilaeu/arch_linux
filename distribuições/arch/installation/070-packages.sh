@@ -30,7 +30,7 @@ yay -S spideroak-one
 
 sudo pacman -S snapper grub-btrfs 
 
-yay -S snapper-gui-git snapper-support
+yay -S snapper-gui-git
 
 
 # Firewall
