@@ -14,11 +14,8 @@ firefox
 firefox-i18n-pt-pt
 gcc
 git
-google-chrome
 grub
 grub-btrfs
-gst-plugins-bad
-gst-plugins-good
 gst-plugins-ugly
 gwenview
 hunspell-pt_pt
@@ -55,13 +52,8 @@ plasma-desktop
 plasma-pa
 pulsemixer
 reflector
-rsync
 sddm
 sddm-kcm
-snap-pac
-snapper
-snapper-gui-git
-spideroak-one
 subversion
 sudo
 ufw
