@@ -13,9 +13,9 @@ echo
 echo
 echo
 
-# sudo pacman -S kdeplasma-addons plasma-nm spectacle --needed
 
 # Teclado português no sddm
+
 sudo bash -c 'echo "setxkbmap pt" >> /usr/share/sddm/scripts/Xsetup'
 
 sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf

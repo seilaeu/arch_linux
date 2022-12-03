@@ -104,7 +104,7 @@ echo
 
 # Carregador de arranque
 
-pacman -S grub efibootmgr os-prober
+pacman -S grub efibootmgr
 
 echo
 echo
