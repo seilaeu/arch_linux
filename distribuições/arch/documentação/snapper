@@ -1,7 +1,7 @@
 Instalação
 ==========
 
-$ yay -S snapper snapper-gui-git grub-btrfs snap-pac snapper-support
+$ instalar snapper snapper-gui-git grub-btrfs snapper-support
 
 
 Configuração
