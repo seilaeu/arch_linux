@@ -26,16 +26,16 @@ sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --needed
 
 # Cópias de segurança
 
-$ yay spideroak-one 
+yay -S spideroak-one
 
-$ sudo pacman -S snapper grub-btrfs 
+sudo pacman -S snapper grub-btrfs 
 
-$ yay -S snapper-gui-git snapper-support
+yay -S snapper-gui-git snapper-support
 
 
 # Firewall
 
-sudo pacman -S ufw
+sudo pacman -S ufw --needed
 
 sudo ufw enable
 

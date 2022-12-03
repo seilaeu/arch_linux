@@ -8,7 +8,6 @@ rm -rf ~/.thumbnails/*
 sudo rm -rf /mnt/dados/.Trash-*
 
 sudo rm -rf /usr/tmp/* 
-sudo chown $USER:$USER /tmp/makepkg
 
 echo 
 
