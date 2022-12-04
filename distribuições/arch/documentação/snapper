@@ -22,7 +22,7 @@ $ sudo btrfs sub delete /.snapshots/
 
 $ sudo mkdir /.snapshots
 
-$ sudo chmod a+rw /.snapshots
+$ sudo chmod a+rx /.snapshots
 
 $ montar /.snapshots
 

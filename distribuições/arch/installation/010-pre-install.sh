@@ -122,6 +122,8 @@ case $formatar_raiz in
      mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdaX /mnt
      mkdir /mnt/.snapshots
      mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@snapshots /dev/sdaX /mnt/.snapshots
+     mkdir -p /mnt/var/lib/portables
+     mkdir -p /mnt/var/lib/machines
      echo
      echo
      echo
@@ -157,7 +159,7 @@ read formatar_efi
 
 case $formatar_efi in
           sim)
-      mkfs.fat -F32 -n efi /dev/sdaY
+      mkfs.fat -F32 -n efi /dev/sda1
       echo
       echo
       echo
@@ -203,7 +205,7 @@ read montar_efi
 case $montar_efi in
           sim)
       mkdir -p /mnt/boot/efi
-      mount /dev/sdaY /mnt/boot/efi
+      mount /dev/sda1 /mnt/boot/efi
       echo
       echo
       echo
