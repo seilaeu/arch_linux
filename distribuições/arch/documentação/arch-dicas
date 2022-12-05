@@ -4,7 +4,7 @@ Comando que cria um atalho para actualizar o sistema:
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
 
 
-Ligações quebradas
+LigaÃ§Ãµes quebradas
 ==================
 
 $ find . -xtype l
@@ -14,25 +14,18 @@ $ sudo find / -xtype l
 Reinstalar o Arch Linux 
 =======================
 
-Obter a listagem dos pacotes instalados explicitamente que não são requeridos, como dependentes, a qualquer pacote instalado:
+Obter a listagem dos pacotes instalados explicitamente:
 
-    pacman -Qqet > pacotes-instalados
-
+pacman -Qqe > pacotes-instalados-explicitamente 
 
 Reinstalar o sistema:
 
-    Reinstalar utilizando a media favorita de instalação. Define todos os teus ficheiros de configuração (a partir de uma cópia de segurança, obviamenteâ€¦). 
-    ( /etc/fstab, networking, etc...)
-    
-    Reinstalar os pacotes:
+pacman -Syy
 
-    pacman -Syy
-    yay -S `cat pacotes-instalados`
-
-Se instalaste pacotes do AUR, deves utilizar o yay em vez do pacman, porque pacman vai falhar ao tentar instalar esses. 
+yay -S - < pacotes-instalados-explicitamente
 
 
-Criar cópia de segurança do sistema 
+Criar cÃ³pia de seguranÃ§a do sistema 
 ===================================
 
 Entrar noutro sistema linux ou num live-cd
@@ -43,14 +36,15 @@ sudo tar cvpjf arch-`date +"%d.%m.%Y"`.tar.bz2 --exclude={/mnt/dev/*,/mnt/proc/*
 
 bzip2 -tv arch-`date +"%d.%m.%Y"`.tar.bz2
 
-Restaurar cópia de segurança do sistema 
+
+Restaurar cÃ³pia de seguranÃ§a do sistema 
 =======================================
 
 mount /dev/sdaX /media/arch
 
 sudo tar -xjvpf arch*.tar.bz2 -C /media/arch
 
-Em caso de alteração da partição raí­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
+Em caso de alteraÃ§Ã£o da partiÃ§Ã£o raÃ­Â­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
 
 Restaurar o grub: 
 
@@ -59,13 +53,5 @@ mount --rbind /dev /media/arch/dev
 mount --rbind /sys /media/arch/sys
 SHELL=/bin/bash
 chroot /media/arch
-grub2-install --force /dev/sdaX
-grub2-mkconfig -o /boot/grub2/grug.cfg
-
-
-Listar os pacotes votados do AUR
-================================
-
-$ for i in $(pacman -Qqm); do aurvote -c $i; done
-
-$ pacman -Qqm
+grub-install --target=x86_64-efi --efi-directory=/bin/bash --bootloaderid=GRUB
+grub-mkconfig -o /boot/grub/grug.cfg
