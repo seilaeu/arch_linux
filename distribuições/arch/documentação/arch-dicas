@@ -67,6 +67,16 @@ Criar um ficheiro comprimido, de ficheiros e directorias constantes de um fichei
 
 cat ficheiro | zip nome_do_ficheiro_comprimido -@
 
+Definir o tipo de letra padrão do LibreOffice Calc
+==================================================
+
+Abrir um documento de folha de cálculo novo.
+Estilos => Gerir Estilos => Padrão => Clique em Padrão com o botão do lado direito do rato => Modificar => Tipo de letra => Bitstream Vera Sans => Aceitar
+Ficheiro => Modelos => Guardar como modelo => Os Meus Modelos => Nomear o modelo => Guardar
+Ficheiro => Modelos => Gerir Modelos => Clicar em Bitstream Vera Sans com o botão do lado direito do rato => Definir como padrão
+Reiniciar o libreoffice 
+
+Ferramentas => Opções => LibreOffice => Ver => Suavização de letras: 12 pixeis
 
 Reinstalar o Arch Linux 
 =======================
