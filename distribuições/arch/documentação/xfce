@@ -1,15 +1,6 @@
 Desactivar função de suspender e hibernação
 ===========================================
 
-Debian
-------
- 
-$ xfconf-query -c xfce4-session -np '/shutdown/ShowSuspend' -t 'bool' -s 'false' 
-
-$ xfconf-query -c xfce4-session -np '/shutdown/ShowHibernate' -t 'bool' -s 'false' 
-
-
-
 Arch
 ----
 
@@ -24,27 +15,6 @@ polkit.addRule(function(action, subject) {
     }
 });
 
-Manjaro
--------
-
-Podemos utilizar o conteúdo acima e sobrescrever a respectiva secção no ficheiro 99-manjaro.rules.
-
-
-Desbloquear chaveiro do google-chrome
-=====================================
-
-Pacman
-======
-
-$ sudo pacman -R  gnome-keyring
-
-Debian
-======
-
-$ desinstalar gnome-keyring libgnome-keyring-common
-
-
-$ rm ~/.local/share/keyrings/*
 
 Reiniciar o computador
 
