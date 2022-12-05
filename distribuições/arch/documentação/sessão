@@ -1,10 +1,10 @@
-terminar a sessão
+Terminar a sessão
 =================
 
 sudo pkill -kill -u $USER
 
 
-permitir o encerramento e o reínicio do computador pelo utilizador comum
+Permitir o encerramento e o reínicio do computador pelo utilizador comum
 ========================================================================
 
 nano -w ~/.bashrc
