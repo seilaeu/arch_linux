@@ -3,6 +3,25 @@ Comando que cria um atalho para actualizar o sistema:
 
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
 
+Terminar a sessão
+=================
+
+sudo pkill -kill -u $USER
+
+
+Permitir o encerramento e o reínicio do computador pelo utilizador comum
+========================================================================
+
+nano -w ~/.bashrc
+alias reboot="sudo /sbin/reboot"
+alias poweroff="sudo /sbin/poweroff"
+alias halt="sudo /sbin/halt"
+
+ou
+
+sudo nano -w /etc/sudoers
+%wheel all=(all) all
+%wheel arch =nopasswd: /sbin/reboot,/sbin/poweroff,/sbin/halt
 
 Ligações quebradas
 ==================
