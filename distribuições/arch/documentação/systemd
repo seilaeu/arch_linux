@@ -10,7 +10,7 @@ sudo systemctl status <unidade>
 Iniciar uma unidade:
 sudo systemctl start <unidade>
 
-Verificar se uma unidade está ou não activada:
+Verificar se uma unidade estÃ¡ ou nÃ£o activada:
 sudo systemctl is-active <unidade>
 
 Parar uma unidade:
@@ -19,37 +19,37 @@ sudo systemctl stop <unidade>
 Reiniciar uma unidade:
 sudo systemctl restart <unidade>
 
-Activar o iní­­cio de uma unidade no arranque:
+Activar o inÃ­Â­Â­cio de uma unidade no arranque:
 sudo systemctl enable <unidade>
 
-Desactivar o iní­­cio de uma unidade no arranque:
+Desactivar o inÃ­Â­Â­cio de uma unidade no arranque:
 sudo systemctl disable <unidade>
 
-Verificar se uma unidade inicia ou não no arranque:
+Verificar se uma unidade inicia ou nÃ£o no arranque:
 sudo systemctl is-enabled <unidade>
 
 
 Desactivar uma unidade:
 sudo systemctl stop <unidade>
 
-Recarregar a configuração de uma unidade:
+Recarregar a configuraÃ§Ã£o de uma unidade:
 sudo systemctl reload <unidade>
 
-Recarregar a configuração de uma unidade:
+Recarregar a configuraÃ§Ã£o de uma unidade:
 sudo systemctl reload <unidade>
 
 
 
-Mostra a página de ajuda de uma unidade:
+Mostra a pÃ¡gina de ajuda de uma unidade:
 sudo systemctl help <unidade>
 
 Recarrega o systemd pesquisando por novas ou alteradas unidades:
 sudo systemctl daemon-reload
 
-Instalação manual:
+InstalaÃ§Ã£o manual:
 ln -s /usr/lib/systemd/system/foo.service /etc/systemd/system/graphical.target.wants/
 
-Nota: Substituir foo pelo nome do serviço.
+Nota: Substituir foo pelo nome do serviÃ§o.
 
 Reiniciar o sistema:
 
@@ -63,40 +63,17 @@ Suspender o sistema:
 
 $ systemctl suspend
 
-Pôr o sistema em hibernação:
+PÃ´r o sistema em hibernaÃ§Ã£o:
 
 $ systemctl hibernate
 
-Pôr o sistema em estado hiybrid-sleep:
+PÃ´r o sistema em estado hiybrid-sleep:
 
 $ systemctl hybrid-sleep
 
-Vericiar os tempos de execução das unidades no arranque:
+Vericiar os tempos de execuÃ§Ã£o das unidades no arranque:
 
 $ sudo systemd-analyze blame
 
 Ler os registos do systemd:
 journalctl
-
-Verificar existência de erros:
-sudo systemctl --failed
-
-
-$ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF' 
-[Manager]
-DefaultTimeoutStopSec=10s
-EOF
-
-
-Core dump
-=========
-
-Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
-
-$ sudo nano /etc/systemd/coredump.conf
-Storage=none
-
-$ sudo systemctl daemon-reload
-
-$ sudo nano /etc/security/limits.conf
-* hard core 0
