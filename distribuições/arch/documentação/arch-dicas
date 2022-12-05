@@ -11,18 +11,32 @@ $ find . -xtype l
 $ sudo find / -xtype l 
 
 
+Atribuir permissões exclusivamente a directorias, recursivamente
+================================================================
+
+find /path/to/base/dir -type d -exec chmod 755 {} + 
+
+find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+
+
+Listar as directorias por tamanho(mb)
+=====================================
+
+$ du -mx | egrep -v "\./.+/" | sort -n
+
+
 Reinstalar o Arch Linux 
 =======================
 
-Obter a listagem dos pacotes instalados explicitamente:
+=> Obter a listagem dos pacotes instalados explicitamente
 
-pacman -Qqe > pacotes-instalados-explicitamente 
+$ pacman -Qqe > pacotes-instalados-explicitamente 
 
-Reinstalar o sistema:
+=> Reinstalar o sistema
 
-pacman -Syy
+$ pacman -Syy
 
-yay -S - < pacotes-instalados-explicitamente
+$ yay -S - < pacotes-instalados-explicitamente
 
 
 Criar cópia de segurança do sistema 
