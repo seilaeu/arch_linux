@@ -1,25 +1,21 @@
-1 - Verificar existência de erros 
+#!/bin/bash
 
-Verificar se algum serviço do systemd falhou:
+# Verificar se algum serviço do systemd falhou:
+
+echo
+echo
+echo
 
 $ systemctl --failed
 
-Procurar erros nos ficheiros de registo localizados em /var/log. 
+echo
+echo
+echo
 
-Procurar erros de alta prioridade no journal do systemd:
+# Procurar erros de alta prioridade no journal do systemd:
 
-# journalctl -p 3 -b
+$ journalctl -p 3 -b
 
-2 - Backup
-
-Ficheiros de configuração 
-
-Lista de pacotes oficiais explicitamente instalados:
-pacman -Qqe > pacotes-oficiais.txt
-
-Lista de pacotes AUR explicitamente instalados:
-pacman -Qqem > pacotes-aur.txt
-
-Instalar pacotes a partir de um ficheiro:
-pacman -S --needed - < pacotes-oficiais.txt
-yay -S - < pacotes-aur.txt
+echo
+echo
+echo
