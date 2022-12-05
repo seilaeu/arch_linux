@@ -1,10 +1,6 @@
-COLORS-Lscolors
-
-From: Bartman
-
 Here is an easy way to set different colours for different kinds of files when using the ls command.
 
-Add the following lines to the bottom of your ~/.bashrc file -
+Add the following lines to the bottom of your ~/.bashrc file: 
 
 alias ls='ls --color'
 LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
@@ -72,11 +68,7 @@ These can even be combined, so that a parameter like:
 di=5;31;42
 in your LS_COLORS variable would make directories appear in flashing red text with a green background!
 
-Setting LS_COLORS does more than just make your ls listings look pretty (although it certainly does do that), it is also very helpful in identifying files while wading through a file system.
 
-If anyone finds out additional info on LS_COLORS, or spots an error, please e-mail me, I would like to know. Any questions may also be directed to me by e-mail.
-
-Bartman
 
 
 
