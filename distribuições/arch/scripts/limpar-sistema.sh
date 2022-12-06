@@ -6,7 +6,7 @@ rm -rf ~/.cache/*
 rm -rf ~/.local/share/Trash/* 
 rm -rf ~/.thumbnails/*
 sudo rm -rf /mnt/dados/.Trash-*
-
+sudo rm -rf /root/.cache/*
 sudo rm -rf /usr/tmp/* 
 
 echo 
