@@ -6,7 +6,7 @@ echo
 echo
 echo
 
-$ systemctl --failed
+systemctl --failed
 
 echo
 echo
@@ -14,7 +14,7 @@ echo
 
 # Procurar erros de alta prioridade no journal do systemd:
 
-$ journalctl -p 3 -b
+journalctl -p 3 -b
 
 echo
 echo
