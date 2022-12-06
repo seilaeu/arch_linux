@@ -2,9 +2,9 @@ echo
 
 echo "Limpando o sistema..."
 
-rm -rf ~/.cache/* 
-rm -rf ~/.local/share/Trash/* 
-rm -rf ~/.thumbnails/*
+rm -rf /home/$USER/.cache/* 
+mkdir /home/$USER/.cache/thumbnails/
+rm -rf /home/$USER/.local/share/Trash/* 
 sudo rm -rf /mnt/dados/.Trash-*
 sudo rm -rf /root/.cache/*
 sudo rm -rf /usr/tmp/* 

@@ -3,11 +3,6 @@ Comando que cria um atalho para actualizar o sistema:
 
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
 
-Terminar a sessão
-=================
-
-sudo pkill -kill -u $USER
-
 
 Permitir o encerramento e o reínicio do computador pelo utilizador comum
 ========================================================================
@@ -23,12 +18,6 @@ sudo nano -w /etc/sudoers
 %wheel all=(all) all
 %wheel arch =nopasswd: /sbin/reboot,/sbin/poweroff,/sbin/halt
 
-Ligações quebradas
-==================
-
-$ find . -xtype l
-$ sudo find / -xtype l 
-
 
 Atribuir permissões exclusivamente a directorias, recursivamente
 ================================================================
@@ -36,12 +25,6 @@ Atribuir permissões exclusivamente a directorias, recursivamente
 find /path/to/base/dir -type d -exec chmod 755 {} + 
 
 find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
-
-
-Listar as directorias por tamanho(mb)
-=====================================
-
-$ du -mx | egrep -v "\./.+/" | sort -n
 
 
 Atribuir permissões exclusivamente a ficheiros, recursivamente
@@ -52,29 +35,23 @@ find /path/to/base/dir -type f -exec chmod 644 {} +
 find /path/to/base/dir -type f -print0 | xargs -0 chmod 644  
 
 
-Listar os ficheiros por tamanho(mb)
-===================================
-
-(Decrescente)
-$ ls -sh --sort=size
-
-(Crescente)
-$ ls -srh --sort=size
-
 Listar os ficheiros com indicação do ano:
 
 $ ls -l --full-time
 
+
 Apagar ficheiros de registo antigos (old log files)
 ===================================================
 
-nota: to find files modified more than 5 days use -mtime +5 and files modified less than 5 days use -mtime -5
+Para procurar ficheiros modificados há mais de 5 dias: -mtime +5
+
+Para procurar ficheiros modificados há menos de 5 dias: -mtime -5
 
 use -ctime parameter to find out the created time
 
 mostrar ficheiros de registo com mais de 10 dias: 
 
-find /var/log/ -name "*log" -mtime +10 -exec ls -tl {} \;
+$ sudo find /var/log/ -name "*log" -mtime +10 -exec ls -tl {} \;
 
 apagar ficheiros de registo com mais de 10 dias: 
 
