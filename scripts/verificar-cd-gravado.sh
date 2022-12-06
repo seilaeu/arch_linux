@@ -1,29 +1,26 @@
-#!/bin/bash
-#shell script to verify a burned iso
+#!/usr/bin/bash 
 
-# Sets the path to iso
-if [ -e "$1" ] ; then 
-	ISOFILE=$1
-else
-	echo "Introduza o caminho completo para o ficheiro ISO"
-	read -e ISOFILE
-	echo
-	if [ ! -e "$ISOFILE" ] ; then
-		echo -e "Caminho ou ficheiro não existem, por favor tente outra vez \n"  
-                get_iso_path
-	fi
-fi 
+if [ $# -ne 2 ]; then
+  echo "Syntax: $0 medium_device iso_file"
+  exit 1
+fi
 
-echo "Isofile: " $ISOFILE
-DVDDRIVE=/dev/sr0
-BYTES=2048
+dev="$1"
+iso="$2"
 
-#Get the number of extends
-NROFEXTENDS=$(($(ls -l $ISOFILE | awk '{ print $5 }') / $BYTES ))
-echo "Nr of extends: " $NROFEXTENDS
+if [ ! -b "$dev" ]; then
+  echo "Error: The first argument must be a block device."
+  exit 2
+fi
 
-#Get MD5 sum of DVD
-dd if=$DVDDRIVE bs=$BYTES count=$NROFEXTENDS | md5sum
+if [ ! -f "$iso" ]; then
+  echo "Error: The second argument must be an ISO file."
+  exit 3
+fi
 
-#Get MD5 sum of iso file
-md5sum $ISOFILE 
+size="$(stat -c %s "$iso")"
+
+echo "Verifying $size bytes..."
+cmp -n $size "$dev" "$iso"
+
+if [ $? -eq 0 ]; then echo "The media and the ISO file are identical."; fi
