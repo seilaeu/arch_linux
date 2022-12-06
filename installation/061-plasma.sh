@@ -5,7 +5,7 @@
 
 sudo pacman -S plasma-desktop konsole kate dolphin kcalc ark okular gwenview 
 sudo pacman -S ktorrent clementine kdeconnect breeze-gtk kde-gtk-config kmymoney 
-sudo pacman -S k3b sddm sddm-kcm kinfocenter kompare khotkeys kamoso network-manager-applet
+sudo pacman -S k3b sddm sddm-kcm kinfocenter kompare khotkeys kamoso plasma-nm
 
 sudo systemctl enable sddm
 
