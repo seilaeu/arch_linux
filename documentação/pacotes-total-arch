@@ -62,10 +62,12 @@ cronie
 crypto++
 cryptsetup
 curl
+cython
 dav1d
 db
 dbus
 dbus-glib
+dbus-python
 dconf
 default-cursors
 desktop-file-utils
@@ -141,6 +143,7 @@ graphene
 graphite
 grep
 grub
+grub-btrfs
 gsettings-desktop-schemas
 gsm
 gssdp
@@ -153,6 +156,7 @@ gst-plugins-ugly
 gstreamer
 gtk-update-icon-cache
 gtk3
+gtksourceview3
 guile
 gupnp
 gupnp-igd
@@ -163,6 +167,7 @@ harfbuzz
 harfbuzz-icu
 hicolor-icon-theme
 hidapi
+http-parser
 hunspell
 hunspell-pt_pt
 hwdata
@@ -191,6 +196,7 @@ kaccounts-integration
 kactivities
 kactivities-stats
 kactivitymanagerd
+kamoso
 karchive
 kate
 kauth
@@ -225,6 +231,7 @@ kfilemetadata
 kglobalaccel
 kguiaddons
 kholidays
+khotkeys
 ki18n
 kiconthemes
 kidentitymanagement
@@ -245,6 +252,7 @@ kmymoney
 knewstuff
 knotifications
 knotifyconfig
+kompare
 konsole
 kpackage
 kparts
@@ -340,6 +348,7 @@ libfreeaptx
 libfreehand
 libftdi
 libgcrypt
+libgit2
 libglvnd
 libgme
 libgpg-error
@@ -364,6 +373,7 @@ libkate
 libkcddb
 libkdcraw
 libkexiv2
+libkomparediff2
 libksba
 libkscreen
 libksysguard
@@ -625,6 +635,23 @@ pulseaudio-qt
 pulsemixer
 purpose
 python
+python-appdirs
+python-autocommand
+python-gobject
+python-inflect
+python-jaraco.context
+python-jaraco.functools
+python-jaraco.text
+python-more-itertools
+python-ordered-set
+python-packaging
+python-pydantic
+python-pyparsing
+python-setuptools
+python-tomli
+python-trove-classifiers
+python-typing_extensions
+python-validate-pyproject
 qca-qt5
 qgpgme
 qqc2-desktop-style
@@ -671,6 +698,8 @@ signon-ui
 signond
 slang
 smbclient
+snapper
+snapper-gui-git
 snappy
 solid
 sonnet
@@ -680,6 +709,7 @@ soundtouch
 spandsp
 speex
 speexdsp
+spideroak-one
 spirv-tools
 sqlcipher
 sqlite
@@ -728,7 +758,6 @@ vulkan-icd-loader
 vulkan-tools
 wavpack
 wayland
-wayland-protocols
 wayland-utils
 webrtc-audio-processing
 wget
