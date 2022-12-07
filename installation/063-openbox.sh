@@ -1,4 +1,4 @@
 #! /bin/bash
 
 
-sudo pacman -S openbox obconf obmenu-generator 
+sudo pacman -S openbox obconf obmenu-generator --noconfirm --needed

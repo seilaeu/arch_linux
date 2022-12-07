@@ -4,7 +4,7 @@
 # Escolher os sites mais rápidos
 
 pacman -Syy
-pacman -S reflector --needed 
+pacman -S reflector --noconfirm --needed
 
 echo
 echo

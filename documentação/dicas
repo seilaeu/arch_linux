@@ -110,12 +110,14 @@ $ sudo e2fsck -f /dev/sdax
 $ sudo resize2fs /dev/sdax
 
 
-Gerar um novo uuid para a partição de destino 
+=> Gerar um novo uuid para a partição de destino
 
 $ sudo tune2fs -u $(uuidgen) /dev/sdaX 
 
-Etiqueta da partição destino
-sudo e2label /dev/sdaX arch
+=> Etiqueta da partição destino
+
+$ sudo e2label /dev/sdaX arch
+
 
 Substituir letra maiúscula por minúscula num ficheiro
 =====================================================
@@ -127,10 +129,13 @@ Comprimir um ficheiro e dividir em vários pequenos ficheiros
 ============================================================
 
 Comprimir:
-tar cjvf teste.tar.bz2 /media/dados/teste
+
+$ tar cjvf teste.tar.bz2 /media/dados/teste
 
 Dividir:
-split --bytes=600m teste.tar.bz2 teste.tar.bz2.
+
+$ split --bytes=600m teste.tar.bz2 teste.tar.bz2.
+
 Serão criados os ficheiros teste.tar.bz2.aa, teste.tar.bz2.ab...
 
 Para reuni-los: 

@@ -2,4 +2,4 @@
 
 # Servidor gráfico
 
-sudo pacman -S xorg-server xorg-xinit xorg-xkill
+sudo pacman -S xorg-server xorg-xinit xorg-xkill --noconfirm --needed
