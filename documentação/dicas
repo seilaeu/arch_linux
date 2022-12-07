@@ -4,35 +4,20 @@ Comando que cria um atalho para actualizar o sistema:
 konsole -e bash -c 'yay -Syy && yay; echo; read -p "Prima a tecla Enter..."'
 
 
-Permitir o encerramento e o reínicio do computador pelo utilizador comum
-========================================================================
-
-nano -w ~/.bashrc
-alias reboot="sudo /sbin/reboot"
-alias poweroff="sudo /sbin/poweroff"
-alias halt="sudo /sbin/halt"
-
-ou
-
-sudo nano -w /etc/sudoers
-%wheel all=(all) all
-%wheel arch =nopasswd: /sbin/reboot,/sbin/poweroff,/sbin/halt
-
-
 Atribuir permissões exclusivamente a directorias, recursivamente
 ================================================================
 
-find /path/to/base/dir -type d -exec chmod 755 {} + 
+$ find /path/to/base/dir -type d -exec chmod 755 {} +
 
-find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+$ find /path/to/base/dir -type d -print0 | xargs -0 chmod 755
 
 
 Atribuir permissões exclusivamente a ficheiros, recursivamente
 ==============================================================
 
-find /path/to/base/dir -type f -exec chmod 644 {} + 
+$ find /path/to/base/dir -type f -exec chmod 644 {} +
   
-find /path/to/base/dir -type f -print0 | xargs -0 chmod 644  
+$ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
 
 
 Listar os ficheiros com indicação do ano:
@@ -47,21 +32,22 @@ Para procurar ficheiros modificados há mais de 5 dias: -mtime +5
 
 Para procurar ficheiros modificados há menos de 5 dias: -mtime -5
 
-use -ctime parameter to find out the created time
+Usar -ctime parameter para procurar com base na data de criação
 
 mostrar ficheiros de registo com mais de 10 dias: 
 
 $ sudo find /var/log/ -name "*log" -mtime +10 -exec ls -tl {} \;
 
-apagar ficheiros de registo com mais de 10 dias: 
+Apagar ficheiros de registo com mais de 10 dias:
 
-find /var/log/ -name "*log" -mtime +10 -exec rm -f {} \; 
+$ find /var/log/ -name "*log" -mtime +10 -exec rm -f {} \;
 
 
 Criar um ficheiro comprimido, de ficheiros e directorias constantes de um ficheiro de texto
 ===========================================================================================
 
 cat ficheiro | zip nome_do_ficheiro_comprimido -@
+
 
 Definir o tipo de letra padrão do LibreOffice Calc
 ==================================================
@@ -74,45 +60,21 @@ Reiniciar o libreoffice
 
 Ferramentas => Opções => LibreOffice => Ver => Suavização de letras: 12 pixeis
 
+
 Definir a shell a ser utilizada 
 ===============================
 
 SHELL=/bin/bash
 
 
-Definir o tempo de vida da palavra-passe do comando sudo
-========================================================
-
-defaults:jribeiro timestamp_timeout=15 (em minutos)
-
-
 Criar cópia de segurança com o comando tar
 ==========================================
 
-tar cjvf linux-`date +"%y.%m.%d"`.tar.bz2 --exclude={ficheiro,directoria} /media/dados/linux
+$ tar cjvf linux-`date +"%y.%m.%d"`.tar.bz2 --exclude={ficheiro,directoria} /media/dados/linux
 
-testar a integridade do arquivo compactado:
+Testar a integridade do arquivo compactado:
 
-bzip2 -tv linux-*.tar.bz2
-
-
-Transferir um ficheiro torrent do sítio the pirate bay
-====================================================== 
-
-1º método:
-obtém a ligação para o torrent que 
-queres transferir, por exemplo http://thepiratebay.se/torrent/7251952/
-procura o número na ligação do teu torrent, neste caso é 9646973.
-agora, usa este modelo para obteres o ficheiro torrent: "http://torrents.thepiratebay.se/número/nome.torrent". número é o número anotado anteriormente, e nome é nome que atribuis dás ao teu ficheiro torrent.
-neste exemplo fica "http://torrents.thepiratebay.se/9646973/Windows_8.1_Pro_VL_32_bit_English_-_Original.torrent"
-pressiona enter e o ktorrent é chamado a transferir este ficheiro!
-
-
-2º método 
-
-Visitar a página http://magnet2torrent.me/
-Clicar com o lado direiro do rato em "get this torrent" copiar endereço do link e colar em "magnet link"
-Esperar 1 a 2 minutos e fazer o donwload do ficheiro .torrent.
+$ bzip2 -tv linux-*.tar.bz2
 
 
 Montar uma imagem iso
@@ -139,7 +101,7 @@ wget -r -nH --cut-dirs=5 --no-parent -erobots=off  --reject="index.html*" http:/
 Clonagem
 ========
 
-$ sudo dd if=/dev/sdaX of=/dev/sdaY bs=4096 conv=notrunc,noerror,sync
+$ sudo dd if=/dev/sdaX of=/dev/sdaY bs=4M conv=fsync oflag=direct status=progress
 
 => Restaurar o tamanho da partição de destino
 
