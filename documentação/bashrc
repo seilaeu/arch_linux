@@ -45,12 +45,18 @@ alias reinstalar='yay -Syy && yay -S'
 alias questionar='pacman -Qq|grep'
 alias desbloquear='sudo rm /var/lib/pacman/db.lck'
 
+alias desligar='/usr/bin/poweroff'
+alias reiniciar='/usr/bin/reboot'
 
 alias nano="nano -l"
 alias mv="mv -i"
 
+alias git-add="git add --all" 
+alias git-commit="git commit -a -m update"
+alias git-push="git push -u origin master"
+
 # Grub
-alias grub-instalar='sudo /usr/sbin/grub-install sda'
+alias grub-instalar='sudo /usr/sbin/grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB'
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 alias montar="sudo mount"
