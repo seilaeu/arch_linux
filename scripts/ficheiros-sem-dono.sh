@@ -9,7 +9,7 @@ trap 'rm -rf "$tmp"' EXIT
 
 pacman -Qlq | sort -u > "$db"
 
-find /bin /etc /sbin /usr \
+sudo find /bin /etc /opt/ /sbin /usr \
   ! -name lost+found \
   \( -type d -printf '%p/\n' -o -print \) | sort > "$fs"
 

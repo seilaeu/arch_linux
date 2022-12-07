@@ -46,7 +46,7 @@ sudo systemctl enable ufw.service
 
 # Sistema
 
-sudo pacman -S cronie pkgfile pacman-contrib ncdu subversion sed reflector file which pkgstats --needed
+sudo pacman -S cronie pkgfile pacman-contrib ncdu subversion sed reflector file which pkgstats whois bind --needed
 
 sudo pkgfile -u
 
