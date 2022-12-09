@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Procurar ligações quebradas
+
+sudo find / -not -path '/proc*' -not -path '/run*' -xtype l
+
+
 # Verificar se algum serviço do systemd falhou:
 
 echo
