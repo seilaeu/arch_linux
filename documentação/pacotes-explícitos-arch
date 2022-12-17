@@ -1,6 +1,8 @@
+archiso
 ark
 aspell-pt
 base
+bind
 breeze-gtk
 cdrdao
 cdrtools
@@ -36,8 +38,10 @@ libreoffice-fresh
 libreoffice-fresh-pt
 linux
 make
+mythes-pt_pt
 nano
 ncdu
+network-manager-applet
 networkmanager
 okular
 pacman-contrib
@@ -47,6 +51,7 @@ pkgconf
 pkgfile
 pkgstats
 plasma-desktop
+plasma-nm
 plasma-pa
 pulsemixer
 reflector
@@ -62,6 +67,7 @@ unrar
 unzip
 wget
 which
+whois
 xorg-server
 xorg-xinit
 xorg-xkill

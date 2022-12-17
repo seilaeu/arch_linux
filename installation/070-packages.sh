@@ -24,6 +24,11 @@ sudo pacman -S unzip unrar --noconfirm --needed
 sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --noconfirm --needed
 
 
+# Utilitários
+
+sudo pacman -S bash-completion
+
+
 # Cópias de segurança
 
 yay -S spideroak-one
