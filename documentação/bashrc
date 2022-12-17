@@ -45,7 +45,7 @@ alias desligar='/usr/bin/poweroff'
 alias reiniciar='/usr/bin/reboot'
 
 alias nano="nano -l"
-alias mv="mv -i"
+alias mv="mv -i"alias ediroot="SUDO_EDITOR=$EDITOR sudoedit"
 
 alias git-add="git add --all" 
 alias git-commit="git commit -a -m update"
