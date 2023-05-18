@@ -26,7 +26,7 @@ sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --noconfirm --needed
 
 # Utilitários
 
-sudo pacman -S bash-completion
+sudo pacman -S bash-completion usbutils
 
 
 # Cópias de segurança

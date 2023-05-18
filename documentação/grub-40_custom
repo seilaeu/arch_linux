@@ -4,19 +4,17 @@ exec tail -n +3 $0
 # menu entries you want to add after this comment.  Be careful not to change
 # the 'exec tail' line above.
 #!/bin/sh
+menuentry "Arch" {
+        insmod fat
+        insmod chain
+        search --no-floppy --set=root --fs-uuid D283-1165
+        chainloader /EFI/arch/grubx64.efi
+}
 menuentry "Fedora" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid 6280-E123
+        search --no-floppy --set=root --fs-uuid D283-1165
         chainloader /EFI/fedora/grubx64.efi
-}
-menuentry 'Manjaro KDE'{
-        insmod part_msdos
-        insmod lvm
-        insmod ext2
-        set root=(hd0,2)
-        linux /boot/vmlinuz-4.9-x86_64  root=/dev/sda2 resume=/dev/pclvm/swap rw
-        initrd /boot/ initramfs-4.9-x86_64.img
 }
 menuentry 'Desligar' {
         halt

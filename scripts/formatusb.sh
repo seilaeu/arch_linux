@@ -1,6 +1,6 @@
 #!/bin/bash
 
-readarray -t devicevar < <(sudo lsblk --nodeps -no name | egrep -v 'sda|sr0')
+readarray -t devicevar < <(sudo lsblk --nodeps -no name | grep -E -v 'sda|sr0')
 
 # Prompt the user to select one of the lines.
 echo "Please select a drive:"
