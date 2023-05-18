@@ -16,10 +16,10 @@ $ git add README.md
 $ git commit -m "first commit"
 $ git push -u origin master
 
-Colocar contéudo dentro
+Sincronizar o repositório do github.com com o computador
 
-$ sudo cp -r /home/$USER/livecd/* /home/$USER/github/livecd
+$ cd /caminho/para/a/pasta
 $ git status
-$ sudo git add --all
-$ sudo git commit -m "add new files"
-$ sudo git push -u origin master
+$ git add --all
+$ git commit -m "add new files"
+$ git push -u origin master
