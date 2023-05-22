@@ -11,22 +11,26 @@ sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --no
 
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
-sudo pacman -S cdrdao cdrtools dvd+rw-tools gst-plugins-good gst-plugins-bad gst-plugins-ugly --noconfirm --needed
+sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly --noconfirm --needed
 
 
 # Compressão e descompressão 
 
-sudo pacman -S unzip unrar --noconfirm --needed
+sudo pacman -S unzip unrar --libappindicator-gtk3noconfirm --needed
 
+
+# Letra
+
+sudo pacman -S ttf-bitstream-vera
 
 # Internet
 
 sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --noconfirm --needed
-
+yay -S protonvpn
 
 # Utilitários
 
-sudo pacman -S bash-completion usbutils
+sudo pacman -S bash-completion ncdu usbutils
 
 
 # Cópias de segurança
@@ -51,7 +55,7 @@ sudo systemctl enable ufw.service
 
 # Sistema
 
-sudo pacman -S cronie pkgfile pacman-contrib ncdu subversion sed reflector file which pkgstats whois bind --noconfirm --needed
+sudo pacman -S cronie pkgconf pkgfile pacman-contrib subversion sed reflector file which pkgstats whois bind --noconfirm --needed
 
 sudo pkgfile -u
 

@@ -4,7 +4,7 @@
 # Escolher os sites mais rápidos
 
 pacman -Syy
-pacman -S reflector --noconfirm --needed
+pacman -S reflector rsync --noconfirm --needed
 
 echo
 echo
@@ -22,7 +22,7 @@ sleep 3
 
 # Instalar sistema base
 
-pacstrap -i /mnt/ base linux sudo nano intel-ucode networkmanager
+pacstrap -i /mnt/ base linux linux-firmware sudo nano intel-ucode networkmanager
 
 echo
 echo
