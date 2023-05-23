@@ -29,4 +29,3 @@ read -r id sn unused <<<"$drive"
 sudo dd bs=4M if=/home/$USER/Transferências/$iso of=/dev/$drive conv=fsync oflag=direct status=progress  
 echo
 echo "Imagem Gravada no Dispositivo USB"
-

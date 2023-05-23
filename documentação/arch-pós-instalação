@@ -110,3 +110,13 @@ Instalar o tema Sweet sddm nas definições do sistema
 sudo nano /etc/sddm.conf
 
 Current=Sweet
+
+Nano
+====
+
+https://wiki.archlinux.org/title/nano
+
+ZRAM
+====
+
+https://wiki.archlinux.org/title/Zram
