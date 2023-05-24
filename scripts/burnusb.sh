@@ -1,9 +1,7 @@
-#!/bin/bash
-
 # Read command output line by line into array ${lines [@]}
 # Bash 3.x: use the following instead:
 
-readarray -t isovar < <(sudo ls -1 /home/$USER/Transferências/ |grep -F "iso" |grep -Fv "torrent")
+readarray -t isovar < <(find /home/$USER/Transferências/ -type f -name *.iso -printf "%f\n")
 
 # Prompt the user to select one of the lines.
 echo "Please select a iso file:"
