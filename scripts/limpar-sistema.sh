@@ -1,7 +1,7 @@
 echo 
 
 echo "Limpando o sistema..."
-
+echo 
 rm -rf /home/$USER/.cache/* 
 mkdir /home/$USER/.cache/thumbnails/
 rm -rf /home/$USER/.local/share/Trash/* 

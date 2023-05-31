@@ -1,6 +1,9 @@
 #! /bin/bash
 
 # Escritório
+echo
+echo
+echo
 
 sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --noconfirm --needed
 
@@ -9,24 +12,34 @@ sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --noconfirm --needed
 
 sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --noconfirm --needed
 
+echo
+echo
+echo
+
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
+
+echo
+echo
+echo
 
 sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly --noconfirm --needed
 
 
 # Compressão e descompressão 
 
-sudo pacman -S unzip unrar --libappindicator-gtk3noconfirm --needed
+sudo pacman -S unzip unrar --noconfirm --needed
 
 
 # Letra
 
-sudo pacman -S ttf-bitstream-vera
+sudo pacman -S ttf-bitstream-vera --noconfirm --needed
+
 
 # Internet
 
 sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --noconfirm --needed
 yay -S protonvpn
+
 
 # Utilitários
 
@@ -55,7 +68,7 @@ sudo systemctl enable ufw.service
 
 # Sistema
 
-sudo pacman -S cronie pkgconf pkgfile pacman-contrib subversion sed reflector file which pkgstats whois bind --noconfirm --needed
+sudo pacman -S bind pacman-contrib pkgfile pkgstats whois --noconfirm --needed
 
 sudo pkgfile -u
 

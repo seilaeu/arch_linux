@@ -117,13 +117,8 @@ case $formatar_raiz in
      echo
      mount /dev/sdaX /mnt
      btrfs sub create /mnt/@
-     btrfs sub create /mnt/@snapshots
      umount -l /mnt
      mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdaX /mnt
-     mkdir /mnt/.snapshots
-     mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@snapshots /dev/sdaX /mnt/.snapshots
-     mkdir -p /mnt/var/lib/portables
-     mkdir -p /mnt/var/lib/machines
      echo
      echo
      echo
@@ -204,8 +199,7 @@ read montar_efi
 
 case $montar_efi in
           sim)
-      mkdir -p /mnt/boot/efi
-      mount /dev/sda1 /mnt/boot/efi
+      mount --mkdir /dev/sda1 /mnt/boot/efi
       echo
       echo
       echo

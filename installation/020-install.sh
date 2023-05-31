@@ -22,7 +22,7 @@ sleep 3
 
 # Instalar sistema base
 
-pacstrap -i /mnt/ base linux linux-firmware sudo nano intel-ucode networkmanager
+pacstrap -K /mnt/ base linux linux-firmware
 
 echo
 echo

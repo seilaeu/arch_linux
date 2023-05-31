@@ -101,16 +101,23 @@ echo
 echo
 echo
 
+# Microde Intel
+
+pacman -S intel-ucode --noconfirm --needed
+
+echo
+echo
+echo
 
 # Carregador de arranque
 
-pacman -S grub efibootmgr --noconfirm
+pacman -S grub efibootmgr --noconfirm --needed
 
 echo
 echo
 echo 
 
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
 
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -121,6 +128,11 @@ echo
 
 # Sudo
 
+pacman -S sudo nano --noconfirm --needed
+
+echo
+echo
+echo
 echo 'Descomentar a linha wheel' 
 
 echo
@@ -135,7 +147,9 @@ echo
 echo
 echo
 
-# Activar a rede
+# Rede
+
+pacman -S networkmanager
 
 systemctl enable NetworkManager
 

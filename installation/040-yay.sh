@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Development
-sudo pacman -S patch fakeroot gcc make pkg-config git --needed
+sudo pacman -S base-devel git --noconfirm --needed
 
 echo
 echo
