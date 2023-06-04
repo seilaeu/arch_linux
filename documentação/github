@@ -16,7 +16,8 @@ $ git add README.md
 $ git commit -m "first commit"
 $ git push -u origin master
 
-Sincronizar o repositório do github.com com o computador
+Sincronizar o repositório do github.com com o do computador
+===========================================================
 
 $ cd /caminho/para/a/pasta
 $ git status
