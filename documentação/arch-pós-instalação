@@ -3,6 +3,22 @@ BASHRC
 
 Ver ficheiro /media/dados/linux/distribuições/arch/documentação/bashrc-arch
 
+Nano
+====
+
+$ mkdir ~/.config/nano
+$ nano ~/.config/nano/nanorc
+
+include "/usr/share/nano/*.nanorc"
+include "/usr/share/nano/extra/*.nanorc"
+
+$ sudo mkdir /root/.config/nano
+$ sudo cp .config/nano/nanorc /root/.config/nano
+
+
+Freetype
+========
+
 $ ediroot  /etc/profile.d/freetype2.sh
 
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
