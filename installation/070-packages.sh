@@ -33,7 +33,7 @@ sudo pacman -S unzip unrar --noconfirm --needed
 # Letra
 
 sudo pacman -S ttf-bitstream-vera --noconfirm --needed
-
+yay -S ttf-ms-win11-auto
 
 # Internet
 
@@ -49,10 +49,6 @@ sudo pacman -S bash-completion ncdu usbutils
 # Cópias de segurança
 
 yay -S spideroak-one
-
-sudo pacman -S snapper grub-btrfs 
-
-yay -S snapper-gui-git
 
 
 # Firewall

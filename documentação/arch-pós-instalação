@@ -136,3 +136,11 @@ ZRAM
 ====
 
 https://wiki.archlinux.org/title/Zram
+
+
+Substituir keymap e consolefont por sd-vconsole
+===============================================
+
+sudo nano /etc/mkinitcpio.conf
+
+HOOKS=(...keyboard sd-vconsole block...)
