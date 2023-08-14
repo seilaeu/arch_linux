@@ -10,11 +10,17 @@ menuentry "Arch" {
         search --no-floppy --set=root --fs-uuid D283-1165
         chainloader /EFI/arch/grubx64.efi
 }
-menuentry "Fedora" {
+menuentry "OpenSUSE" {
         insmod fat
         insmod chain
         search --no-floppy --set=root --fs-uuid D283-1165
-        chainloader /EFI/fedora/grubx64.efi
+        chainloader /EFI/opensuse/grubx64.efi
+}
+menuentry "Debian" {
+        insmod fat
+        insmod chain
+        search --no-floppy --set=root --fs-uuid D283-1165
+        chainloader /EFI/debian/grubx64.efi
 }
 menuentry 'Desligar' {
         halt
