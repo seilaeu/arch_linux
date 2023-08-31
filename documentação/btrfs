@@ -65,33 +65,32 @@ https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/61623-more-btrfs
 
 Montar a partição fonte:
 
-# mkdir /media/btrfs-fonte
-# mount -o subvolid=5 /dev/sdaX /media/btrfs-fonte
+# mkdir /media/fonte
+# mount -o subvolid=5 /dev/sdaX /media/fonte
 
-https://www.kubuntuforums.net/forum/general/miscellaneous/btrfs/61623-more-btrfs-fun-moving-a-subvolume-from-one-drive-to-another
 
-# mkdir /media/btrfs-destino
-# mount -o subvolid=5 /dev/sdaY /media/btrfs-destino
+# mkdir /media/destino
+# mount -o subvolid=5 /dev/sdaY /media/destino
 
 Criar snapshot apenas de leitura do subvolume alvo da partição fonte
 
-# btrfs sub snapshot -r /media/btrfs-fonte/subvolume/alvo /media/btrfs-fonte/reserva/subvolume_alvo-snap-leitura
+# btrfs sub snapshot -r /media/fonte/subvolume-alvo /media/fonte/subvolume_alvo-so-leitura
 
 
 Sincronizar para assegurar que a snapshot está completa (pode até nem ser necessário).
 
-# btrfs fi sync /media/btrfs-fonte
+# btrfs fi sync /media/fonte
 
 Enviar 
 
-# btrfs send /media/btrfs-fonte/reserva/subvolume_alvo-snap-leitura | btrfs receive /media/btrfs-destino
+# btrfs send /media/fonte/reserva/subvolume_alvo-so-leitura | btrfs receive /media/destino
 
 Criar um snapshot com propriedade de escrita
 
-# btrfs sub snapshot /media/btrfs-destino/subvolume_alvo-snap-leitura /media/btrfs-destino/subvolume_alvo-snap-escrita
+# btrfs sub snapshot /media/destino/subvolume_alvo-so-leitura /media/destino/subvolume_alvo-snap-escrita
 
 Eliminar a snapshot apenas de leitura
 
-# btrfs sub delete /media/btrfs-fonte/reserva/subvolume_alvo-snap-leitura /media/btrfs-destino/subvolume_alvo-snap-leitura
+# btrfs sub delete /media/fonte/subvolume_alvo-so-leitura /media/destino/subvolume_alvo-snap-leitura
 
 Resta actualizar o ficheiro /etc/fstab da partição destino com o UUID do novo subvolume 
