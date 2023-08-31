@@ -40,8 +40,8 @@ echo "LANG=pt_PT.UTF-8" > /etc/locale.conf
 # Tipo de letra e teclado no terminal
 
 echo "KEYMAP=pt-latin9" > /etc/vconsole.conf 
-echo "FONT=default8x16" >> /etc/vconsole.conf 
-
+echo "FONT=lat1-16" >> /etc/vconsole.conf 
+echo "FONT_MAP=8859-1" >> /etc/vconsole.conf
 
 # Configuração da Rede
 
@@ -81,7 +81,6 @@ echo
 echo 'Adicionar utilizador comum' 
 
 useradd -m -g users -G wheel -s /bin/bash seilaeu 
-#useradd -m -G wheel,storage,power,optical,audio,video -s /bin/bash seilaeu 
 
 echo
 echo

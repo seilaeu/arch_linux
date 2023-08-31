@@ -15,13 +15,13 @@ loadkeys pt-latin9
 
 # Verificar modo de arranque
 
-ls /sys/firmware/efi/efivars
+cat /sys/firmware/efi/fw_platform_size
 
 echo
 echo
 echo
 
-sleep 7
+sleep 3
 
 
 # Interface de rede
