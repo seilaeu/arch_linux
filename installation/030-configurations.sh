@@ -102,7 +102,7 @@ echo
 
 # Microde Intel
 
-pacman -S intel-ucode --noconfirm --needed
+pacman -S intel-ucode --needed
 
 echo
 echo
@@ -110,7 +110,7 @@ echo
 
 # Carregador de arranque
 
-pacman -S grub efibootmgr --noconfirm --needed
+pacman -S grub efibootmgr --needed
 
 echo
 echo
@@ -127,7 +127,7 @@ echo
 
 # Sudo
 
-pacman -S sudo nano --noconfirm --needed
+pacman -S sudo nano --needed
 
 echo
 echo
@@ -148,7 +148,7 @@ echo
 
 # Rede
 
-pacman -S networkmanager
+pacman -S networkmanager --needed
 
 systemctl enable NetworkManager
 

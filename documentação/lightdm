@@ -1,0 +1,8 @@
+$ sudo nano /etc/lightdm/lightdm.conf 
+[Seat:*]
+display-setup-script=setxkbmap pt
+greeter-setup-script=/usr/bin/numlockx on
+
+$ sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
+[greeter]
+theme-name=Adwaita-dark

@@ -7,38 +7,38 @@ exec tail -n +3 $0
 menuentry "Arch" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
         chainloader /EFI/arch/grubx64.efi
 }
 menuentry "Slackware" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
         chainloader /EFI/slackware/grubx64.efi
 }
 menuentry "OpenSUSE" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
         chainloader /EFI/opensuse/grubx64.efi
 }
 menuentry "Debian" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
         chainloader /EFI/debian/grubx64.efi
 }
-menuentry "Slackware MATE" {
+menuentry "Void XFCE" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
-        chainloader /EFI/slack-mate/grubx64.efi
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
+        chainloader /EFI/void_grub/grubx64.efi
 }
-menuentry "Arch MATE" {
+menuentry "Arch XFCE" {
         insmod fat
         insmod chain
-        search --no-floppy --set=root --fs-uuid D283-1165
-        chainloader /EFI/arch-mate/grubx64.efi
+        search --no-floppy --set=root --fs-uuid 51F3-D9B8
+        chainloader /EFI/arch-xfce/grubx64.efi
 }
 menuentry 'Desligar' {
         halt

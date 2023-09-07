@@ -4,7 +4,7 @@
 # Escolher os sites mais rápidos
 
 pacman -Syy
-pacman -S reflector rsync --noconfirm --needed
+pacman -S reflector rsync --needed
 
 echo
 echo

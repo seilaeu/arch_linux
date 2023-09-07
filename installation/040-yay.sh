@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Development
-sudo pacman -S base-devel git --noconfirm --needed
+sudo pacman -S base-devel git --needed
 
 echo
 echo

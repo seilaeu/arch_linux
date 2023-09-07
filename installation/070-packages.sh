@@ -5,12 +5,12 @@ echo
 echo
 echo
 
-sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --noconfirm --needed
+sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --needed
 
 
 # Multimedia
 
-sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --noconfirm --needed
+sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --needed
 
 echo
 echo
@@ -22,28 +22,28 @@ echo
 echo
 echo
 
-sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly --noconfirm --needed
+sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly --needed
 
 
 # Compressão e descompressão 
 
-sudo pacman -S unzip unrar --noconfirm --needed
+sudo pacman -S unzip unrar --needed
 
 
 # Letra
 
-sudo pacman -S ttf-bitstream-vera --noconfirm --needed
+sudo pacman -S ttf-bitstream-vera --needed
 yay -S ttf-ms-win11-auto
 
 # Internet
 
-sudo pacman -S firefox firefox-i18n-pt-pt wget youtube-dl --noconfirm --needed
-yay -S protonvpn
+sudo pacman -S firefox firefox-i18n-pt-pt wget --needed
+yay -S protonvpn youtube-dl
 
 
 # Utilitários
 
-sudo pacman -S bash-completion ncdu usbutils
+sudo pacman -S bash-completion ncdu usbutils --needed
 
 
 # Cópias de segurança
@@ -64,18 +64,14 @@ sudo systemctl enable ufw.service
 
 # Sistema
 
-sudo pacman -S bind pacman-contrib pkgfile pkgstats whois --noconfirm --needed
+sudo pacman -S bind pacman-contrib pkgfile pkgstats whois --needed
 
 sudo pkgfile -u
 
-sudo systemctl start pkgstats.timer
 
-sudo systemctl status pkgstats.timer
-
-   
 # Dicionários
 
-sudo pacman -S aspell-pt --noconfirm --needed
+sudo pacman -S aspell-pt --needed
 
 yay -S hunspell-pt_pt mythes-pt_pt
 
