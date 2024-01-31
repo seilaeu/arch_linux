@@ -1,7 +1,7 @@
 # Read command output line by line into array ${lines [@]}
 # Bash 3.x: use the following instead:
 
-readarray -t isovar < <(find /home/$USER/Transferências/ -type f -name *.iso -printf "%f\n")
+readarray -t isovar < <(find /media/dados/iso/ -type f -name *.iso -printf "%f\n")
 
 # Prompt the user to select one of the lines.
 echo "Please select a iso file:"
@@ -24,6 +24,6 @@ done
 # Split the chosen line into ID and serial number.
 read -r id sn unused <<<"$drive"
 
-sudo dd bs=4M if=/home/$USER/Transferências/$iso of=/dev/$drive conv=fsync oflag=direct status=progress  
+sudo dd bs=4M if=/media/dados/iso/$iso of=/dev/$drive conv=fsync oflag=direct status=progress  
 echo
 echo "Imagem Gravada no Dispositivo USB"
