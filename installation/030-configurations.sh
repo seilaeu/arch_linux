@@ -10,20 +10,6 @@ ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
 hwclock --systohc
 
-echo "Verificar data, hora e fuso horário" 
-
-echo
-echo
-echo
-
-timedatectl status
-
-echo
-echo
-echo
-
-sleep 10
-
 # Localização
 
 echo "pt_PT.UTF-8 UTF-8" > /etc/locale.gen 
@@ -53,14 +39,6 @@ echo "::1		localhost" >> /etc/hosts
 
 echo "127.0.1.1      arch" >> /etc/hosts
 
-
-# Initramfs
-
-mkinitcpio -P
-
-echo
-echo
-echo
 
 # Palavra-passe do root
 

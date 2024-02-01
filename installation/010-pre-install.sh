@@ -154,7 +154,7 @@ read formatar_efi
 
 case $formatar_efi in
           sim)
-      mkfs.fat -F32 -n efi /dev/sda1
+      mkfs.fat -F32 -n efi /dev/sdaY
       echo
       echo
       echo
@@ -199,7 +199,7 @@ read montar_efi
 
 case $montar_efi in
           sim)
-      mount --mkdir /dev/sda1 /mnt/boot/efi
+      mount --mkdir /dev/sdaY /mnt/boot/efi
       echo
       echo
       echo

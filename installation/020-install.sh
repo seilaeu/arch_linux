@@ -22,7 +22,7 @@ sleep 3
 
 # Instalar sistema base
 
-pacstrap -K /mnt/ base linux linux-firmware
+pacstrap -Ki /mnt/ base linux linux-firmware
 
 echo
 echo
