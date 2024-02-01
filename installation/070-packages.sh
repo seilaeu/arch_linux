@@ -33,7 +33,7 @@ sudo pacman -S unzip unrar --needed
 # Letra
 
 sudo pacman -S ttf-bitstream-vera --needed
-yay -S ttf-ms-win11-auto
+yay -S ttf-ms-fonts
 
 # Internet
 
@@ -43,7 +43,7 @@ yay -S protonvpn youtube-dl
 
 # Utilitários
 
-sudo pacman -S bash-completion ncdu usbutils --needed
+sudo pacman -S bash-completion ncdu usbutils reflector rsync --needed
 
 
 # Cópias de segurança
