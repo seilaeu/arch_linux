@@ -1,3 +1,4 @@
+#!/bin/bash
 # Read command output line by line into array ${lines [@]}
 # Bash 3.x: use the following instead:
 
