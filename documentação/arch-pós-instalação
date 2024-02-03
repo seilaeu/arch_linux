@@ -1,7 +1,7 @@
 BASHRC
 ======
 
-Ver ficheiro /media/dados/linux/distribuições/arch/documentação/bashrc-arch
+Ver o ficheiro bashrc-arch
 
 Nano
 ====
@@ -12,7 +12,7 @@ $ nano ~/.config/nano/nanorc
 include "/usr/share/nano/*.nanorc"
 include "/usr/share/nano/extra/*.nanorc"
 
-$ sudo mkdir /root/.config/nano
+$ sudo mkdir -p /root/.config/nano
 $ sudo cp .config/nano/nanorc /root/.config/nano
 
 
@@ -31,16 +31,17 @@ Storage=persistent
 Compress=yes
 MaxFileSec=1 day
 MaxRetentionSec=2 week
-SystemMaxUse=100M
-SystemMaxFileSize=30M
-RuntimeMaxUse=75M
-RuntimeMaxFileSize=30M
+#SystemMaxUse=100M
+#SystemMaxFileSize=30M
+#RuntimeMaxUse=75M
+#RuntimeMaxFileSize=30M
 EOF
 
 
 $ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF'
 [Manager]
-DefaultTimeoutStopSec=10s
+DefaultTimeoutStartSec=15s
+DefaultTimeoutStopSec=15s
 EOF
 
 

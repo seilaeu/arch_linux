@@ -43,7 +43,7 @@ yay -S protonvpn youtube-dl
 
 # Utilitários
 
-sudo pacman -S bash-completion ncdu usbutils reflector rsync --needed
+sudo pacman -S bash-completion ncdu usbutils reflector rsync tree man-db --needed
 
 
 # Cópias de segurança
@@ -64,7 +64,7 @@ sudo systemctl enable ufw.service
 
 # Sistema
 
-sudo pacman -S bind pacman-contrib pkgfile pkgstats whois --needed
+sudo pacman -S bind pacman-contrib pkgfile pkgstats whois fwupd --needed
 
 sudo pkgfile -u
 
