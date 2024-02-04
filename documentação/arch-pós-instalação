@@ -15,6 +15,16 @@ include "/usr/share/nano/extra/*.nanorc"
 $ sudo mkdir -p /root/.config/nano
 $ sudo cp .config/nano/nanorc /root/.config/nano
 
+$ ediroot /etc/pacman.conf
+Color
+ParallelDownloads = 1000
+
+Preload
+=====
+
+$ instalar preload
+$ sudo systemctl enable --now preload
+
 
 Freetype
 ========

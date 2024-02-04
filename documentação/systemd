@@ -39,7 +39,6 @@ Recarregar a configuração de uma unidade:
 sudo systemctl reload <unidade>
 
 
-
 Mostra a página de ajuda de uma unidade:
 sudo systemctl help <unidade>
 

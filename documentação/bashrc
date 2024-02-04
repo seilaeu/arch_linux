@@ -52,7 +52,7 @@ alias git-commit="git commit -a -m update"
 alias git-push="git push -u origin master"
 
 # Grub
-alias grub-instalar='sudo /usr/sbin/grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB'
+alias grub-instalar='sudo /usr/sbin/grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch'
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 alias montar="sudo mount"

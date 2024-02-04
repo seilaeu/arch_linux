@@ -78,7 +78,7 @@ echo
 echo
 echo
 
-# Microde Intel
+# Microde Intel--needed
 
 pacman -S intel-ucode --needed
 

@@ -3,9 +3,9 @@
 
 # Plasma 5
 
-sudo pacman -S plasma-desktop konsole kate dolphin ark kcalc okular gwenview plasma-pa kwalletmanager --needed
-sudo pacman -S ktorrent elisa breeze-gtk kde-gtk-config kmymoney plasma-systemmonitor kdeplasma-addons kalarm --needed
-sudo pacman -S sddm sddm-kcm kinfocenter kompare khotkeys kamoso plasma-nm kwallet-pam libappindicator-gtk3 audiocd-kio --needed
+sudo pacman -S plasma-desktop konsole kate dolphin ark kcalc okular gwenview plasma-pa kwalletmanager \
+ktorrent elisa breeze-gtk kde-gtk-config kmymoney plasma-systemmonitor kdeplasma-addons kalarm sddm \
+sddm-kcm kinfocenter kompare khotkeys kamoso plasma-nm kwallet-pam libappindicator-gtk3 audiocd-kio --needed
 
 sudo systemctl enable sddm
 
