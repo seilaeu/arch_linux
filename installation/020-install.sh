@@ -44,20 +44,6 @@ echo
 echo
 echo
 
-echo 'Descomentar a linha wheel no ficheiro /etc/sudoers'
-
-echo
-echo
-echo
-
-sleep 3
-
-EDITOR=nano visudo
-
-echo
-echo
-echo
-
 echo "Verificar o ficheiro /etc/fstab"
 
 genfstab -U /mnt >> /mnt/etc/fstab 

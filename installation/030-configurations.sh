@@ -106,6 +106,16 @@ echo
 
 sleep 3
 
+echo 'Descomentar a linha wheel no ficheiro /etc/sudoers'
+
+echo
+echo
+echo
+
+sleep 3
+
+EDITOR=nano visudo
+
 echo "Definir a palavra passe do root"
 
 echo
