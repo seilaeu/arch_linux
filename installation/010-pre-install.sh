@@ -91,6 +91,9 @@ read formatar_raiz
 
 case $formatar_raiz in
           ext4)
+     echo
+     echo
+     echo
      mkfs.ext4 -L arch /dev/sdaX
      echo
      echo
@@ -107,6 +110,9 @@ case $formatar_raiz in
      sleep 3
      ;;
           btrfs) 
+     echo
+     echo
+     echo
      mkfs.btrfs -f -L arch /dev/sdaX
      echo
      echo
