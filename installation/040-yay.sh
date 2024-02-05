@@ -1,14 +1,26 @@
 #! /bin/bash
 
-# Development
+echo
+echo
+echo
+
+echo "Instalar ferramentas de programação"
+
+echo
+echo
+echo
+
 sudo pacman -S base-devel git --needed
 
 echo
 echo
 echo
 
+echo "Instalar o yay"
 
-# YAY
+echo
+echo
+echo
 
 git clone https://aur.archlinux.org/yay.git
 
@@ -20,3 +32,4 @@ cd yay
 makepkg -rsi
 cd ..
 rm -rf yay*
+

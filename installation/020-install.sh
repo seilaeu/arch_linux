@@ -1,9 +1,21 @@
 #! /bin/bash
 
+echo
+echo
+echo
 
-# Escolher os sites mais rápidos
+echo "Escolher os sites mais rápidos"
+
+echo
+echo
+echo
 
 pacman -Syy
+
+echo
+echo
+echo
+
 pacman -S reflector rsync --needed
 
 echo
@@ -20,17 +32,37 @@ echo
 
 sleep 3
 
-# Instalar sistema base
+echo
+echo
+echo
 
-pacstrap -Ki /mnt/ base linux linux-firmware
+echo "Instalar o sistema base"
+
+pacstrap -Ki /mnt/ base linux linux-firmware intel-ucode sudo nano
 
 echo
 echo
 echo
 
-# Fstab
+echo 'Descomentar a linha wheel no ficheiro /etc/sudoers'
+
+echo
+echo
+echo
+
+sleep 3
+
+EDITOR=nano visudo
+
+echo
+echo
+echo
+
+echo "Verificar o ficheiro /etc/fstab"
 
 genfstab -U /mnt >> /mnt/etc/fstab 
+
+sleep 3
 
 nano /mnt/etc/fstab 
 
@@ -38,7 +70,8 @@ echo
 echo
 echo
 
+echo "Mudar a raiz para a directoria mnt"
 
-# Mudar raiz para a directoria mnt
+sleep 3
 
 arch-chroot /mnt /bin/bash

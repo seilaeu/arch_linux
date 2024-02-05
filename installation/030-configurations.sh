@@ -4,15 +4,25 @@ echo
 echo
 echo
 
-# Fuso horário
+echo "Definir o fuso horário para Lisboa"
 
-ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime 
+ln -sfv /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
 hwclock --systohc
 
-# Localização
+echo
+echo
+echo
 
-echo "pt_PT.UTF-8 UTF-8" > /etc/locale.gen 
+sleep 3
+
+echo "Localização"
+
+echo
+echo
+echo
+
+echo "pt_PT.UTF-8 UTF-8" | tee /etc/locale.gen
 
 locale-gen 
 
@@ -20,29 +30,85 @@ echo
 echo
 echo
 
-echo "LANG=pt_PT.UTF-8" > /etc/locale.conf 
+sleep 3
 
+echo "Definir idioma"
 
-# Tipo de letra e teclado no terminal
+echo
+echo
+echo
 
-echo "KEYMAP=pt-latin9" > /etc/vconsole.conf 
-echo "FONT=lat1-16" >> /etc/vconsole.conf 
-echo "FONT_MAP=8859-1" >> /etc/vconsole.conf
+echo "LANG=pt_PT.UTF-8" | tee /etc/locale.conf
 
-# Configuração da Rede
+echo
+echo
+echo
 
-echo arch > /etc/hostname
+sleep 3
 
-echo "127.0.0.1	localhost" > /etc/hosts
+echo "Definir o tipo de letra e teclado no terminal"
 
-echo "::1		localhost" >> /etc/hosts
+echo
+echo
+echo
 
-echo "127.0.1.1      arch" >> /etc/hosts
+echo "KEYMAP=pt-latin9" | tee  /etc/vconsole.conf
+echo "FONT=lat1-16" | tee -a /etc/vconsole.conf
+echo "FONT_MAP=8859-1" | tee -a /etc/vconsole.conf
 
+echo
+echo
+echo
 
-# Palavra-passe do root
+sleep 3
 
-echo 'Definir a palavra passe do root' 
+echo "Configuração da rede"
+
+echo
+echo
+echo
+
+echo arch | tee /etc/hostname
+
+echo
+echo
+echo
+
+echo "127.0.0.1	localhost" | tee /etc/hosts
+
+echo "::1		localhost" | tee -a /etc/hosts
+
+echo "127.0.1.1      arch" | tee -a /etc/hosts
+
+echo
+echo
+echo
+
+sleep 3
+
+echo "Instalar o gestor de rede"
+
+echo
+echo
+echo
+
+pacman -S networkmanager --needed
+
+echo
+echo
+echo
+
+systemctl enable NetworkManager
+
+echo
+echo
+echo
+
+sleep 3
+
+echo "Definir a palavra passe do root"
+
+echo
 echo
 echo
 
@@ -54,17 +120,15 @@ echo
 echo
 echo
 
-# Adicionar utilizador
+echo "Adicionar utilizador seilaeu"
 
-echo 'Adicionar utilizador comum' 
-
-useradd -m -g users -G wheel -s /bin/bash seilaeu 
+useradd -m -g users -G wheel -s /bin/bash seilaeu
 
 echo
 echo
 echo
 
-echo 'Definir a palavra passe de seilaeu' 
+echo "Definir a palavra passe de seilaeu"
 
 echo
 echo
@@ -78,15 +142,11 @@ echo
 echo
 echo
 
-# Microde Intel--needed
-
-pacman -S intel-ucode --needed
+echo "Instalar e configurar o carregador de arranque"
 
 echo
 echo
 echo
-
-# Carregador de arranque
 
 pacman -S grub efibootmgr --needed
 
@@ -97,38 +157,6 @@ echo
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
 
 grub-mkconfig -o /boot/grub/grub.cfg
-
-echo
-echo
-echo
-
-
-# Sudo
-
-pacman -S sudo nano --needed
-
-echo
-echo
-echo
-echo 'Descomentar a linha wheel' 
-
-echo
-echo
-echo
-
-sleep 5
-
-EDITOR=nano visudo 
-
-echo
-echo
-echo
-
-# Rede
-
-pacman -S networkmanager --needed
-
-systemctl enable NetworkManager
 
 echo
 echo

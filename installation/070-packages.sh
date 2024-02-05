@@ -1,20 +1,25 @@
 #! /bin/bash
 
-# Escritório
 echo
 echo
 echo
+
+echo "Instalar o Libreoffice"
 
 sudo pacman -S libreoffice-fresh libreoffice-fresh-pt --needed
 
+echo
+echo
+echo
 
-# Multimedia
-
-sudo pacman -S vlc pipewire wireplumber pipewire-pulse plasma-pa pulsemixer --needed
+echo "Instalar o pipewire, o vlc e codecs de media"
 
 echo
 echo
 echo
+
+sudo pacman -S pipewire wireplumber pipewire-pulse plasma-pa pulsemixer vlc \
+gst-plugins-good gst-plugins-bad gst-plugins-ugly --needed
 
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
@@ -22,56 +27,124 @@ echo
 echo
 echo
 
-sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly --needed
-
-
-# Compressão e descompressão 
+echo "Instalar compressore e descompressores"
 
 sudo pacman -S unzip unrar --needed
 
+echo
+echo
+echo
 
-# Letra
+echo "Instalar tipos de letra"
 
 sudo pacman -S ttf-bitstream-vera --needed
+
+echo
+echo
+echo
+
 yay -S ttf-ms-fonts
 
-# Internet
+echo
+echo
+echo
+
+echo " Instalar o firefox, o protonvpn e o youtube-dl"
+
+echo
+echo
+echo
 
 sudo pacman -S firefox firefox-i18n-pt-pt wget --needed
+
+echo
+echo
+echo
+
 yay -S protonvpn youtube-dl
 
+echo
+echo
+echo
 
-# Utilitários
+echo "Instalar alguns utilitários"
 
-sudo pacman -S bash-completion ncdu usbutils reflector rsync tree man-db --needed
+sudo pacman -S bash-completion ncdu usbutils tree man-db reflector rsync --needed
 
+echo
+echo
+echo
 
-# Cópias de segurança
+echo "Instalar o SpiderOak ONE"
+
+echo
+echo
+echo
 
 yay -S spideroak-one
 
+echo
+echo
+echo
 
-# Firewall
+echo "Instalar a firewall"
+
+echo
+echo
+echo
 
 sudo pacman -S ufw --needed
 
+echo
+echo
+echo
+
 sudo ufw enable
+
+echo
+echo
+echo
 
 sudo ufw status verbose
 
-sudo systemctl enable ufw.service
+echo
+echo
+echo
 
+sudo systemctl enable --now ufw.service
 
-# Sistema
+echo
+echo
+echo
+
+echo "Instalar pacotes de sistema"
 
 sudo pacman -S bind pacman-contrib pkgfile pkgstats whois fwupd --needed
 
+echo
+echo
+echo
+
 sudo pkgfile -u
 
+echo
+echo
+echo
 
-# Dicionários
+echo "Instalar dicionários"
+
+echo
+echo
+echo
 
 sudo pacman -S aspell-pt --needed
 
+echo
+echo
+echo
+
 yay -S hunspell-pt_pt mythes-pt_pt
 
+echo
+echo
+echo

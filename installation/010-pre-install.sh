@@ -38,7 +38,7 @@ echo
 echo
 echo
 
-sleep 7
+sleep 3
 
 
 # Ligação à Internet
@@ -55,7 +55,7 @@ echo
 echo
 echo
 
-sleep 7
+sleep 3
 
 
 # Relógio
@@ -74,7 +74,7 @@ echo
 echo
 echo 
 
-sleep 7
+sleep 3
 
 
 # Partições
@@ -104,7 +104,7 @@ case $formatar_raiz in
      echo
      echo
      echo
-     sleep 7
+     sleep 3
      ;;
           btrfs) 
      mkfs.btrfs -f -L arch /dev/sdaX
@@ -126,7 +126,7 @@ case $formatar_raiz in
      echo
      echo
      echo
-     sleep 7
+     sleep 3
      ;;
           *) 
      echo
@@ -231,4 +231,3 @@ case $montar_efi in
      echo
      ;;  
 esac
-
