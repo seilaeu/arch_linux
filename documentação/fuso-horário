@@ -43,7 +43,7 @@ NTP=1.europe.pool.ntp.org
 NTP=2.europe.pool.ntp.org
 NTP=3.europe.pool.ntp.org
 
-$ timedatectl set-ntp true
+$ sudo timedatectl set-ntp true
 
 No Plasma:
 

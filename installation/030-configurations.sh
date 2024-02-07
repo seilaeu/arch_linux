@@ -138,6 +138,18 @@ echo
 echo
 echo
 
+grep seilaeu /etc/passwd
+
+echo
+echo
+echo
+
+groups seilaeu
+
+echo
+echo
+echo
+
 echo "Definir a palavra passe de seilaeu"
 
 echo
