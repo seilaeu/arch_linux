@@ -25,6 +25,6 @@ done
 # Split the chosen line into ID and serial number.
 read -r id sn unused <<<"$drive"
 
-sudo dd bs=4M if=/home/$USER/Transferências/$iso of=/dev/$drive conv=fsync oflag=direct status=progress  
+sudo dd bs=4M if=/home/$USER/Transferências/$iso of=/dev/$drive conv=fsync oflag=direct 
 echo
 echo "Imagem Gravada no Dispositivo USB"

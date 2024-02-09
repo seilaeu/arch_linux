@@ -1,5 +1,5 @@
 # Prompt da bash
-PS1='${debian_chroot:+($debian_chroot)}\[\e[1;94m\]\u\[\033[1;37m\]@\[\e[1;94m\]\h\[\033[01;34m\] \w\[\033[0;00m\] \$ '
+PS1='\[\e[1;94m\]\u\[\033[1;37m\]@\[\e[1;94m\]\h\[\033[01;34m\] \w\[\033[0;00m\] \$ '
 
 
 # Ignorar e apagar entradas em duplicado no histórico da bash:
@@ -34,9 +34,9 @@ alias cache='sudo pacman -Scc && yay -Scc'
 alias desinstalar='sudo pacman -Rsn'
 alias desinstalar-simples='sudo pacman -R'  
 alias desinstalar-forçado='sudo pacman -Rdd'
-alias actualizar='sudo reflector --verbose -p http,https --country portugal --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syu && yay -Sua'
+alias actualizar='sudo reflector --verbose --country portugal --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syu && yay -Sua'
 alias procurar='yay -Syy && yay'
-alias instalar='yay -Syy && yay -S'
+alias instalar='yay -Syy && yay -S --needed'
 alias reinstalar='yay -Syy && yay -S'
 alias questionar='pacman -Qq|grep'
 alias desbloquear='sudo rm /var/lib/pacman/db.lck'
