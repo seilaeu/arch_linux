@@ -38,7 +38,8 @@ alias actualizar='sudo reflector --verbose --country portugal --sort rate --save
 alias procurar='yay -Syy && yay'
 alias instalar='yay -Syy && yay -S --needed'
 alias reinstalar='yay -Syy && yay -S'
-alias questionar='pacman -Qq|grep'
+alias questionar-simples='pacman -Qq|grep'
+alias questionar-detalhado='pacman -Q|grep'
 alias desbloquear='sudo rm /var/lib/pacman/db.lck'
 
 alias desligar='/usr/bin/poweroff'
