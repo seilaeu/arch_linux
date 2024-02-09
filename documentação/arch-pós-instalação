@@ -22,6 +22,9 @@ include "/usr/share/nano/extra/*.nanorc"
 $ sudo mkdir -p /root/.config/nano
 $ sudo cp .config/nano/nanorc /root/.config/nano
 
+Fonte: https://wiki.archlinux.org/title/nano
+
+
 preload
 =======
 
@@ -56,7 +59,7 @@ DefaultTimeoutStopSec=15s
 EOF
 
 
-Core dump
+core dump
 =========
 
 Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
@@ -76,7 +79,7 @@ $ sudo chown -R $USER:$USER /home/$USER
 $ sudo chown -R $USER:$USER /media/dados
 
 
-Fstrim
+fstrim
 ======
 
 $ sudo systemctl enable --now fstrim.timer
@@ -85,7 +88,7 @@ $ sudo systemctl enable --now fstrim.timer
 $ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
 
 
-Optimizar compilações
+optimizar compilações
 =====================
 
 $ ediroot /etc/makepkg.conf
@@ -99,7 +102,7 @@ COMPRESSXZ=(xz -c -z --threads=0 -)
 COMPRESSZST=(zstd -c -z -q --threads=0 -)
 
 
-Silenciar o GRUB
+silenciar o grub
 ================
 
 $ ediroot /etc/grub.d/10_linux
@@ -108,10 +111,20 @@ comentar as linhas 151 e 162:
 
 #echo	'$(echo "$message" | grub_quote)'
 
-$ grub-update
+$ grub-actualizar
 
 
-Tema do Cursor
+configurar outros sistemas no grub
+==================================
+
+$ ediroot /etc/grub.d/40_custom
+
+adicionar os sistemas presentes no computador que estão no ficheiro grub-40_custom
+
+$ grub-actualizar
+
+
+tema do cursor
 ==============
 
 Instalar o tema Oxygen 10 Blue nas definições do sistema
@@ -130,7 +143,7 @@ $ ediroot /usr/share/icons/default/index.theme
 Inherits=Oxygen 10 Blue
 
 
-Tema do sddm
+tema do sddm
 ============
 
 Instalar o tema Sweet sddm nas definições do sistema
@@ -139,10 +152,6 @@ sudo nano /etc/sddm.conf
 
 Current=Sweet
 
-Nano
-====
-
-https://wiki.archlinux.org/title/nano
 
 ZRAM
 ====
@@ -150,7 +159,7 @@ ZRAM
 https://wiki.archlinux.org/title/Zram
 
 
-Substituir keymap e consolefont por sd-vconsole
+substituir keymap e consolefont por sd-vconsole
 ===============================================
 
 sudo nano /etc/mkinitcpio.conf

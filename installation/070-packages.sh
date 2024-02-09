@@ -43,7 +43,7 @@ echo
 echo
 echo
 
-yay -S ttf-ms-fonts
+yay -S ttf-ms-fonts --needed
 
 echo
 echo
@@ -61,7 +61,7 @@ echo
 echo
 echo
 
-yay -S protonvpn youtube-dl
+yay -S protonvpn youtube-dl --needed
 
 echo
 echo
@@ -81,7 +81,7 @@ echo
 echo
 echo
 
-yay -S spideroak-one
+yay -S spideroak-one --needed
 
 echo
 echo
@@ -120,7 +120,7 @@ echo
 echo "Instalar pacotes de sistema"
 
 sudo pacman -S bind pacman-contrib pkgfile pkgstats whois fwupd --needed
-
+yay -S gdisk --needed
 echo
 echo
 echo
@@ -143,7 +143,7 @@ echo
 echo
 echo
 
-yay -S hunspell-pt_pt mythes-pt_pt
+yay -S hunspell-pt_pt mythes-pt_pt --needed
 
 echo
 echo
