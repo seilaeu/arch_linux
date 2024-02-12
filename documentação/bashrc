@@ -1,5 +1,13 @@
-# Prompt da bash
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 PS1='\[\e[1;94m\]\u\[\033[1;37m\]@\[\e[1;94m\]\h\[\033[01;34m\] \w\[\033[0;00m\] \$ '
+
+alias grep='grep --color=auto'
 
 
 # Ignorar e apagar entradas em duplicado no histórico da bash:
@@ -14,10 +22,8 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-
 # Possibilita a execução de comandos ao terminar a sessão na bash, a partir do ficheiro $HOME/.bash_logout
 trap '. $HOME/.bash_logout; exit' 0
-
 
 # Controlo remoto
 alias mãe-visualizar-desktop="vncviewer -x11cursor 127.0.0.1:55900"
@@ -32,9 +38,12 @@ alias mãe-acesso-gráfico-arch="ssh -t -L 55900:localhost:5900 -i ~/.ssh/mãe-a
 alias orfãos='sudo pacman -R $(pacman -Qqtd)'
 alias cache='sudo pacman -Scc && yay -Scc'
 alias desinstalar='sudo pacman -Rsn'
-alias desinstalar-simples='sudo pacman -R'  
+alias desinstalar-simples='sudo pacman -R'
 alias desinstalar-forçado='sudo pacman -Rdd'
-alias actualizar='sudo reflector --verbose --country portugal --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syu && yay -Sua'
+alias sincronizar-pt-https='sudo reflector --verbose --country portugal -p https --sort rate --save /etc/pacman.d/mirrorlist'
+alias sincronizar-pt-http='sudo reflector --verbose --country portugal -p http --sort rate --save /etc/pacman.d/mirrorlist'
+alias sincronizar-pt-rsync='sudo reflector --verbose --country portugal -p rsync --sort rate --save /etc/pacman.d/mirrorlist'
+alias actualizar='sudo pacman -Syu && yay -Sua'
 alias procurar='yay -Syy && yay'
 alias instalar='yay -Syy && yay -S --needed'
 alias reinstalar='yay -Syy && yay -S'
@@ -46,9 +55,10 @@ alias desligar='/usr/bin/poweroff'
 alias reiniciar='/usr/bin/reboot'
 
 alias nano="nano -l"
-alias mv="mv -i"alias ediroot="SUDO_EDITOR=$EDITOR sudoedit"
+alias mv="mv -iv"
+alias ediroot="SUDO_EDITOR=$EDITOR sudoedit"
 
-alias git-add="git add --all" 
+alias git-add="git add --all"
 alias git-commit="git commit -a -m update"
 alias git-push="git push -u origin master"
 
@@ -72,7 +82,7 @@ export EDITOR VISUAL
 
 alias ediroot="SUDO_EDITOR=$EDITOR sudoedit"
 
-export PATH=$PATH:/media/dados/linux/distribuições/arch/scripts/
+export PATH=$PATH:/media/dados/arch_linux/scripts/
 
 alias ls='ls -l --color'
 LS_COLORS='di=1;34:fi=1;97:ln=31:pi=5:so=5:bd=5:cd=5:or=05;37;41:mi=31;5:ex=32:*.pdf=1;90'

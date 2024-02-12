@@ -75,6 +75,18 @@ echo
 echo
 echo
 
+yay preload
+
+echo
+echo
+echo
+
+sudo systemctl enable --now preload
+
+echo
+echo
+echo
+
 echo "Instalar o SpiderOak ONE"
 
 echo

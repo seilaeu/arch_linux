@@ -1,7 +1,8 @@
 bash
-====
+===
 
 Ver o ficheiro bashrc
+
 
 pacman
 =====
@@ -10,8 +11,11 @@ $ ediroot /etc/pacman.conf
 Color
 ParallelDownloads = 1000
 
+$ actualizar
+
+
 nano
-====
+===
 
 $ mkdir ~/.config/nano
 $ nano ~/.config/nano/nanorc
@@ -20,118 +24,27 @@ include "/usr/share/nano/*.nanorc"
 include "/usr/share/nano/extra/*.nanorc"
 
 $ sudo mkdir -p /root/.config/nano
-$ sudo cp .config/nano/nanorc /root/.config/nano
+$ sudo cp ~/.config/nano/nanorc /root/.config/nano
 
 Fonte: https://wiki.archlinux.org/title/nano
 
 
-preload
-=====
-
-$ instalar preload
-$ sudo systemctl enable --now preload
-
-
 tipo de letra mais fino
-=======================
+=============
 
 $ ediroot  /etc/profile.d/freetype2.sh
 
 export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 
-$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
-
-[Journal]
-Storage=persistent
-Compress=yes
-#SystemMaxUse=100M
-SystemMaxFileSize=25M
-#RuntimeMaxUse=75M
-#RuntimeMaxFileSize=30M
-EOF
-
-
-$ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF'
-[Manager]
-DefaultTimeoutStartSec=15s
-DefaultTimeoutStopSec=15s
-EOF
-
-
-core dump
-=========
-
-Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
-
-$ sudo nano /etc/systemd/coredump.conf
-Storage=none
-
-$ sudo systemctl daemon-reload
-
-$ sudo nano /etc/security/limits.conf
-* hard core 0
-
-$ sudo groupadd $USER
-
-$ sudo chown -R $USER:$USER /home/$USER
-
-$ sudo chown -R $USER:$USER /media/dados
-
-
-fstrim
-======
-
-$ sudo systemctl enable --now fstrim.timer
-
-
-$ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
-
-
-optimizar compilações
-=====================
-
-$ ediroot /etc/makepkg.conf
-
-CFLAGS="-march=native -O2 -pipe -fno-plt"
-CXXFLAGS="${CFLAGS}"
-RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
-MAKEFLAGS="-j$(nproc)"
-BUILDDIR=/tmp/makepkg makepkg
-COMPRESSXZ=(xz -c -z --threads=0 -)
-COMPRESSZST=(zstd -c -z -q --threads=0 -)
-
-
-silenciar o grub
-================
-
-$ ediroot /etc/grub.d/10_linux
-
-comentar as linhas 151 e 162:
-
-#echo	'$(echo "$message" | grub_quote)'
-
-$ grub-actualizar
-
-
-configurar outros sistemas no grub
-==================================
-
-$ ediroot /etc/grub.d/40_custom
-
-adicionar os sistemas presentes no computador que estão no ficheiro grub-40_custom
-
-$ grub-actualizar
-
-
 tema do cursor
-==============
+=========
 
 Instalar o tema Oxygen 10 Blue nas definições do sistema
 
 $ sudo mv ~/.icons/Oxygen* /usr/share/icons
 
-Editar as definições do plasma, Aparência=> Cursores.
+Editar as definições do plasma, Aparência=> Cursores
 
 $ ediroot /etc/sddm.conf
 
@@ -144,7 +57,7 @@ Inherits=Oxygen 10 Blue
 
 
 tema do sddm
-============
+=========
 
 Instalar o tema Sweet sddm nas definições do sistema
 
@@ -154,7 +67,7 @@ Current=Sweet
 
 
 Fuso horário automático e sincronizado
-======================================
+=======================
 
 $ ediroot /etc/systemd/timesyncd.conf
 
@@ -177,14 +90,113 @@ $ sudo timedatectl
 
 $ cat /etc/adjtime
 
+systemd
+=====
+
+$ sudo mv -v /etc/systemd/journald.conf /etc/systemd/journald.conf.backup && sudo bash -c 'cat > /etc/systemd/journald.conf' << 'EOF'
+
+[Journal]
+Storage=persistent
+Compress=yes
+#SystemMaxUse=100M
+SystemMaxFileSize=25M
+#RuntimeMaxUse=75M
+#RuntimeMaxFileSize=30M
+EOF
+
+
+$ sudo mv -v /etc/systemd/system.conf /etc/systemd/system.conf.backup && sudo bash -c 'cat > /etc/systemd/system.conf' << 'EOF'
+[Manager]
+DefaultTimeoutStartSec=15s
+DefaultTimeoutStopSec=15s
+EOF
+
+
+core dump
+=======
+
+Utilizam muito espaço no disco rigí­do por esse motivo desactivamo-los
+
+$ sudo nano /etc/systemd/coredump.conf
+Storage=none
+
+$ sudo systemctl daemon-reload
+
+$ sudo nano /etc/security/limits.conf
+* hard core 0
+
+$ sudo groupadd $USER
+
+$ sudo chown -R $USER:$USER /home/$USER
+
+$ sudo chown -R $USER:$USER /media/dados
+
+
+fstrim
+====
+
+$ sudo systemctl enable --now fstrim.timer
+
+
+$ instalar neofetch && sudo sed -i 's/color_blocks="on"/color_blocks="off"/g' /etc/neofetch/config 
+
+
+optimizar compilações
+=============
+
+$ ediroot /etc/makepkg.conf
+
+CFLAGS="-march=native -O2 -pipe -fno-plt"
+CXXFLAGS="${CFLAGS}"
+RUSTFLAGS="-C opt-level=2 -C target-cpu=native"
+MAKEFLAGS="-j$(nproc)"
+BUILDDIR=/tmp/makepkg makepkg
+COMPRESSXZ=(xz -c -z --threads=0 -)
+COMPRESSZST=(zstd -c -z -q --threads=0 -)
+
+
+silenciar o grub
+=========
+
+$ ediroot /etc/grub.d/10_linux
+
+comentar as linhas 151 e 162:
+
+#echo	'$(echo "$message" | grub_quote)'
+
+$ grub-actualizar
+
+
+configurar outros sistemas no grub
+=====================
+
+$ ediroot /etc/grub.d/40_custom
+
+adicionar os sistemas presentes no computador que estão no ficheiro grub-40_custom
+
+$ grub-actualizar
+
+
 ZRAM
 ====
 
-https://wiki.archlinux.org/title/Zram
+$ ediroot ediroot /etc/mkinitcpio.conf
+MODULES=(zram)
+
+$ sudo mkinitcpio -P
+
+$ ediroot /etc/udev/rules.d/99-zram.rules
+ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="3787M", RUN="/usr/bin/mkswap -U clear /dev/%k", TAG+="systemd"
+
+$ ediroot /etc/fstab
+# zram
+/dev/zram0 none swap defaults,pri=100 0 0
+
+Fonte: https://wiki.archlinux.org/title/Zram
 
 
 substituir keymap e consolefont por sd-vconsole
-===============================================
+============================
 
 sudo nano /etc/mkinitcpio.conf
 
