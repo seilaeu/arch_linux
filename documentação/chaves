@@ -10,5 +10,6 @@ Passo 5 # pacman -Syyu
 Em caso de insucesso, repetir os passos 2, 4 e 5. 
 
 gpg --send-keys --keyserver keyserver.ubuntu.com <KEY ID>
-         
-         
+
+TESTE
+    
