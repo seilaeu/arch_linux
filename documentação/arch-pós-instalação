@@ -4,6 +4,12 @@ bash
 Ver o ficheiro bashrc
 
 
+yay
+==
+
+$ yay --save --answerdiff None --answerclean All --removemake
+
+
 pacman
 =====
 

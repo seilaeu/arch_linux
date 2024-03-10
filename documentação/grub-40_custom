@@ -22,11 +22,11 @@ menuentry "Debian" {
         search --no-floppy --set=root --fs-uuid 51F3-D9B8
         chainloader /EFI/debian/grubx64.efi
 }
-menuentry "Void" {
+menuentry "Ubuntu" {
         insmod fat
         insmod chain
         search --no-floppy --set=root --fs-uuid 51F3-D9B8
-        chainloader /EFI/void_grub/grubx64.efi
+        chainloader /EFI/ubuntu/grubx64.efi
 }
 menuentry 'Desligar' {
         halt

@@ -213,18 +213,18 @@ bzip2 -tv arch-`date +"%d.%m.%Y"`.tar.bz2
 Restaurar cópia de segurança do sistema 
 =======================================
 
-mount /dev/sdaX /media/arch
+$ mount /dev/sdaX /media/arch
 
-sudo tar -xjvpf arch*.tar.bz2 -C /media/arch
+$ sudo tar -xjvpf arch*.tar.bz2 -C /media/arch
 
 Em caso de alteração da partição raí­z, editar o ficheiro /etc/fstab e alterar a identidade da mesma.
 
 Restaurar o grub: 
 
-mount -t proc none /media/arch/proc
-mount --rbind /dev /media/arch/dev
-mount --rbind /sys /media/arch/sys
-SHELL=/bin/bash
-chroot /media/arch
-grub-install --target=x86_64-efi --efi-directory=/bin/bash --bootloaderid=GRUB
-grub-mkconfig -o /boot/grub/grug.cfg
+$ mount -t proc none /media/arch/proc
+$ mount --rbind /dev /media/arch/dev
+$ mount --rbind /sys /media/arch/sys
+$ SHELL=/bin/bash
+$ chroot /media/arch
+$ grub-install --target=x86_64-efi --efi-directory=/bin/bash --bootloaderid=GRUB
+$ grub-mkconfig -o /boot/grub/grug.cfg
