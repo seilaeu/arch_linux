@@ -12,7 +12,7 @@ echo
 
 sudo pacman -S plasma-desktop konsole kate dolphin ark kcalc okular gwenview plasma-pa kwalletmanager \
 ktorrent elisa breeze-gtk kde-gtk-config kmymoney plasma-systemmonitor kdeplasma-addons kalarm sddm \
-sddm-kcm kinfocenter kompare kamoso plasma-nm kwallet-pam libappindicator-gtk3 audiocd-kio --needed
+sddm-kcm kinfocenter kompare kamoso plasma-nm kwallet-pam libappindicator-gtk3 audiocd-kio plasma-browser-integration --needed
 
 sudo systemctl enable sddm
 

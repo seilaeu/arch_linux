@@ -37,7 +37,7 @@ echo
 
 echo "Instalar tipos de letra"
 
-sudo pacman -S ttf-bitstream-vera --needed
+sudo pacman -S ttf-bitstream-vera ttf-dejavu --needed
 
 echo
 echo
@@ -75,7 +75,7 @@ echo
 echo
 echo
 
-yay preload
+yay -S preload --needed
 
 echo
 echo
