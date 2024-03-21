@@ -17,7 +17,7 @@ echo
 echo
 echo
 
-sleep 3
+#sleep 3
 
 # Procurar erros de alta prioridade no journal do systemd:
 
