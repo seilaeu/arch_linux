@@ -249,3 +249,10 @@ $ nano /media/dados/arch_linux/scripts/limpar-cache-root.sh
 #!/bin/bash
 
 rm -rf /root/.cache/*
+
+Portal kde nas aplicações gtk:
+
+$ echo "" >> ~/.bash_profile
+$ echo "export GTK_USE_PORTAL=1" >> ~/.bash_profile
+
+Firefox => about:config => Definir browser.tabs.inTitlebar para 0
