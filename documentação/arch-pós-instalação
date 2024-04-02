@@ -222,6 +222,8 @@ ExecStop=/media/dados/arch_linux/scripts/limpar-cache-seilaeu.sh
 [Install]
 WantedBy=default.target
 
+$ systemctl --user enable limpar-cache-seilaeu.service
+
 $ nano /media/dados/arch_linux/scripts/limpar-cache-seilaeu.sh
 
 #!/bin/bash
@@ -245,14 +247,41 @@ ExecStop=/media/dados/arch_linux/scripts/limpar-cache-root.sh
 [Install]
 WantedBy=default.target
 
+$ sudo systemctl enable limpar-cache-root.service
+
 $ nano /media/dados/arch_linux/scripts/limpar-cache-root.sh
 #!/bin/bash
 
 rm -rf /root/.cache/*
 
-Portal kde nas aplicações gtk:
+$ sudo nano /etc/xdg/systemd/user/duplicados-seilaeu.service
+[Unit]
+Description=Limpar duplicados da bash do seilaeu
+Before=shutdown.target
 
-$ echo "" >> ~/.bash_profile
-$ echo "export GTK_USE_PORTAL=1" >> ~/.bash_profile
+[Service]
+ExecStart=/bin/true
+ExecStop=/media/dados/arch_linux/scripts/duplicados-seilaeu.sh
+
+[Install]
+WantedBy=default.target
+
+$ systemctl --user enable duplicados-seilaeu.service
+
+Portal kde nas aplicações gtk, como por exemplo firefox:
+
+Firefox => about:config => Definir widget.use-xdg-desktop-portal.file-picker para 1
+Firefox => about:config => Definir widget.widget.use-xdg-desktop-portal.mime-handler para 1
+
+Definir o dolphin como gestor de ficheiros padrão:
+
+$ xdg-mime query default inode/directory
+org.kde.dolphin.desktop
+
+Caso a saída deste comando não seja aquela:
+
+$ xdg-mime default dolphin.desktop inode/directory
+
+Caso a opção minimizar e ecrã completo não desaparecerem:
 
 Firefox => about:config => Definir browser.tabs.inTitlebar para 0
