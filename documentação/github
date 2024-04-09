@@ -24,5 +24,5 @@ Sincronizar o repositório do github.com com o do computador
 $ cd /caminho/para/a/pasta
 $ git status
 $ git add --all
-$ git commit -m "add new files"
+$ git commit -m "updating file"
 $ git push -u origin master
